@@ -1,2 +1,7 @@
-# mauricio-huenchur-lds-museo
-Proyecto para la materia Laboratorio de Desarollo de Software.
+# LDS2026
+
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.
