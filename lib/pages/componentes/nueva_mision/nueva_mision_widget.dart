@@ -725,6 +725,8 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                                   _model.textController3.text),
                                               imagen: _model
                                                   .uploadedFileUrl_uploadDataE0t,
+                                              dificultad:
+                                                  _model.choiceChipsValue,
                                             ));
                                       },
                                       text: 'Guardar',
