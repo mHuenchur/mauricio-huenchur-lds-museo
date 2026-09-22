@@ -1,5 +1,5 @@
-import '/components/logo_app_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/componentes/logo_app/logo_app_widget.dart';
 import '/index.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:flutter/material.dart';
