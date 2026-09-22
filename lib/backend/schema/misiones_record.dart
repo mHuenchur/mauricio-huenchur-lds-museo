@@ -15,20 +15,15 @@ class MisionesRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "titulo" field.
-  String? _titulo;
-  String get titulo => _titulo ?? '';
-  bool hasTitulo() => _titulo != null;
+  // "nombre_mision" field.
+  String? _nombreMision;
+  String get nombreMision => _nombreMision ?? '';
+  bool hasNombreMision() => _nombreMision != null;
 
-  // "introduccion" field.
-  String? _introduccion;
-  String get introduccion => _introduccion ?? '';
-  bool hasIntroduccion() => _introduccion != null;
-
-  // "nombre_sala" field.
-  String? _nombreSala;
-  String get nombreSala => _nombreSala ?? '';
-  bool hasNombreSala() => _nombreSala != null;
+  // "descripcion" field.
+  String? _descripcion;
+  String get descripcion => _descripcion ?? '';
+  bool hasDescripcion() => _descripcion != null;
 
   // "dificultad" field.
   String? _dificultad;
@@ -40,12 +35,29 @@ class MisionesRecord extends FirestoreRecord {
   bool get estaActiva => _estaActiva ?? false;
   bool hasEstaActiva() => _estaActiva != null;
 
+  // "sala_id" field.
+  DocumentReference? _salaId;
+  DocumentReference? get salaId => _salaId;
+  bool hasSalaId() => _salaId != null;
+
+  // "imagen" field.
+  String? _imagen;
+  String get imagen => _imagen ?? '';
+  bool hasImagen() => _imagen != null;
+
+  // "duracion" field.
+  int? _duracion;
+  int get duracion => _duracion ?? 0;
+  bool hasDuracion() => _duracion != null;
+
   void _initializeFields() {
-    _titulo = snapshotData['titulo'] as String?;
-    _introduccion = snapshotData['introduccion'] as String?;
-    _nombreSala = snapshotData['nombre_sala'] as String?;
+    _nombreMision = snapshotData['nombre_mision'] as String?;
+    _descripcion = snapshotData['descripcion'] as String?;
     _dificultad = snapshotData['dificultad'] as String?;
     _estaActiva = snapshotData['esta_activa'] as bool?;
+    _salaId = snapshotData['sala_id'] as DocumentReference?;
+    _imagen = snapshotData['imagen'] as String?;
+    _duracion = castToType<int>(snapshotData['duracion']);
   }
 
   static CollectionReference get collection =>
@@ -83,19 +95,23 @@ class MisionesRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createMisionesRecordData({
-  String? titulo,
-  String? introduccion,
-  String? nombreSala,
+  String? nombreMision,
+  String? descripcion,
   String? dificultad,
   bool? estaActiva,
+  DocumentReference? salaId,
+  String? imagen,
+  int? duracion,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'titulo': titulo,
-      'introduccion': introduccion,
-      'nombre_sala': nombreSala,
+      'nombre_mision': nombreMision,
+      'descripcion': descripcion,
       'dificultad': dificultad,
       'esta_activa': estaActiva,
+      'sala_id': salaId,
+      'imagen': imagen,
+      'duracion': duracion,
     }.withoutNulls,
   );
 
@@ -107,20 +123,24 @@ class MisionesRecordDocumentEquality implements Equality<MisionesRecord> {
 
   @override
   bool equals(MisionesRecord? e1, MisionesRecord? e2) {
-    return e1?.titulo == e2?.titulo &&
-        e1?.introduccion == e2?.introduccion &&
-        e1?.nombreSala == e2?.nombreSala &&
+    return e1?.nombreMision == e2?.nombreMision &&
+        e1?.descripcion == e2?.descripcion &&
         e1?.dificultad == e2?.dificultad &&
-        e1?.estaActiva == e2?.estaActiva;
+        e1?.estaActiva == e2?.estaActiva &&
+        e1?.salaId == e2?.salaId &&
+        e1?.imagen == e2?.imagen &&
+        e1?.duracion == e2?.duracion;
   }
 
   @override
   int hash(MisionesRecord? e) => const ListEquality().hash([
-        e?.titulo,
-        e?.introduccion,
-        e?.nombreSala,
+        e?.nombreMision,
+        e?.descripcion,
         e?.dificultad,
-        e?.estaActiva
+        e?.estaActiva,
+        e?.salaId,
+        e?.imagen,
+        e?.duracion
       ]);
 
   @override
