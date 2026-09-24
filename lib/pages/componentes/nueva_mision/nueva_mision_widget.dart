@@ -61,7 +61,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
         width: 400.0,
         height: 520.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
+          color: Color(0xFFE9E9E9),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Padding(
@@ -117,7 +117,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Colors.white,
                   ),
                   child: Padding(
                     padding: EdgeInsets.all(14.0),
@@ -643,7 +643,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                               FlutterFlowDropDown<String>(
                                 controller: _model.dropDownValueController ??=
                                     FormFieldController<String>(null),
-                                options: ['Option 1', 'Option 2'],
+                                options: [''],
                                 onChanged: (val) => safeSetState(
                                     () => _model.dropDownValue = val),
                                 width: 200.0,
@@ -667,7 +667,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                hintText: 'Select...',
+                                hintText: 'Seleccionar Sala (Opcional)',
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,
                                   color: FlutterFlowTheme.of(context)
@@ -686,19 +686,6 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                 isOverButton: false,
                                 isSearchable: false,
                                 isMultiSelect: false,
-                              ),
-                              FlutterFlowIconButton(
-                                borderRadius: 8.0,
-                                buttonSize: 40.0,
-                                fillColor: FlutterFlowTheme.of(context).primary,
-                                icon: Icon(
-                                  Icons.add,
-                                  color: FlutterFlowTheme.of(context).info,
-                                  size: 24.0,
-                                ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
-                                },
                               ),
                             ],
                           ),

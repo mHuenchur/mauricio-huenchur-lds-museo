@@ -565,28 +565,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             context.mounted);
                                                       } else {
                                                         if (isWeb == true) {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Descarga la app!',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                            ),
-                                                          );
+                                                          context.pushNamedAuth(
+                                                              HomeVisitanteWidget
+                                                                  .routeName,
+                                                              context.mounted);
                                                         } else {
                                                           context.pushNamedAuth(
                                                               HomeVisitanteWidget
@@ -726,25 +708,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     context.mounted);
                                               } else {
                                                 if (isWeb == true) {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        'Descarga la app!',
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                      ),
-                                                      duration: Duration(
-                                                          milliseconds: 4000),
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
-                                                  );
+                                                  context.pushNamedAuth(
+                                                      HomeVisitanteWidget
+                                                          .routeName,
+                                                      context.mounted);
                                                 } else {
                                                   context.pushNamedAuth(
                                                       HomeVisitanteWidget

@@ -86,11 +86,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : LoginPageWidget(),
         ),
         FFRoute(
-          name: HomeVisitanteWidget.routeName,
-          path: HomeVisitanteWidget.routePath,
-          builder: (context, params) => HomeVisitanteWidget(),
-        ),
-        FFRoute(
           name: RegisterPageWidget.routeName,
           path: RegisterPageWidget.routePath,
           builder: (context, params) => RegisterPageWidget(),
@@ -104,6 +99,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomeAdministradorWidget.routeName,
           path: HomeAdministradorWidget.routePath,
           builder: (context, params) => HomeAdministradorWidget(),
+        ),
+        FFRoute(
+          name: HomeVisitanteWidget.routeName,
+          path: HomeVisitanteWidget.routePath,
+          builder: (context, params) => HomeVisitanteWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

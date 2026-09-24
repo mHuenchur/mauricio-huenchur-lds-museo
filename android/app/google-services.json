@@ -12,7 +12,20 @@
           "package_name": "com.mycompany.lds2026"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "88183425566-6tk8jn6gmcug6kmp6sb7ctmnkb1n8koh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.lds2026",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "88183425566-i6q0tmp3dou3v09jgm248s07eg9hup02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyButjHPvPT7krYAdZnLFRBufM5GjIbNwhc"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88183425566-i6q0tmp3dou3v09jgm248s07eg9hup02.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "88183425566-n9aeg6eecmitmm44074btbkp6gmrsb6t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.lds2026"
+              }
+            }
+          ]
         }
       }
     }
