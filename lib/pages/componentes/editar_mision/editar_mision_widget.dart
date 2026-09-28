@@ -774,14 +774,15 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                                       title: Text(
                                                           'Archivar mision'),
                                                       content: Text(
-                                                          'Deseas archivar?'),
+                                                          'La misión no estará disponible.'),
                                                       actions: [
                                                         TextButton(
                                                           onPressed: () =>
                                                               Navigator.pop(
                                                                   alertDialogContext,
                                                                   false),
-                                                          child: Text('Cancel'),
+                                                          child:
+                                                              Text('Cancelar'),
                                                         ),
                                                         TextButton(
                                                           onPressed: () =>
@@ -789,7 +790,7 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                                                   alertDialogContext,
                                                                   true),
                                                           child:
-                                                              Text('Confirm'),
+                                                              Text('Confirmar'),
                                                         ),
                                                       ],
                                                     );
