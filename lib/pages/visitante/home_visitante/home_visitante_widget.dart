@@ -458,110 +458,78 @@ class _HomeVisitanteWidgetState extends State<HomeVisitanteWidget>
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 12.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if ((Theme.of(context).brightness ==
-                                          Brightness.light) ==
-                                      true) {
-                                    setDarkModeSetting(context, ThemeMode.dark);
-                                    if (animationsMap[
-                                            'containerOnActionTriggerAnimation'] !=
-                                        null) {
-                                      animationsMap[
-                                              'containerOnActionTriggerAnimation']!
-                                          .controller
-                                          .forward(from: 0.0);
-                                    }
-                                  } else {
-                                    setDarkModeSetting(
-                                        context, ThemeMode.light);
-                                    if (animationsMap[
-                                            'containerOnActionTriggerAnimation'] !=
-                                        null) {
-                                      animationsMap[
-                                              'containerOnActionTriggerAnimation']!
-                                          .controller
-                                          .reverse();
-                                    }
-                                  }
-                                },
-                                child: Container(
-                                  width: 80.0,
-                                  height: 40.0,
-                                  decoration: BoxDecoration(
+                              child: Container(
+                                width: 80.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0x4D9489F5),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(
                                     color: Color(0x4D9489F5),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    border: Border.all(
-                                      color: Color(0x4D9489F5),
-                                      width: 1.0,
-                                    ),
+                                    width: 1.0,
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(2.0),
-                                    child: Stack(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-0.9, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    6.0, 0.0, 0.0, 0.0),
-                                            child: Icon(
-                                              Icons.wb_sunny_rounded,
-                                              color: Colors.white,
-                                              size: 24.0,
-                                            ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.0),
+                                  child: Stack(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.9, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  6.0, 0.0, 0.0, 0.0),
+                                          child: Icon(
+                                            Icons.wb_sunny_rounded,
+                                            color: Colors.white,
+                                            size: 24.0,
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(1.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 6.0, 0.0),
-                                            child: Icon(
-                                              Icons.mode_night_rounded,
-                                              color: Colors.white,
-                                              size: 24.0,
-                                            ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 6.0, 0.0),
+                                          child: Icon(
+                                            Icons.mode_night_rounded,
+                                            color: Colors.white,
+                                            size: 24.0,
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(1.0, 0.0),
-                                          child: Container(
-                                            width: 36.0,
-                                            height: 36.0,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 4.0,
-                                                  color: Color(0x430B0D0F),
-                                                  offset: Offset(
-                                                    0.0,
-                                                    2.0,
-                                                  ),
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(30.0),
-                                              shape: BoxShape.rectangle,
-                                            ),
-                                          ).animateOnActionTrigger(
-                                            animationsMap[
-                                                'containerOnActionTriggerAnimation']!,
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
+                                        child: Container(
+                                          width: 36.0,
+                                          height: 36.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                blurRadius: 4.0,
+                                                color: Color(0x430B0D0F),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
+                                              )
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(30.0),
+                                            shape: BoxShape.rectangle,
                                           ),
+                                        ).animateOnActionTrigger(
+                                          animationsMap[
+                                              'containerOnActionTriggerAnimation']!,
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -895,11 +863,14 @@ class _HomeVisitanteWidgetState extends State<HomeVisitanteWidget>
                                                       topRight:
                                                           Radius.circular(8.0),
                                                     ),
-                                                    child: Image.asset(
-                                                      'assets/images/ChatGPT_Image_13_sept_2026,_09_40_46_p.m..png',
-                                                      width: double.infinity,
+                                                    child: Image.network(
+                                                      listViewMisionesRecord
+                                                          .imagen,
+                                                      width: 200.0,
                                                       height: 300.0,
                                                       fit: BoxFit.cover,
+                                                      cacheWidth: 200,
+                                                      cacheHeight: 300,
                                                     ),
                                                   ),
                                                   Padding(

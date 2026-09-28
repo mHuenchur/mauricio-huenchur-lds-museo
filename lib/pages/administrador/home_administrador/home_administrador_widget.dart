@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/componentes/editar_mision/editar_mision_widget.dart';
 import '/pages/componentes/nueva_mision/nueva_mision_widget.dart';
 import '/pages/componentes/nueva_sala/nueva_sala_widget.dart';
 import '/index.dart';
@@ -590,110 +591,78 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 12.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if ((Theme.of(context).brightness ==
-                                          Brightness.light) ==
-                                      true) {
-                                    setDarkModeSetting(context, ThemeMode.dark);
-                                    if (animationsMap[
-                                            'containerOnActionTriggerAnimation2'] !=
-                                        null) {
-                                      animationsMap[
-                                              'containerOnActionTriggerAnimation2']!
-                                          .controller
-                                          .forward(from: 0.0);
-                                    }
-                                  } else {
-                                    setDarkModeSetting(
-                                        context, ThemeMode.light);
-                                    if (animationsMap[
-                                            'containerOnActionTriggerAnimation2'] !=
-                                        null) {
-                                      animationsMap[
-                                              'containerOnActionTriggerAnimation2']!
-                                          .controller
-                                          .reverse();
-                                    }
-                                  }
-                                },
-                                child: Container(
-                                  width: 80.0,
-                                  height: 40.0,
-                                  decoration: BoxDecoration(
+                              child: Container(
+                                width: 80.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0x4D9489F5),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(
                                     color: Color(0x4D9489F5),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    border: Border.all(
-                                      color: Color(0x4D9489F5),
-                                      width: 1.0,
-                                    ),
+                                    width: 1.0,
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(2.0),
-                                    child: Stack(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-0.9, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    6.0, 0.0, 0.0, 0.0),
-                                            child: Icon(
-                                              Icons.wb_sunny_rounded,
-                                              color: Colors.white,
-                                              size: 24.0,
-                                            ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.0),
+                                  child: Stack(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.9, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  6.0, 0.0, 0.0, 0.0),
+                                          child: Icon(
+                                            Icons.wb_sunny_rounded,
+                                            color: Colors.white,
+                                            size: 24.0,
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(1.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 6.0, 0.0),
-                                            child: Icon(
-                                              Icons.mode_night_rounded,
-                                              color: Colors.white,
-                                              size: 24.0,
-                                            ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 6.0, 0.0),
+                                          child: Icon(
+                                            Icons.mode_night_rounded,
+                                            color: Colors.white,
+                                            size: 24.0,
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(1.0, 0.0),
-                                          child: Container(
-                                            width: 36.0,
-                                            height: 36.0,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 4.0,
-                                                  color: Color(0x430B0D0F),
-                                                  offset: Offset(
-                                                    0.0,
-                                                    2.0,
-                                                  ),
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(30.0),
-                                              shape: BoxShape.rectangle,
-                                            ),
-                                          ).animateOnActionTrigger(
-                                            animationsMap[
-                                                'containerOnActionTriggerAnimation2']!,
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
+                                        child: Container(
+                                          width: 36.0,
+                                          height: 36.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                blurRadius: 4.0,
+                                                color: Color(0x430B0D0F),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
+                                              )
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(30.0),
+                                            shape: BoxShape.rectangle,
                                           ),
+                                        ).animateOnActionTrigger(
+                                          animationsMap[
+                                              'containerOnActionTriggerAnimation2']!,
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -1247,110 +1216,78 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 12.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    if ((Theme.of(context).brightness ==
-                                            Brightness.light) ==
-                                        true) {
-                                      setDarkModeSetting(
-                                          context, ThemeMode.dark);
-                                      if (animationsMap[
-                                              'containerOnActionTriggerAnimation1'] !=
-                                          null) {
-                                        animationsMap[
-                                                'containerOnActionTriggerAnimation1']!
-                                            .controller
-                                            .forward(from: 0.0);
-                                      }
-                                    } else {
-                                      setDarkModeSetting(
-                                          context, ThemeMode.light);
-                                      if (animationsMap[
-                                              'containerOnActionTriggerAnimation1'] !=
-                                          null) {
-                                        animationsMap[
-                                                'containerOnActionTriggerAnimation1']!
-                                            .controller
-                                            .reverse();
-                                      }
-                                    }
-                                  },
-                                  child: Container(
-                                    width: 80.0,
-                                    height: 40.0,
-                                    decoration: BoxDecoration(
+                                child: Container(
+                                  width: 80.0,
+                                  height: 40.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x4D9489F5),
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    border: Border.all(
                                       color: Color(0x4D9489F5),
-                                      borderRadius: BorderRadius.circular(20.0),
-                                      border: Border.all(
-                                        color: Color(0x4D9489F5),
-                                        width: 1.0,
-                                      ),
+                                      width: 1.0,
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(2.0),
-                                      child: Stack(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(-0.9, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                              child: Icon(
-                                                Icons.wb_sunny_rounded,
-                                                color: Colors.white,
-                                                size: 24.0,
-                                              ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(2.0),
+                                    child: Stack(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-0.9, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    6.0, 0.0, 0.0, 0.0),
+                                            child: Icon(
+                                              Icons.wb_sunny_rounded,
+                                              color: Colors.white,
+                                              size: 24.0,
                                             ),
                                           ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 6.0, 0.0),
-                                              child: Icon(
-                                                Icons.mode_night_rounded,
-                                                color: Colors.white,
-                                                size: 24.0,
-                                              ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 6.0, 0.0),
+                                            child: Icon(
+                                              Icons.mode_night_rounded,
+                                              color: Colors.white,
+                                              size: 24.0,
                                             ),
                                           ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
-                                            child: Container(
-                                              width: 36.0,
-                                              height: 36.0,
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    blurRadius: 4.0,
-                                                    color: Color(0x430B0D0F),
-                                                    offset: Offset(
-                                                      0.0,
-                                                      2.0,
-                                                    ),
-                                                  )
-                                                ],
-                                                borderRadius:
-                                                    BorderRadius.circular(30.0),
-                                                shape: BoxShape.rectangle,
-                                              ),
-                                            ).animateOnActionTrigger(
-                                              animationsMap[
-                                                  'containerOnActionTriggerAnimation1']!,
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 0.0),
+                                          child: Container(
+                                            width: 36.0,
+                                            height: 36.0,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x430B0D0F),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(30.0),
+                                              shape: BoxShape.rectangle,
                                             ),
+                                          ).animateOnActionTrigger(
+                                            animationsMap[
+                                                'containerOnActionTriggerAnimation1']!,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -1844,39 +1781,89 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.end,
                                                     children: [
-                                                      FFButtonWidget(
-                                                        onPressed: () {
-                                                          print(
-                                                              'Button pressed ...');
-                                                        },
-                                                        text: 'Modificar',
-                                                        options:
-                                                            FFButtonOptions(
-                                                          width: 100.0,
-                                                          height: 40.0,
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          iconPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          color:
-                                                              Color(0xFFF1F4F8),
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyLarge
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .readexPro(
+                                                      Builder(
+                                                        builder: (context) =>
+                                                            FFButtonWidget(
+                                                          onPressed: () async {
+                                                            await showDialog(
+                                                              context: context,
+                                                              builder:
+                                                                  (dialogContext) {
+                                                                return Dialog(
+                                                                  elevation: 0,
+                                                                  insetPadding:
+                                                                      EdgeInsets
+                                                                          .zero,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  alignment: AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0)
+                                                                      .resolve(
+                                                                          Directionality.of(
+                                                                              context)),
+                                                                  child:
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              dialogContext)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
+                                                                    child:
+                                                                        EditarMisionWidget(
+                                                                      editarMision:
+                                                                          listViewMisionesRecord,
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                          text: 'Modificar',
+                                                          options:
+                                                              FFButtonOptions(
+                                                            width: 100.0,
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: Color(
+                                                                0xFFF1F4F8),
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .readexPro(
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: Color(
+                                                                          0xFF14181B),
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -1885,31 +1872,18 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                           .bodyLarge
                                                                           .fontStyle,
                                                                     ),
-                                                                    color: Color(
-                                                                        0xFF14181B),
-                                                                    fontSize:
-                                                                        16.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyLarge
-                                                                        .fontStyle,
-                                                                  ),
-                                                          elevation: 0.0,
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Colors
-                                                                .transparent,
-                                                            width: 1.0,
+                                                            elevation: 0.0,
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
                                                           ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
                                                         ),
                                                       ),
                                                       Padding(

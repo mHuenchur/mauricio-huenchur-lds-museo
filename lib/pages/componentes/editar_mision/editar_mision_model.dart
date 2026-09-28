@@ -1,14 +1,14 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'nueva_mision_widget.dart' show NuevaMisionWidget;
-import 'package:collection/collection.dart';
+import 'editar_mision_widget.dart' show EditarMisionWidget;
 import 'package:flutter/material.dart';
 
-class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
+class EditarMisionModel extends FlutterFlowModel<EditarMisionWidget> {
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
+  // State field(s) for Switch widget.
+  bool? switchValue;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -45,11 +45,6 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
     return null;
   }
 
-  bool isDataUploading_uploadDataE0t = false;
-  FFUploadedFile uploadedLocalFile_uploadDataE0t =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  String uploadedFileUrl_uploadDataE0t = '';
-
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
   String? get choiceChipsValue =>
@@ -59,8 +54,6 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
-  // Stores action output result for [Firestore Query - Query a collection] action in DropDown widget.
-  List<SalasRecord>? salaReferencia;
 
   @override
   void initState(BuildContext context) {
