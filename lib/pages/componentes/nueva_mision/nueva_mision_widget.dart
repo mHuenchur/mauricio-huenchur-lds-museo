@@ -666,17 +666,8 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                   return FlutterFlowDropDown<String>(
                                     controller:
                                         _model.dropDownValueController ??=
-                                            FormFieldController<String>(
-                                      _model.dropDownValue ??= 'false',
-                                    ),
-                                    options: List<String>.from(
-                                        dropDownSalasRecordList
-                                            .map((e) => valueOrDefault<String>(
-                                                  e.reference.id,
-                                                  'JEJ',
-                                                ))
-                                            .toList()),
-                                    optionLabels: dropDownSalasRecordList
+                                            FormFieldController<String>(null),
+                                    options: dropDownSalasRecordList
                                         .map((e) => e.nombreSala)
                                         .toList(),
                                     onChanged: (val) async {
@@ -769,6 +760,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                                   _model.choiceChipsValue,
                                               estaActiva: false,
                                               estaArchivada: false,
+                                              nombreSala: _model.dropDownValue,
                                             ));
                                       },
                                       text: 'Guardar',
