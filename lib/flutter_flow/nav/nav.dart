@@ -104,6 +104,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomeVisitanteWidget.routeName,
           path: HomeVisitanteWidget.routePath,
           builder: (context, params) => HomeVisitanteWidget(),
+        ),
+        FFRoute(
+          name: PanelDesafiosMisionWidget.routeName,
+          path: PanelDesafiosMisionWidget.routePath,
+          builder: (context, params) => PanelDesafiosMisionWidget(
+            misionID: params.getParam(
+              'misionID',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['misiones'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

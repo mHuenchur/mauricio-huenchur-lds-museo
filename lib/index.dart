@@ -6,3 +6,5 @@ export '/pages/administrador/home_administrador/home_administrador_widget.dart'
     show HomeAdministradorWidget;
 export '/pages/visitante/home_visitante/home_visitante_widget.dart'
     show HomeVisitanteWidget;
+export '/pages/administrador/panel_desafios_mision/panel_desafios_mision_widget.dart'
+    show PanelDesafiosMisionWidget;
