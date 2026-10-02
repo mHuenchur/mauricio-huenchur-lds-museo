@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -232,6 +233,10 @@ class _ModalExitoQrWidgetState extends State<ModalExitoQrWidget> {
                       builder: (context) => FFButtonWidget(
                         onPressed: () async {
                           if (isWeb == true) {
+                            await actions.imprimirPantalla(
+                              widget.modalGeneradoID!,
+                              'Desafio QR',
+                            );
                           } else {
                             await Share.share(
                               widget.modalGeneradoID!,
