@@ -6,26 +6,25 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/pages/componentes/modal_exito_qr/modal_exito_qr_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'nuevo_desafio_model.dart';
-export 'nuevo_desafio_model.dart';
+import 'editar_desafio_model.dart';
+export 'editar_desafio_model.dart';
 
-class NuevoDesafioWidget extends StatefulWidget {
-  const NuevoDesafioWidget({
+class EditarDesafioWidget extends StatefulWidget {
+  const EditarDesafioWidget({
     super.key,
-    required this.misionPadreID,
+    required this.editarDesafio,
   });
 
-  final DocumentReference? misionPadreID;
+  final DesafiosRecord? editarDesafio;
 
   @override
-  State<NuevoDesafioWidget> createState() => _NuevoDesafioWidgetState();
+  State<EditarDesafioWidget> createState() => _EditarDesafioWidgetState();
 }
 
-class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
-  late NuevoDesafioModel _model;
+class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
+  late EditarDesafioModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -36,15 +35,18 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NuevoDesafioModel());
+    _model = createModel(context, () => EditarDesafioModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.textController1 ??= TextEditingController(
+        text: widget.editarDesafio?.numeroOrden.toString());
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
+    _model.textController2 ??=
+        TextEditingController(text: widget.editarDesafio?.infoHistorica);
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController();
+    _model.textController3 ??=
+        TextEditingController(text: widget.editarDesafio?.pistaBusqueda);
     _model.textFieldFocusNode3 ??= FocusNode();
 
     _model.textController4 ??= TextEditingController();
@@ -135,7 +137,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Nuevo desafío',
+                                'Editar desafío',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
@@ -840,91 +842,46 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Builder(
-                        builder: (context) => FFButtonWidget(
-                          onPressed: () async {
-                            var desafiosRecordReference =
-                                DesafiosRecord.collection.doc();
-                            await desafiosRecordReference
-                                .set(createDesafiosRecordData(
-                              misionDesafioFk: widget.misionPadreID,
-                              infoHistorica: _model.textController1.text,
-                              pistaBusqueda: _model.textController3.text,
-                              numeroOrden:
-                                  int.tryParse(_model.textController1.text),
-                              pistaExtra: _model.textController4.text,
-                              tipoValidacion: _model.dropDownValue,
-                              valorPuntos:
-                                  int.tryParse(_model.textController5.text),
-                            ));
-                            _model.nuevoDesafioCreado =
-                                DesafiosRecord.getDocumentFromData(
-                                    createDesafiosRecordData(
-                                      misionDesafioFk: widget.misionPadreID,
-                                      infoHistorica:
-                                          _model.textController1.text,
-                                      pistaBusqueda:
-                                          _model.textController3.text,
-                                      numeroOrden: int.tryParse(
-                                          _model.textController1.text),
-                                      pistaExtra: _model.textController4.text,
-                                      tipoValidacion: _model.dropDownValue,
-                                      valorPuntos: int.tryParse(
-                                          _model.textController5.text),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          await widget.editarDesafio!.reference
+                              .update(createDesafiosRecordData(
+                            numeroOrden:
+                                int.tryParse(_model.textController1.text),
+                            pistaBusqueda: _model.textController3.text,
+                            infoHistorica: _model.textController2.text,
+                          ));
+                        },
+                        text: 'Guardar',
+                        options: FFButtonOptions(
+                          height: 44.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFF06D5CD),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
                                     ),
-                                    desafiosRecordReference);
-                            Navigator.pop(context);
-                            await showDialog(
-                              context: context,
-                              builder: (dialogContext) {
-                                return Dialog(
-                                  elevation: 0,
-                                  insetPadding: EdgeInsets.zero,
-                                  backgroundColor: Colors.transparent,
-                                  alignment: AlignmentDirectional(0.0, 0.0)
-                                      .resolve(Directionality.of(context)),
-                                  child: ModalExitoQrWidget(
-                                    modalGeneradoID:
-                                        _model.nuevoDesafioCreado!.reference.id,
-                                  ),
-                                );
-                              },
-                            );
-
-                            safeSetState(() {});
-                          },
-                          text: 'Guardar',
-                          options: FFButtonOptions(
-                            height: 44.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 20.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF06D5CD),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  font: GoogleFonts.inter(
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontStyle,
-                                ),
-                            elevation: 2.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(40.0),
+                          elevation: 2.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
                           ),
+                          borderRadius: BorderRadius.circular(40.0),
                         ),
                       ),
                     ],

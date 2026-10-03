@@ -116,6 +116,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['misiones'],
             ),
           ),
+        ),
+        FFRoute(
+          name: MisionCompletadaWidget.routeName,
+          path: MisionCompletadaWidget.routePath,
+          builder: (context, params) => MisionCompletadaWidget(),
+        ),
+        FFRoute(
+          name: HomeVisitanteCopyWidget.routeName,
+          path: HomeVisitanteCopyWidget.routePath,
+          builder: (context, params) => HomeVisitanteCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

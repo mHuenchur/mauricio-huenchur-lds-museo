@@ -8,3 +8,7 @@ export '/pages/visitante/home_visitante/home_visitante_widget.dart'
     show HomeVisitanteWidget;
 export '/pages/administrador/panel_desafios_mision/panel_desafios_mision_widget.dart'
     show PanelDesafiosMisionWidget;
+export '/pages/visitante/mision_completada/mision_completada_widget.dart'
+    show MisionCompletadaWidget;
+export '/pages/visitante/home_visitante_copy/home_visitante_copy_widget.dart'
+    show HomeVisitanteCopyWidget;

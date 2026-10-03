@@ -1,10 +1,9 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'nuevo_desafio_widget.dart' show NuevoDesafioWidget;
+import 'editar_desafio_widget.dart' show EditarDesafioWidget;
 import 'package:flutter/material.dart';
 
-class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
+class EditarDesafioModel extends FlutterFlowModel<EditarDesafioWidget> {
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
@@ -31,8 +30,6 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  DesafiosRecord? nuevoDesafioCreado;
 
   @override
   void initState(BuildContext context) {}
