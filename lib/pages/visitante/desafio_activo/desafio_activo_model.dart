@@ -1,9 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
-import 'home_visitante_copy_widget.dart' show HomeVisitanteCopyWidget;
+import 'desafio_activo_widget.dart' show DesafioActivoWidget;
 import 'package:flutter/material.dart';
 
-class HomeVisitanteCopyModel extends FlutterFlowModel<HomeVisitanteCopyWidget> {
+class DesafioActivoModel extends FlutterFlowModel<DesafioActivoWidget> {
   @override
   void initState(BuildContext context) {}
 

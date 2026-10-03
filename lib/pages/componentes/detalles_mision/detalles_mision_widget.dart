@@ -1,9 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'detalles_mision_model.dart';
@@ -366,10 +368,39 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          await ProgresoMisionVisitanteRecord
+                                              .collection
+                                              .doc()
+                                              .set(
+                                                  createProgresoMisionVisitanteRecordData(
+                                                visitanteId:
+                                                    currentUserReference?.id,
+                                                misionId:
+                                                    containerMisionesRecord
+                                                        ?.reference.id,
+                                                numeroDesafioActual: 1,
+                                                misionCompletada: false,
+                                                puntosTotalesGanados: 0,
+                                              ));
+
+                                          context.pushNamed(
+                                            DesafioActivoWidget.routeName,
+                                            queryParameters: {
+                                              'misionActual': serializeParam(
+                                                containerMisionesRecord
+                                                    ?.reference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                              'numeroPistaParam':
+                                                  serializeParam(
+                                                1,
+                                                ParamType.int,
+                                              ),
+                                            }.withoutNulls,
+                                          );
                                         },
-                                        text: 'Accion',
+                                        text: 'Comenzar misión',
                                         options: FFButtonOptions(
                                           height: 40.0,
                                           padding:

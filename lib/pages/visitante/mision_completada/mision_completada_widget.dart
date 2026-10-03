@@ -349,7 +349,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                             Align(
                               alignment: AlignmentDirectional(0.0, -1.0),
                               child: Text(
-                                'Congrats!',
+                                'Felicidades!',
                                 style: FlutterFlowTheme.of(context)
                                     .displaySmall
                                     .override(
@@ -373,7 +373,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                             Align(
                               alignment: AlignmentDirectional(0.0, -1.0),
                               child: Text(
-                                'Quiz Results Submitted',
+                                'Todos los desafios completados',
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -409,7 +409,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'You completed a quiz from:',
+                                      'Estas son tus recompensas:',
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -431,7 +431,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                           ),
                                     ),
                                     Text(
-                                      'Abigail Rogers',
+                                      'INSIGNIA',
                                       textAlign: TextAlign.end,
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
@@ -453,29 +453,6 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                                     .fontStyle,
                                           ),
                                     ),
-                                    Text(
-                                      'abigail.rogers@domain.com',
-                                      textAlign: TextAlign.end,
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            font: GoogleFonts.outfit(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: Color(0xFF6F61EF),
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsets.all(12.0),
                                       child: Row(
@@ -485,31 +462,6 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          Container(
-                                            width: 48.0,
-                                            height: 48.0,
-                                            decoration: BoxDecoration(
-                                              color: Color(0x4D9489F5),
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                color: Color(0xFF6F61EF),
-                                                width: 2.0,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(2.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(40.0),
-                                                child: Image.network(
-                                                  'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
                                           Stack(
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
@@ -545,31 +497,6 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                                 ),
                                               ),
                                             ],
-                                          ),
-                                          Container(
-                                            width: 48.0,
-                                            height: 48.0,
-                                            decoration: BoxDecoration(
-                                              color: Color(0x4D9489F5),
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                color: Color(0xFF6F61EF),
-                                                width: 2.0,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(2.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(40.0),
-                                                child: Image.network(
-                                                  'https://images.unsplash.com/photo-1505033575518-a36ea2ef75ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHVzZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60',
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
                                           ),
                                         ].divide(SizedBox(width: 12.0)),
                                       ),

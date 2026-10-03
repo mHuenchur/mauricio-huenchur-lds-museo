@@ -123,9 +123,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => MisionCompletadaWidget(),
         ),
         FFRoute(
-          name: HomeVisitanteCopyWidget.routeName,
-          path: HomeVisitanteCopyWidget.routePath,
-          builder: (context, params) => HomeVisitanteCopyWidget(),
+          name: DesafioActivoWidget.routeName,
+          path: DesafioActivoWidget.routePath,
+          builder: (context, params) => DesafioActivoWidget(
+            misionActual: params.getParam(
+              'misionActual',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['misiones'],
+            ),
+            numeroPistaParam: params.getParam(
+              'numeroPistaParam',
+              ParamType.int,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
