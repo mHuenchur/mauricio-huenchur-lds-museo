@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'detalles_mision_model.dart';
@@ -17,11 +18,13 @@ class DetallesMisionWidget extends StatefulWidget {
     required this.dificultadParametro,
     required this.duracionParametro,
     required this.nombreParametro,
+    required this.misionParametro,
   });
 
   final String? dificultadParametro;
   final int? duracionParametro;
   final String? nombreParametro;
+  final DocumentReference? misionParametro;
 
   @override
   State<DetallesMisionWidget> createState() => _DetallesMisionWidgetState();
@@ -369,36 +372,78 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                     children: [
                                       FFButtonWidget(
                                         onPressed: () async {
-                                          await ProgresoMisionVisitanteRecord
-                                              .collection
-                                              .doc()
-                                              .set(
-                                                  createProgresoMisionVisitanteRecordData(
-                                                visitanteId:
-                                                    currentUserReference?.id,
-                                                misionId:
-                                                    containerMisionesRecord
-                                                        ?.reference.id,
-                                                numeroDesafioActual: 1,
-                                                misionCompletada: false,
-                                                puntosTotalesGanados: 0,
-                                              ));
+                                          _model.progresoExistente =
+                                              await queryProgresoMisionVisitanteRecordOnce(
+                                            queryBuilder:
+                                                (progresoMisionVisitanteRecord) =>
+                                                    progresoMisionVisitanteRecord
+                                                        .where(
+                                                          'visitante_id',
+                                                          isEqualTo:
+                                                              currentUserReference
+                                                                  ?.id,
+                                                        )
+                                                        .where(
+                                                          'mision_id',
+                                                          isEqualTo: widget
+                                                              .misionParametro
+                                                              ?.id,
+                                                        ),
+                                            singleRecord: true,
+                                          ).then((s) => s.firstOrNull);
+                                          if (_model.progresoExistente
+                                                      ?.reference.id !=
+                                                  null &&
+                                              _model.progresoExistente
+                                                      ?.reference.id !=
+                                                  '') {
+                                            context.pushNamed(
+                                              DesafioActivoWidget.routeName,
+                                              queryParameters: {
+                                                'misionActual': serializeParam(
+                                                  widget.misionParametro,
+                                                  ParamType.DocumentReference,
+                                                ),
+                                                'numeroPistaParam':
+                                                    serializeParam(
+                                                  _model.progresoExistente
+                                                      ?.numeroDesafioActual,
+                                                  ParamType.int,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          } else {
+                                            await ProgresoMisionVisitanteRecord
+                                                .collection
+                                                .doc()
+                                                .set(
+                                                    createProgresoMisionVisitanteRecordData(
+                                                  visitanteId:
+                                                      currentUserReference?.id,
+                                                  misionId: widget
+                                                      .misionParametro?.id,
+                                                  numeroDesafioActual: 1,
+                                                  misionCompletada: false,
+                                                  puntosTotalesGanados: 0,
+                                                ));
 
-                                          context.pushNamed(
-                                            DesafioActivoWidget.routeName,
-                                            queryParameters: {
-                                              'misionActual': serializeParam(
-                                                containerMisionesRecord
-                                                    ?.reference,
-                                                ParamType.DocumentReference,
-                                              ),
-                                              'numeroPistaParam':
-                                                  serializeParam(
-                                                1,
-                                                ParamType.int,
-                                              ),
-                                            }.withoutNulls,
-                                          );
+                                            context.pushNamed(
+                                              DesafioActivoWidget.routeName,
+                                              queryParameters: {
+                                                'misionActual': serializeParam(
+                                                  widget.misionParametro,
+                                                  ParamType.DocumentReference,
+                                                ),
+                                                'numeroPistaParam':
+                                                    serializeParam(
+                                                  1,
+                                                  ParamType.int,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          }
+
+                                          safeSetState(() {});
                                         },
                                         text: 'Comenzar misión',
                                         options: FFButtonOptions(

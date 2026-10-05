@@ -96,7 +96,7 @@ class _ModalExitoQrWidgetState extends State<ModalExitoQrWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Skate Park',
+                            'QR desafio',
                             style:
                                 FlutterFlowTheme.of(context).bodyLarge.override(
                                       font: GoogleFonts.plusJakartaSans(
@@ -114,61 +114,11 @@ class _ModalExitoQrWidgetState extends State<ModalExitoQrWidget> {
                                           .fontStyle,
                                     ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 4.0, 0.0, 0.0),
-                            child: SelectionArea(
-                                child: Text(
-                              '23 Ramps',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    font: GoogleFonts.plusJakartaSans(
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xFF4B39EF),
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
-                                  ),
-                            )),
-                          ),
                         ],
                       ),
                     ),
                   ),
-                  Icon(
-                    Icons.check_circle_outline_rounded,
-                    color: Color(0xFF57636C),
-                    size: 24.0,
-                  ),
                 ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                child: Text(
-                  'Notes & descriptions go here they will maybe help explain when it needs done.',
-                  style: FlutterFlowTheme.of(context).labelMedium.override(
-                        font: GoogleFonts.plusJakartaSans(
-                          fontWeight: FontWeight.w500,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .fontStyle,
-                        ),
-                        color: Color(0xFF57636C),
-                        fontSize: 14.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                        fontStyle:
-                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                      ),
-                ),
               ),
               Column(
                 mainAxisSize: MainAxisSize.max,
@@ -178,64 +128,7 @@ class _ModalExitoQrWidgetState extends State<ModalExitoQrWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 0.0, 0.0),
-                          child: SelectionArea(
-                              child: Text(
-                            'Last Activity',
-                            style: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .override(
-                                  font: GoogleFonts.plusJakartaSans(
-                                    fontWeight: FontWeight.w500,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .fontStyle,
-                                  ),
-                                  color: Color(0xFF57636C),
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontStyle,
-                                ),
-                          )),
-                        ),
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 8.0, 0.0, 0.0),
-                              child: SelectionArea(
-                                  child: Text(
-                                'Yesterday, 4:21pm',
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      font: GoogleFonts.plusJakartaSans(
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .fontStyle,
-                                      ),
-                                      color: Color(0xFF14181B),
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
-                                    ),
-                              )),
-                            ),
-                          ),
-                        ),
-                      ],
+                      children: [],
                     ),
                   ),
                   Row(
