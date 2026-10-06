@@ -4,6 +4,8 @@ import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -572,6 +574,65 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                     );
                                     _model.mostrarPistaExtra = false;
                                     safeSetState(() {});
+                                    _model.numeroDesafioSiguiente =
+                                        await queryDesafiosRecordOnce(
+                                      queryBuilder: (desafiosRecord) =>
+                                          desafiosRecord
+                                              .where(
+                                                'mision_desafio_fk',
+                                                isEqualTo: widget.misionActual,
+                                              )
+                                              .where(
+                                                'numero_orden',
+                                                isEqualTo:
+                                                    stackProgresoMisionVisitanteRecord!
+                                                            .numeroDesafioActual +
+                                                        1,
+                                              ),
+                                      singleRecord: true,
+                                    ).then((s) => s.firstOrNull);
+                                    if (_model.numeroDesafioSiguiente?.reference
+                                                .id !=
+                                            null &&
+                                        _model.numeroDesafioSiguiente?.reference
+                                                .id !=
+                                            '') {
+                                      await stackProgresoMisionVisitanteRecord!
+                                          .reference
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'numero_desafio_actual':
+                                                FieldValue.increment(1),
+                                          },
+                                        ),
+                                      });
+
+                                      context.pushNamed(
+                                        DesafioActivoWidget.routeName,
+                                        queryParameters: {
+                                          'misionActual': serializeParam(
+                                            widget.misionActual,
+                                            ParamType.DocumentReference,
+                                          ),
+                                          'numeroPistaParam': serializeParam(
+                                            _model.numeroDesafioSiguiente
+                                                ?.numeroOrden,
+                                            ParamType.int,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    } else {
+                                      await stackProgresoMisionVisitanteRecord!
+                                          .reference
+                                          .update(
+                                              createProgresoMisionVisitanteRecordData(
+                                        misionCompletada: true,
+                                      ));
+
+                                      context.goNamed(
+                                          MisionCompletadaWidget.routeName);
+                                    }
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
