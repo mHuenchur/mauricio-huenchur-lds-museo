@@ -55,6 +55,11 @@ class DesafiosRecord extends FirestoreRecord {
   int get valorPuntos => _valorPuntos ?? 0;
   bool hasValorPuntos() => _valorPuntos != null;
 
+  // "esta_archivado" field.
+  bool? _estaArchivado;
+  bool get estaArchivado => _estaArchivado ?? false;
+  bool hasEstaArchivado() => _estaArchivado != null;
+
   void _initializeFields() {
     _misionDesafioFk = snapshotData['mision_desafio_fk'] as DocumentReference?;
     _numeroOrden = castToType<int>(snapshotData['numero_orden']);
@@ -64,6 +69,7 @@ class DesafiosRecord extends FirestoreRecord {
     _tipoValidacion = snapshotData['tipo_validacion'] as String?;
     _promptOculto = snapshotData['prompt_oculto'] as String?;
     _valorPuntos = castToType<int>(snapshotData['valor_puntos']);
+    _estaArchivado = snapshotData['esta_archivado'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -96,8 +102,7 @@ class DesafiosRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is DesafiosRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is DesafiosRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createDesafiosRecordData({
@@ -109,6 +114,7 @@ Map<String, dynamic> createDesafiosRecordData({
   String? tipoValidacion,
   String? promptOculto,
   int? valorPuntos,
+  bool? estaArchivado,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -120,6 +126,7 @@ Map<String, dynamic> createDesafiosRecordData({
       'tipo_validacion': tipoValidacion,
       'prompt_oculto': promptOculto,
       'valor_puntos': valorPuntos,
+      'esta_archivado': estaArchivado,
     }.withoutNulls,
   );
 
@@ -138,7 +145,8 @@ class DesafiosRecordDocumentEquality implements Equality<DesafiosRecord> {
         e1?.infoHistorica == e2?.infoHistorica &&
         e1?.tipoValidacion == e2?.tipoValidacion &&
         e1?.promptOculto == e2?.promptOculto &&
-        e1?.valorPuntos == e2?.valorPuntos;
+        e1?.valorPuntos == e2?.valorPuntos &&
+        e1?.estaArchivado == e2?.estaArchivado;
   }
 
   @override
@@ -150,7 +158,8 @@ class DesafiosRecordDocumentEquality implements Equality<DesafiosRecord> {
         e?.infoHistorica,
         e?.tipoValidacion,
         e?.promptOculto,
-        e?.valorPuntos
+        e?.valorPuntos,
+        e?.estaArchivado
       ]);
 
   @override

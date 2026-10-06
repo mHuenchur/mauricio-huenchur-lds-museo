@@ -201,7 +201,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Basic Dialog Title',
+                                                  'PISTA PRINCIPAL',
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -391,7 +391,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    'Basic Dialog Title',
+                                                    'PISTA EXTRA',
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)

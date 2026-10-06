@@ -62,7 +62,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
         width: 400.0,
         height: 520.0,
         decoration: BoxDecoration(
-          color: Color(0xFFE9E9E9),
+          color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Padding(

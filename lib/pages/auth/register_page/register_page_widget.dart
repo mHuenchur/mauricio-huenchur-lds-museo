@@ -1162,7 +1162,8 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                               },
                                               text: 'Acceder con Google',
                                               icon: FaIcon(
-                                                FontAwesomeIcons.google,
+                                                FaIconData(FontAwesomeIcons
+                                                    .google.data),
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(

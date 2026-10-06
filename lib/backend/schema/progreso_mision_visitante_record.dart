@@ -84,7 +84,7 @@ class ProgresoMisionVisitanteRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is ProgresoMisionVisitanteRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createProgresoMisionVisitanteRecordData({

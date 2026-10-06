@@ -766,7 +766,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               },
                                               text: 'Acceder con Google',
                                               icon: FaIcon(
-                                                FontAwesomeIcons.google,
+                                                FaIconData(FontAwesomeIcons
+                                                    .google.data),
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(

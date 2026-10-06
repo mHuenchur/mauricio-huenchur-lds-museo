@@ -96,8 +96,7 @@ class MisionesRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is MisionesRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is MisionesRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createMisionesRecordData({
