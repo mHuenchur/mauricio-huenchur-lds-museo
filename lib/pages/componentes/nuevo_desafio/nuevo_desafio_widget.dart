@@ -856,6 +856,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                               tipoValidacion: _model.dropDownValue,
                               valorPuntos:
                                   int.tryParse(_model.textController5.text),
+                              estaArchivado: false,
                             ));
                             _model.nuevoDesafioCreado =
                                 DesafiosRecord.getDocumentFromData(
@@ -871,6 +872,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                       tipoValidacion: _model.dropDownValue,
                                       valorPuntos: int.tryParse(
                                           _model.textController5.text),
+                                      estaArchivado: false,
                                     ),
                                     desafiosRecordReference);
                             Navigator.pop(context);

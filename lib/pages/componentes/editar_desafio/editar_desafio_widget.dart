@@ -49,10 +49,12 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
         TextEditingController(text: widget.editarDesafio?.pistaBusqueda);
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    _model.textController4 ??= TextEditingController();
+    _model.textController4 ??=
+        TextEditingController(text: widget.editarDesafio?.pistaExtra);
     _model.textFieldFocusNode4 ??= FocusNode();
 
-    _model.textController5 ??= TextEditingController();
+    _model.textController5 ??= TextEditingController(
+        text: widget.editarDesafio?.valorPuntos.toString());
     _model.textFieldFocusNode5 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
