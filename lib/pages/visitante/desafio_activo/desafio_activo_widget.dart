@@ -588,6 +588,10 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                     stackProgresoMisionVisitanteRecord!
                                                             .numeroDesafioActual +
                                                         1,
+                                              )
+                                              .where(
+                                                'esta_archivado',
+                                                isEqualTo: false,
                                               ),
                                       singleRecord: true,
                                     ).then((s) => s.firstOrNull);

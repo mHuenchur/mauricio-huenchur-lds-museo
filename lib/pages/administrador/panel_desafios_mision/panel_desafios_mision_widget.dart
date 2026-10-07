@@ -635,10 +635,16 @@ class _PanelDesafiosMisionWidgetState extends State<PanelDesafiosMisionWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 44.0),
                 child: StreamBuilder<List<DesafiosRecord>>(
                   stream: queryDesafiosRecord(
-                    queryBuilder: (desafiosRecord) => desafiosRecord.where(
-                      'mision_desafio_fk',
-                      isEqualTo: widget.misionID,
-                    ),
+                    queryBuilder: (desafiosRecord) => desafiosRecord
+                        .where(
+                          'mision_desafio_fk',
+                          isEqualTo: widget.misionID,
+                        )
+                        .where(
+                          'esta_archivado',
+                          isEqualTo: false,
+                        )
+                        .orderBy('numero_orden'),
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
