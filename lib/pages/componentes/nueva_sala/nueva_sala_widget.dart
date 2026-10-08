@@ -50,7 +50,7 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
         child: Container(
-          width: double.infinity,
+          width: 400.0,
           constraints: BoxConstraints(
             maxWidth: 530.0,
           ),
@@ -75,7 +75,7 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Align(

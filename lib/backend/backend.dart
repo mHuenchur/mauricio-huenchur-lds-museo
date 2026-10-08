@@ -8,6 +8,8 @@ import 'schema/util/firestore_util.dart';
 import 'schema/users_record.dart';
 import 'schema/misiones_record.dart';
 import 'schema/salas_record.dart';
+import 'schema/desafios_record.dart';
+import 'schema/progreso_mision_visitante_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -19,6 +21,8 @@ export 'schema/util/schema_util.dart';
 export 'schema/users_record.dart';
 export 'schema/misiones_record.dart';
 export 'schema/salas_record.dart';
+export 'schema/desafios_record.dart';
+export 'schema/progreso_mision_visitante_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -130,6 +134,81 @@ Future<List<SalasRecord>> querySalasRecordOnce({
       limit: limit,
       singleRecord: singleRecord,
     );
+
+/// Functions to query DesafiosRecords (as a Stream and as a Future).
+Future<int> queryDesafiosRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      DesafiosRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<DesafiosRecord>> queryDesafiosRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      DesafiosRecord.collection,
+      DesafiosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<DesafiosRecord>> queryDesafiosRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      DesafiosRecord.collection,
+      DesafiosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ProgresoMisionVisitanteRecords (as a Stream and as a Future).
+Future<int> queryProgresoMisionVisitanteRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ProgresoMisionVisitanteRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ProgresoMisionVisitanteRecord>> queryProgresoMisionVisitanteRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ProgresoMisionVisitanteRecord.collection,
+      ProgresoMisionVisitanteRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ProgresoMisionVisitanteRecord>>
+    queryProgresoMisionVisitanteRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          ProgresoMisionVisitanteRecord.collection,
+          ProgresoMisionVisitanteRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
 
 Future<int> queryCollectionCount(
   Query collection, {

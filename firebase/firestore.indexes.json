@@ -1,3 +1,22 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "desafios",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "mision_desafio_fk",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "esta_archivado",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "numero_orden",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
 }

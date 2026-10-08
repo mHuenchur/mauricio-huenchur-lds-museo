@@ -104,6 +104,39 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomeVisitanteWidget.routeName,
           path: HomeVisitanteWidget.routePath,
           builder: (context, params) => HomeVisitanteWidget(),
+        ),
+        FFRoute(
+          name: PanelDesafiosMisionWidget.routeName,
+          path: PanelDesafiosMisionWidget.routePath,
+          builder: (context, params) => PanelDesafiosMisionWidget(
+            misionID: params.getParam(
+              'misionID',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['misiones'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: MisionCompletadaWidget.routeName,
+          path: MisionCompletadaWidget.routePath,
+          builder: (context, params) => MisionCompletadaWidget(),
+        ),
+        FFRoute(
+          name: DesafioActivoWidget.routeName,
+          path: DesafioActivoWidget.routePath,
+          builder: (context, params) => DesafioActivoWidget(
+            misionActual: params.getParam(
+              'misionActual',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['misiones'],
+            ),
+            numeroPistaParam: params.getParam(
+              'numeroPistaParam',
+              ParamType.int,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -315,6 +348,10 @@ class FFRoute {
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
+                    curve: transitionInfo.transitionType ==
+                            PageTransitionType.scale
+                        ? const Interval(0.0, 0.5)
+                        : Curves.linear,
                     child: child,
                   ).buildTransitions(
                     context,

@@ -53,8 +53,7 @@ class SalasRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is SalasRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is SalasRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createSalasRecordData({
