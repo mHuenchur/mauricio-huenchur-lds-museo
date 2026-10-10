@@ -60,6 +60,11 @@ class DesafiosRecord extends FirestoreRecord {
   bool get estaArchivado => _estaArchivado ?? false;
   bool hasEstaArchivado() => _estaArchivado != null;
 
+  // "imagen_referencia_ia" field.
+  String? _imagenReferenciaIa;
+  String get imagenReferenciaIa => _imagenReferenciaIa ?? '';
+  bool hasImagenReferenciaIa() => _imagenReferenciaIa != null;
+
   void _initializeFields() {
     _misionDesafioFk = snapshotData['mision_desafio_fk'] as DocumentReference?;
     _numeroOrden = castToType<int>(snapshotData['numero_orden']);
@@ -70,6 +75,7 @@ class DesafiosRecord extends FirestoreRecord {
     _promptOculto = snapshotData['prompt_oculto'] as String?;
     _valorPuntos = castToType<int>(snapshotData['valor_puntos']);
     _estaArchivado = snapshotData['esta_archivado'] as bool?;
+    _imagenReferenciaIa = snapshotData['imagen_referencia_ia'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -115,6 +121,7 @@ Map<String, dynamic> createDesafiosRecordData({
   String? promptOculto,
   int? valorPuntos,
   bool? estaArchivado,
+  String? imagenReferenciaIa,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -127,6 +134,7 @@ Map<String, dynamic> createDesafiosRecordData({
       'prompt_oculto': promptOculto,
       'valor_puntos': valorPuntos,
       'esta_archivado': estaArchivado,
+      'imagen_referencia_ia': imagenReferenciaIa,
     }.withoutNulls,
   );
 
@@ -146,7 +154,8 @@ class DesafiosRecordDocumentEquality implements Equality<DesafiosRecord> {
         e1?.tipoValidacion == e2?.tipoValidacion &&
         e1?.promptOculto == e2?.promptOculto &&
         e1?.valorPuntos == e2?.valorPuntos &&
-        e1?.estaArchivado == e2?.estaArchivado;
+        e1?.estaArchivado == e2?.estaArchivado &&
+        e1?.imagenReferenciaIa == e2?.imagenReferenciaIa;
   }
 
   @override
@@ -159,7 +168,8 @@ class DesafiosRecordDocumentEquality implements Equality<DesafiosRecord> {
         e?.tipoValidacion,
         e?.promptOculto,
         e?.valorPuntos,
-        e?.estaArchivado
+        e?.estaArchivado,
+        e?.imagenReferenciaIa
       ]);
 
   @override

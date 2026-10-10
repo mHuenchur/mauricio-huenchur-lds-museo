@@ -766,8 +766,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               },
                                               text: 'Acceder con Google',
                                               icon: FaIcon(
-                                                FaIconData(FontAwesomeIcons
-                                                    .google.data),
+                                                FaIconData(const IconData(
+                                                    /* google */ 0xf1a0,
+                                                    fontFamily:
+                                                        'FontAwesomeBrands',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(

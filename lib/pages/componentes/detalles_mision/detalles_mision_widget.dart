@@ -90,7 +90,7 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
             width: 400.0,
             height: 250.0,
             decoration: BoxDecoration(
-              color: Color(0xFFE9E9E9),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: Padding(
@@ -455,7 +455,7 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .success,
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
                                               .titleSmall

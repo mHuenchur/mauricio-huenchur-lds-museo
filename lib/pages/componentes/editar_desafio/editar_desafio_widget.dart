@@ -117,17 +117,10 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsets.all(2.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(6.0),
-                            child: Image.network(
-                              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60',
-                              width: 100.0,
-                              height: 100.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                        child: Icon(
+                          Icons.qr_code,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 45.0,
                         ),
                       ),
                       Expanded(
@@ -161,31 +154,6 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                           .bodyLarge
                                           .fontStyle,
                                     ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 0.0),
-                                child: Text(
-                                  'User Title',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight: FontWeight.normal,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelSmall
-                                                  .fontStyle,
-                                        ),
-                                        color: Color(0xFF57636C),
-                                        fontSize: 12.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontStyle,
-                                      ),
-                                ),
                               ),
                             ],
                           ),
@@ -228,8 +196,9 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController1,
                                 focusNode: _model.textFieldFocusNode1,
@@ -283,7 +252,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -311,7 +281,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -341,8 +311,9 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController2,
                                 focusNode: _model.textFieldFocusNode2,
@@ -396,7 +367,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -424,7 +396,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -452,8 +424,9 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController3,
                                 focusNode: _model.textFieldFocusNode3,
@@ -507,7 +480,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -535,7 +509,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -563,8 +537,9 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController4,
                                 focusNode: _model.textFieldFocusNode4,
@@ -618,7 +593,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -646,7 +622,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -674,8 +650,9 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController5,
                                 focusNode: _model.textFieldFocusNode5,
@@ -729,7 +706,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -757,7 +735,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -820,9 +798,10 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 size: 24.0,
                               ),
                               fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                                  .primaryBackground,
                               elevation: 2.0,
-                              borderColor: Colors.transparent,
+                              borderColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
                               borderWidth: 0.0,
                               borderRadius: 8.0,
                               margin: EdgeInsetsDirectional.fromSTEB(
@@ -844,46 +823,50 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          await widget.editarDesafio!.reference
-                              .update(createDesafiosRecordData(
-                            numeroOrden:
-                                int.tryParse(_model.textController1.text),
-                            pistaBusqueda: _model.textController3.text,
-                            infoHistorica: _model.textController2.text,
-                          ));
-                        },
-                        text: 'Guardar',
-                        options: FFButtonOptions(
-                          height: 44.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFF06D5CD),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await widget.editarDesafio!.reference
+                                .update(createDesafiosRecordData(
+                              numeroOrden:
+                                  int.tryParse(_model.textController1.text),
+                              pistaBusqueda: _model.textController3.text,
+                              infoHistorica: _model.textController2.text,
+                            ));
+                          },
+                          text: 'Guardar',
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).warning,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.inter(
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 2.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          borderRadius: BorderRadius.circular(40.0),
                         ),
                       ),
                       FFButtonWidget(
@@ -925,7 +908,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                               16.0, 0.0, 16.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
+                          color: FlutterFlowTheme.of(context).error,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     font: GoogleFonts.interTight(

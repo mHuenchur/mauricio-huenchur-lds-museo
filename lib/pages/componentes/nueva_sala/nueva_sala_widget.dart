@@ -199,7 +199,8 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFF6D6D6D),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -229,25 +230,21 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                     ),
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        .primaryBackground,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         font: GoogleFonts.inter(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
+                                          fontWeight: FontWeight.w500,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
+                                        fontWeight: FontWeight.w500,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontStyle,

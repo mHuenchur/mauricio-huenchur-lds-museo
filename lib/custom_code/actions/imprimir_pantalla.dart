@@ -8,12 +8,13 @@ import 'package:flutter/material.dart' hide RepeatMode;
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-//import 'package:web/web.dart' as web;
-//import 'dart:js_interop';
-//import 'dart:async';
+/*import 'package:web/web.dart' as web;
+import 'dart:js_interop';
+import 'dart:async';*/
 
 Future imprimirPantalla(String datosQR, String tituloMision) async {
-  /*final qrUrl =
+  /*
+  final qrUrl =
       'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=$datosQR';
 
   final div = web.document.createElement('div') as web.HTMLDivElement;

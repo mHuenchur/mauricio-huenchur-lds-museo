@@ -28,9 +28,14 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
   FocusNode? textFieldFocusNode5;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for DropDownValidacion widget.
+  String? dropDownValidacionValue;
+  FormFieldController<String>? dropDownValidacionValueController;
+  bool isDataUploading_uploadDataVlf = false;
+  FFUploadedFile uploadedLocalFile_uploadDataVlf =
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+  String uploadedFileUrl_uploadDataVlf = '';
+
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   DesafiosRecord? nuevoDesafioCreado;
 

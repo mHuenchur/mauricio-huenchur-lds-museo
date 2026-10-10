@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -68,7 +69,7 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
         width: 400.0,
         height: 520.0,
         decoration: BoxDecoration(
-          color: Color(0xFFE9E9E9),
+          color: Colors.white,
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Padding(
@@ -137,6 +138,8 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                         children: [
                           Row(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment:
+                                (FFMainAxisAlignment.end).flutterValue,
                             children: [
                               Text(
                                 'Esta activo?',
@@ -214,7 +217,8 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(4.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 12.0),
                                 child: Container(
                                   width: double.infinity,
                                   child: TextFormField(
@@ -274,7 +278,8 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: Color(0x00000000),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -308,7 +313,7 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                       ),
                                       filled: true,
                                       fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .primaryBackground,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -344,7 +349,8 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsets.all(4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
@@ -400,7 +406,8 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -428,7 +435,7 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -458,7 +465,8 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
@@ -514,7 +522,8 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -542,7 +551,7 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -572,82 +581,133 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                               ),
                             ),
                           ),
-                          FlutterFlowChoiceChips(
-                            options: [
-                              ChipData('Facil'),
-                              ChipData('Intermedio'),
-                              ChipData('Dificil')
-                            ],
-                            onChanged: (val) => safeSetState(() =>
-                                _model.choiceChipsValue = val?.firstOrNull),
-                            selectedChipStyle: ChipStyle(
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context).info,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 5.0),
+                                  child: Text(
+                                    'Dificultad',
+                                    style: FlutterFlowTheme.of(context)
                                         .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                   ),
-                              iconColor: FlutterFlowTheme.of(context).info,
-                              iconSize: 16.0,
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            unselectedChipStyle: ChipStyle(
-                              backgroundColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
+                                ),
+                                FlutterFlowChoiceChips(
+                                  options: [
+                                    ChipData('Facil'),
+                                    ChipData('Intermedio'),
+                                    ChipData('Dificil')
+                                  ],
+                                  onChanged: (val) => safeSetState(() => _model
+                                      .choiceChipsValue = val?.firstOrNull),
+                                  selectedChipStyle: ChipStyle(
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                    iconColor:
+                                        FlutterFlowTheme.of(context).info,
+                                    iconSize: 16.0,
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                              iconColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              iconSize: 16.0,
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(8.0),
+                                  unselectedChipStyle: ChipStyle(
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                    iconColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    iconSize: 16.0,
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  chipSpacing: 8.0,
+                                  rowSpacing: 8.0,
+                                  multiselect: false,
+                                  initialized: _model.choiceChipsValue != null,
+                                  alignment: WrapAlignment.start,
+                                  controller:
+                                      _model.choiceChipsValueController ??=
+                                          FormFieldController<List<String>>(
+                                    [widget.editarMision!.dificultad],
+                                  ),
+                                  wrapped: true,
+                                ),
+                              ],
                             ),
-                            chipSpacing: 8.0,
-                            rowSpacing: 8.0,
-                            multiselect: false,
-                            initialized: _model.choiceChipsValue != null,
-                            alignment: WrapAlignment.start,
-                            controller: _model.choiceChipsValueController ??=
-                                FormFieldController<List<String>>(
-                              [widget.editarMision!.dificultad],
-                            ),
-                            wrapped: true,
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -687,9 +747,10 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                   size: 24.0,
                                 ),
                                 fillColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                    .primaryBackground,
                                 elevation: 2.0,
-                                borderColor: Colors.transparent,
+                                borderColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
                                 borderWidth: 0.0,
                                 borderRadius: 8.0,
                                 margin: EdgeInsetsDirectional.fromSTEB(
@@ -711,33 +772,51 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        await widget.editarMision!.reference
-                                            .update(createMisionesRecordData(
-                                          nombreMision:
-                                              _model.textController1.text,
-                                          descripcion:
-                                              _model.textController2.text,
-                                          dificultad: _model.choiceChipsValue,
-                                          duracion: int.tryParse(
-                                              _model.textController3.text),
-                                        ));
-                                      },
-                                      text: 'Modificar',
-                                      options: FFButtonOptions(
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              font: GoogleFonts.interTight(
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 12.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          await widget.editarMision!.reference
+                                              .update(createMisionesRecordData(
+                                            nombreMision:
+                                                _model.textController1.text,
+                                            descripcion:
+                                                _model.textController2.text,
+                                            dificultad: _model.choiceChipsValue,
+                                            duracion: int.tryParse(
+                                                _model.textController3.text),
+                                          ));
+                                        },
+                                        text: 'Modificar',
+                                        options: FFButtonOptions(
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .warning,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                font: GoogleFonts.interTight(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
@@ -747,20 +826,10 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                                         .titleSmall
                                                         .fontStyle,
                                               ),
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontStyle,
-                                            ),
-                                        elevation: 0.0,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                          elevation: 0.0,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
                                       ),
                                     ),
                                     FFButtonWidget(
@@ -812,8 +881,8 @@ class _EditarMisionWidgetState extends State<EditarMisionWidget> {
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(

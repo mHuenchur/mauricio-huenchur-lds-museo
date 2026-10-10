@@ -1,9 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -272,68 +274,6 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                               ],
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 12.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
-                                                  },
-                                                  text: 'Action 1',
-                                                  options: FFButtonOptions(
-                                                    height: 40.0,
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(20.0, 0.0,
-                                                                20.0, 0.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: Color(0xFF06D5CD),
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: Colors.white,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                    elevation: 0.0,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            40.0),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
                                         ],
                                       ),
                                     ),
@@ -465,80 +405,6 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                 ],
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 12.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'Action 1',
-                                                    options: FFButtonOptions(
-                                                      height: 40.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  20.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color: Color(0xFF06D5CD),
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .inter(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                              ),
-                                                      elevation: 0.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              40.0),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
                                           ],
                                         ),
                                       ),
@@ -547,114 +413,184 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                 ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  _model.codigoLeido =
-                                      await FlutterBarcodeScanner.scanBarcode(
-                                    '#C62828', // scanning line color
-                                    'Cancel', // cancel button text
-                                    true, // whether to show the torch (camera LED) toggle icon
-                                    ScanMode.QR,
-                                  );
-
-                                  if (_model.codigoLeido ==
-                                      columnDesafiosRecord?.reference.id) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Objeto encontrado!',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
+                                  if (columnDesafiosRecord?.tipoValidacion ==
+                                      'QR') {
+                                    _model.codigoLeido =
+                                        await FlutterBarcodeScanner.scanBarcode(
+                                      '#C62828', // scanning line color
+                                      'Cancel', // cancel button text
+                                      true, // whether to show the torch (camera LED) toggle icon
+                                      ScanMode.QR,
                                     );
-                                    _model.mostrarPistaExtra = false;
-                                    safeSetState(() {});
-                                    _model.numeroDesafioSiguiente =
-                                        await queryDesafiosRecordOnce(
-                                      queryBuilder: (desafiosRecord) =>
-                                          desafiosRecord
-                                              .where(
-                                                'mision_desafio_fk',
-                                                isEqualTo: widget.misionActual,
-                                              )
-                                              .where(
-                                                'numero_orden',
-                                                isEqualTo:
-                                                    stackProgresoMisionVisitanteRecord!
-                                                            .numeroDesafioActual +
-                                                        1,
-                                              )
-                                              .where(
-                                                'esta_archivado',
-                                                isEqualTo: false,
-                                              ),
-                                      singleRecord: true,
-                                    ).then((s) => s.firstOrNull);
-                                    if (_model.numeroDesafioSiguiente?.reference
-                                                .id !=
-                                            null &&
-                                        _model.numeroDesafioSiguiente?.reference
-                                                .id !=
-                                            '') {
-                                      await stackProgresoMisionVisitanteRecord!
-                                          .reference
-                                          .update({
-                                        ...mapToFirestore(
-                                          {
-                                            'numero_desafio_actual':
-                                                FieldValue.increment(1),
-                                          },
+
+                                    if (_model.codigoLeido ==
+                                        columnDesafiosRecord?.reference.id) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Objeto encontrado!',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
                                         ),
-                                      });
-
-                                      context.pushNamed(
-                                        DesafioActivoWidget.routeName,
-                                        queryParameters: {
-                                          'misionActual': serializeParam(
-                                            widget.misionActual,
-                                            ParamType.DocumentReference,
-                                          ),
-                                          'numeroPistaParam': serializeParam(
-                                            _model.numeroDesafioSiguiente
-                                                ?.numeroOrden,
-                                            ParamType.int,
-                                          ),
-                                        }.withoutNulls,
                                       );
-                                    } else {
-                                      await stackProgresoMisionVisitanteRecord!
-                                          .reference
-                                          .update(
-                                              createProgresoMisionVisitanteRecordData(
-                                        misionCompletada: true,
-                                      ));
+                                      _model.mostrarPistaExtra = false;
+                                      safeSetState(() {});
+                                      _model.numeroDesafioSiguiente =
+                                          await queryDesafiosRecordOnce(
+                                        queryBuilder: (desafiosRecord) =>
+                                            desafiosRecord
+                                                .where(
+                                                  'mision_desafio_fk',
+                                                  isEqualTo:
+                                                      widget.misionActual,
+                                                )
+                                                .where(
+                                                  'numero_orden',
+                                                  isEqualTo:
+                                                      stackProgresoMisionVisitanteRecord!
+                                                              .numeroDesafioActual +
+                                                          1,
+                                                )
+                                                .where(
+                                                  'esta_archivado',
+                                                  isEqualTo: false,
+                                                ),
+                                        singleRecord: true,
+                                      ).then((s) => s.firstOrNull);
+                                      if (_model.numeroDesafioSiguiente
+                                                  ?.reference.id !=
+                                              null &&
+                                          _model.numeroDesafioSiguiente
+                                                  ?.reference.id !=
+                                              '') {
+                                        await stackProgresoMisionVisitanteRecord!
+                                            .reference
+                                            .update({
+                                          ...mapToFirestore(
+                                            {
+                                              'numero_desafio_actual':
+                                                  FieldValue.increment(1),
+                                            },
+                                          ),
+                                        });
 
-                                      context.goNamed(
-                                          MisionCompletadaWidget.routeName);
+                                        context.pushNamed(
+                                          DesafioActivoWidget.routeName,
+                                          queryParameters: {
+                                            'misionActual': serializeParam(
+                                              widget.misionActual,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'numeroPistaParam': serializeParam(
+                                              _model.numeroDesafioSiguiente
+                                                  ?.numeroOrden,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      } else {
+                                        await stackProgresoMisionVisitanteRecord!
+                                            .reference
+                                            .update(
+                                                createProgresoMisionVisitanteRecordData(
+                                          misionCompletada: true,
+                                        ));
+
+                                        context.goNamed(
+                                            MisionCompletadaWidget.routeName);
+                                      }
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Objeto incorrecto!',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiary,
+                                        ),
+                                      );
+                                      _model.mostrarPistaExtra = true;
+                                      safeSetState(() {});
                                     }
                                   } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Objeto incorrecto!',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                      ),
+                                    final selectedMedia =
+                                        await selectMediaWithSourceBottomSheet(
+                                      context: context,
+                                      allowPhoto: true,
                                     );
-                                    _model.mostrarPistaExtra = true;
-                                    safeSetState(() {});
+                                    if (selectedMedia != null &&
+                                        selectedMedia.every((m) =>
+                                            validateFileFormat(
+                                                m.storagePath, context))) {
+                                      safeSetState(() =>
+                                          _model.isDataUploading_uploadDataUq5 =
+                                              true);
+                                      var selectedUploadedFiles =
+                                          <FFUploadedFile>[];
+
+                                      var downloadUrls = <String>[];
+                                      try {
+                                        selectedUploadedFiles = selectedMedia
+                                            .map((m) => FFUploadedFile(
+                                                  name: m.storagePath
+                                                      .split('/')
+                                                      .last,
+                                                  bytes: m.bytes,
+                                                  height: m.dimensions?.height,
+                                                  width: m.dimensions?.width,
+                                                  blurHash: m.blurHash,
+                                                  originalFilename:
+                                                      m.originalFilename,
+                                                ))
+                                            .toList();
+
+                                        downloadUrls = (await Future.wait(
+                                          selectedMedia.map(
+                                            (m) async => await uploadData(
+                                                m.storagePath, m.bytes),
+                                          ),
+                                        ))
+                                            .where((u) => u != null)
+                                            .map((u) => u!)
+                                            .toList();
+                                      } finally {
+                                        _model.isDataUploading_uploadDataUq5 =
+                                            false;
+                                      }
+                                      if (selectedUploadedFiles.length ==
+                                              selectedMedia.length &&
+                                          downloadUrls.length ==
+                                              selectedMedia.length) {
+                                        safeSetState(() {
+                                          _model.uploadedLocalFile_uploadDataUq5 =
+                                              selectedUploadedFiles.first;
+                                          _model.uploadedFileUrl_uploadDataUq5 =
+                                              downloadUrls.first;
+                                        });
+                                      } else {
+                                        safeSetState(() {});
+                                        return;
+                                      }
+                                    }
                                   }
 
                                   safeSetState(() {});

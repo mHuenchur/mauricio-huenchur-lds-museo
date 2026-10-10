@@ -45,11 +45,6 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
     return null;
   }
 
-  bool isDataUploading_uploadDataE0t = false;
-  FFUploadedFile uploadedLocalFile_uploadDataE0t =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  String uploadedFileUrl_uploadDataE0t = '';
-
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
   String? get choiceChipsValue =>
@@ -61,6 +56,10 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
   FormFieldController<String>? dropDownValueController;
   // Stores action output result for [Firestore Query - Query a collection] action in DropDown widget.
   List<SalasRecord>? salaReferencia;
+  bool isDataUploading_uploadDataE0t = false;
+  FFUploadedFile uploadedLocalFile_uploadDataE0t =
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+  String uploadedFileUrl_uploadDataE0t = '';
 
   @override
   void initState(BuildContext context) {

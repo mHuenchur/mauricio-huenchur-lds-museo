@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -59,17 +60,17 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
     return Padding(
       padding: EdgeInsets.all(12.0),
       child: Container(
-        width: 400.0,
-        height: 520.0,
+        width: 450.0,
+        height: 590.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: (FFMainAxisAlignment.center).flutterValue,
             children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
@@ -117,6 +118,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
               ),
               Expanded(
                 child: Container(
+                  height: 400.0,
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
@@ -126,11 +128,13 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.always,
                       child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment:
+                            (FFMainAxisAlignment.start).flutterValue,
                         children: [
                           Padding(
-                            padding: EdgeInsets.all(4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
@@ -186,7 +190,8 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -214,7 +219,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -244,7 +249,8 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
@@ -300,7 +306,8 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -328,7 +335,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -358,7 +365,8 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
@@ -414,7 +422,8 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -442,7 +451,7 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -471,6 +480,277 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                                     .asValidator(context),
                               ),
                             ),
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 5.0),
+                                child: Text(
+                                  'Dificultad',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 12.0),
+                                child: FlutterFlowChoiceChips(
+                                  options: [
+                                    ChipData('Facil'),
+                                    ChipData('Intermedio'),
+                                    ChipData('Dificil')
+                                  ],
+                                  onChanged: (val) => safeSetState(() => _model
+                                      .choiceChipsValue = val?.firstOrNull),
+                                  selectedChipStyle: ChipStyle(
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                    iconColor:
+                                        FlutterFlowTheme.of(context).info,
+                                    iconSize: 16.0,
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  unselectedChipStyle: ChipStyle(
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                    iconColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    iconSize: 16.0,
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  chipSpacing: 8.0,
+                                  rowSpacing: 8.0,
+                                  multiselect: false,
+                                  alignment: WrapAlignment.start,
+                                  controller:
+                                      _model.choiceChipsValueController ??=
+                                          FormFieldController<List<String>>(
+                                    [],
+                                  ),
+                                  wrapped: true,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment:
+                                    (FFCrossAxisAlignment.start).flutterValue,
+                                textBaseline: TextBaseline.alphabetic,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 0.0, 5.0),
+                                    child: Text(
+                                      'Sala',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.inter(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 12.0),
+                                    child: StreamBuilder<List<SalasRecord>>(
+                                      stream: querySalasRecord(),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        List<SalasRecord>
+                                            dropDownSalasRecordList =
+                                            snapshot.data!;
+
+                                        return FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .dropDownValueController ??=
+                                              FormFieldController<String>(null),
+                                          options: dropDownSalasRecordList
+                                              .map((e) => e.nombreSala)
+                                              .toList(),
+                                          onChanged: (val) async {
+                                            safeSetState(() =>
+                                                _model.dropDownValue = val);
+                                            _model.salaReferencia =
+                                                await querySalasRecordOnce(
+                                              queryBuilder: (salasRecord) =>
+                                                  salasRecord.where(
+                                                'nombre_sala',
+                                                isEqualTo: _model.dropDownValue,
+                                              ),
+                                            );
+
+                                            safeSetState(() {});
+                                          },
+                                          width: 200.0,
+                                          height: 40.0,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                          hintText: 'Seleccionar...',
+                                          icon: Icon(
+                                            Icons.keyboard_arrow_down_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24.0,
+                                          ),
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          elevation: 2.0,
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          borderWidth: 0.0,
+                                          borderRadius: 8.0,
+                                          margin:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 12.0, 0.0),
+                                          hidesUnderline: true,
+                                          isOverButton: false,
+                                          isSearchable: false,
+                                          isMultiSelect: false,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                           FFButtonWidget(
                             onPressed: () async {
@@ -562,179 +842,10 @@ class _NuevaMisionWidgetState extends State<NuevaMisionWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                          FlutterFlowChoiceChips(
-                            options: [
-                              ChipData('Facil'),
-                              ChipData('Intermedio'),
-                              ChipData('Dificil')
-                            ],
-                            onChanged: (val) => safeSetState(() =>
-                                _model.choiceChipsValue = val?.firstOrNull),
-                            selectedChipStyle: ChipStyle(
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context).info,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                              iconColor: FlutterFlowTheme.of(context).info,
-                              iconSize: 16.0,
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            unselectedChipStyle: ChipStyle(
-                              backgroundColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                              iconColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              iconSize: 16.0,
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            chipSpacing: 8.0,
-                            rowSpacing: 8.0,
-                            multiselect: false,
-                            alignment: WrapAlignment.start,
-                            controller: _model.choiceChipsValueController ??=
-                                FormFieldController<List<String>>(
-                              [],
-                            ),
-                            wrapped: true,
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              StreamBuilder<List<SalasRecord>>(
-                                stream: querySalasRecord(),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<SalasRecord> dropDownSalasRecordList =
-                                      snapshot.data!;
-
-                                  return FlutterFlowDropDown<String>(
-                                    controller:
-                                        _model.dropDownValueController ??=
-                                            FormFieldController<String>(null),
-                                    options: dropDownSalasRecordList
-                                        .map((e) => e.nombreSala)
-                                        .toList(),
-                                    onChanged: (val) async {
-                                      safeSetState(
-                                          () => _model.dropDownValue = val);
-                                      _model.salaReferencia =
-                                          await querySalasRecordOnce(
-                                        queryBuilder: (salasRecord) =>
-                                            salasRecord.where(
-                                          'nombre_sala',
-                                          isEqualTo: _model.dropDownValue,
-                                        ),
-                                      );
-
-                                      safeSetState(() {});
-                                    },
-                                    width: 200.0,
-                                    height: 40.0,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.inter(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                    hintText: 'Select...',
-                                    icon: Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 24.0,
-                                    ),
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    elevation: 2.0,
-                                    borderColor: Colors.transparent,
-                                    borderWidth: 0.0,
-                                    borderRadius: 8.0,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    hidesUnderline: true,
-                                    isOverButton: false,
-                                    isSearchable: false,
-                                    isMultiSelect: false,
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
                           Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment:
+                                (FFMainAxisAlignment.start).flutterValue,
                             children: [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
