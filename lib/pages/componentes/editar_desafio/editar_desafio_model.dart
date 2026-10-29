@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'editar_desafio_widget.dart' show EditarDesafioWidget;
 import 'package:flutter/material.dart';
 
@@ -11,28 +10,73 @@ class EditarDesafioModel extends FlutterFlowModel<EditarDesafioWidget> {
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
+  String? _textController1Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'numero_orden is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  String? _textController2Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'info_historica is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
+  String? _textController3Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'pista_busqueda is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode4;
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
+  String? _textController4Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'pista_extra is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode5;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  String? _textController5Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'valor_puntos is required';
+    }
+
+    return null;
+  }
+
+  // Stores action output result for [Validate Form] action in Button widget.
+  bool? formDesafioEditCompleto;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    textController1Validator = _textController1Validator;
+    textController2Validator = _textController2Validator;
+    textController3Validator = _textController3Validator;
+    textController4Validator = _textController4Validator;
+    textController5Validator = _textController5Validator;
+  }
 
   @override
   void dispose() {

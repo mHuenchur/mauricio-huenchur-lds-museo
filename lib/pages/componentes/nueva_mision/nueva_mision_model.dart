@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'nueva_mision_widget.dart' show NuevaMisionWidget;
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
@@ -15,7 +14,7 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Nombre is required';
+      return 'Campo vacio';
     }
 
     return null;
@@ -27,30 +26,12 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Descripción is required';
+      return 'Campo vacio';
     }
 
     return null;
   }
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  String? _textController3Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Duración is required';
-    }
-
-    return null;
-  }
-
-  // State field(s) for ChoiceChips widget.
-  FormFieldController<List<String>>? choiceChipsValueController;
-  String? get choiceChipsValue =>
-      choiceChipsValueController?.value?.firstOrNull;
-  set choiceChipsValue(String? val) =>
-      choiceChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -61,11 +42,13 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadDataE0t = '';
 
+  // Stores action output result for [Validate Form] action in Button widget.
+  bool? datosCompletos;
+
   @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
     textController2Validator = _textController2Validator;
-    textController3Validator = _textController3Validator;
   }
 
   @override
@@ -75,8 +58,5 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
 
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
-
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
   }
 }

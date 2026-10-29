@@ -7,6 +7,8 @@ class DetallesMisionModel extends FlutterFlowModel<DetallesMisionWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  int? totalDesafios;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   ProgresoMisionVisitanteRecord? progresoExistente;
 
   @override

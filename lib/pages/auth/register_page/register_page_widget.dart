@@ -673,9 +673,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                 !_model
                                                                     .passwordVisibility);
                                                           },
-                                                          focusNode: FocusNode(
-                                                              skipTraversal:
-                                                                  true),
+                                                          focusNode: _model
+                                                              .passwordPasswordVisibilityFocusNode
+                                                            ..skipTraversal =
+                                                                !(false),
                                                           child: Icon(
                                                             _model.passwordVisibility
                                                                 ? Icons
@@ -833,9 +834,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                 !_model
                                                                     .passwordConfirmVisibility);
                                                           },
-                                                          focusNode: FocusNode(
-                                                              skipTraversal:
-                                                                  true),
+                                                          focusNode: _model
+                                                              .passwordConfirmPasswordVisibilityFocusNode
+                                                            ..skipTraversal =
+                                                                !(false),
                                                           child: Icon(
                                                             _model.passwordConfirmVisibility
                                                                 ? Icons
@@ -940,10 +942,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                             .doc(user.uid)
                                                             .update(
                                                                 createUsersRecordData(
+                                                              rol: 'visitante',
                                                               displayName: _model
                                                                   .nameTextController
                                                                   .text,
-                                                              rol: 'visitante',
                                                             ));
 
                                                         if (valueOrDefault(

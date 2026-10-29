@@ -96,16 +96,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginPageWidget(),
         ),
         FFRoute(
-          name: HomeAdministradorWidget.routeName,
-          path: HomeAdministradorWidget.routePath,
-          builder: (context, params) => HomeAdministradorWidget(),
-        ),
-        FFRoute(
-          name: HomeVisitanteWidget.routeName,
-          path: HomeVisitanteWidget.routePath,
-          builder: (context, params) => HomeVisitanteWidget(),
-        ),
-        FFRoute(
           name: PanelDesafiosMisionWidget.routeName,
           path: PanelDesafiosMisionWidget.routePath,
           builder: (context, params) => PanelDesafiosMisionWidget(
@@ -137,6 +127,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.int,
             ),
           ),
+        ),
+        FFRoute(
+          name: AdminPruebaWidget.routeName,
+          path: AdminPruebaWidget.routePath,
+          builder: (context, params) => AdminPruebaWidget(),
+        ),
+        FFRoute(
+          name: AdminPruebaCopyWidget.routeName,
+          path: AdminPruebaCopyWidget.routePath,
+          builder: (context, params) => AdminPruebaCopyWidget(),
+        ),
+        FFRoute(
+          name: HomeAdministradorWidget.routeName,
+          path: HomeAdministradorWidget.routePath,
+          builder: (context, params) => HomeAdministradorWidget(),
+        ),
+        FFRoute(
+          name: HomeVisitanteWidget.routeName,
+          path: HomeVisitanteWidget.routePath,
+          builder: (context, params) => HomeVisitanteWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

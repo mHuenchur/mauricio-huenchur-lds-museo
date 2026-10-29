@@ -1,11 +1,9 @@
 import '/backend/backend.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'editar_desafio_model.dart';
@@ -96,8 +94,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
               width: 1.0,
             ),
           ),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,24 +131,23 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                               Text(
                                 'Editar desafío',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
+                                    .titleSmall
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.outfit(
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyLarge
+                                            .titleSmall
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyLarge
+                                            .titleSmall
                                             .fontStyle,
                                       ),
-                                      color: Color(0xFF101518),
-                                      fontSize: 16.0,
+                                      fontSize: 24.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyLarge
+                                          .titleSmall
                                           .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
+                                          .titleSmall
                                           .fontStyle,
                                     ),
                               ),
@@ -160,13 +156,12 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                         ),
                       ),
                       FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30.0,
-                        borderWidth: 1.0,
-                        buttonSize: 44.0,
+                        borderRadius: 8.0,
+                        buttonSize: 40.0,
+                        fillColor: FlutterFlowTheme.of(context).primary,
                         icon: Icon(
-                          Icons.close_rounded,
-                          color: Color(0xFF57636C),
+                          Icons.close,
+                          color: FlutterFlowTheme.of(context).info,
                           size: 24.0,
                         ),
                         onPressed: () async {
@@ -192,7 +187,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                     children: [
                       Form(
                         key: _model.formKey,
-                        autovalidateMode: AutovalidateMode.disabled,
+                        autovalidateMode: AutovalidateMode.always,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -207,10 +202,11 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Numero de orden',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -228,11 +224,10 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Numero de orden',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -252,8 +247,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color:
+                                          FlutterFlowTheme.of(context).success,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -286,7 +281,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -322,10 +317,11 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Nombre',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -343,11 +339,10 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Nombre',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -367,8 +362,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color:
+                                          FlutterFlowTheme.of(context).success,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -401,7 +396,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -435,10 +430,11 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Pista',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -456,11 +452,10 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Pista',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -480,8 +475,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color:
+                                          FlutterFlowTheme.of(context).success,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -514,7 +509,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -548,10 +543,11 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Pista extra',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -569,11 +565,10 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Pista extra',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -593,8 +588,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color:
+                                          FlutterFlowTheme.of(context).success,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -627,7 +622,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -661,10 +656,11 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Puntos',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -682,11 +678,10 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Puntos',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -706,8 +701,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color:
+                                          FlutterFlowTheme.of(context).success,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -740,7 +735,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -763,54 +758,6 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                            FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController ??=
-                                  FormFieldController<String>(null),
-                              options: ['QR', 'IA'],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.dropDownValue = val),
-                              width: 200.0,
-                              height: 40.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                              hintText: 'Seleccionar..',
-                              icon: Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              elevation: 2.0,
-                              borderColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              borderWidth: 0.0,
-                              borderRadius: 8.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
-                              hidesUnderline: true,
-                              isOverButton: false,
-                              isSearchable: false,
-                              isMultiSelect: false,
-                            ),
                           ],
                         ),
                       ),
@@ -818,7 +765,8 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 12.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -828,13 +776,52 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await widget.editarDesafio!.reference
-                                .update(createDesafiosRecordData(
-                              numeroOrden:
-                                  int.tryParse(_model.textController1.text),
-                              pistaBusqueda: _model.textController3.text,
-                              infoHistorica: _model.textController2.text,
-                            ));
+                            _model.formDesafioEditCompleto = true;
+                            if (_model.formKey.currentState == null ||
+                                !_model.formKey.currentState!.validate()) {
+                              _model.formDesafioEditCompleto = false;
+                            }
+                            if (_model.formDesafioEditCompleto!) {
+                              await widget.editarDesafio!.reference
+                                  .update(createDesafiosRecordData(
+                                numeroOrden:
+                                    int.tryParse(_model.textController1.text),
+                                pistaBusqueda: _model.textController3.text,
+                                infoHistorica: _model.textController2.text,
+                              ));
+                              Navigator.pop(context);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Datos actualizados!',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Faltan completar campos!',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            }
+
+                            safeSetState(() {});
                           },
                           text: 'Guardar',
                           options: FFButtonOptions(
@@ -876,8 +863,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 builder: (alertDialogContext) {
                                   return AlertDialog(
                                     title: Text('Archivar desafio'),
-                                    content: Text(
-                                        'El desafio ya no estará disponible'),
+                                    content: Text('El desafio se eliminará'),
                                     actions: [
                                       TextButton(
                                         onPressed: () => Navigator.pop(
@@ -899,6 +885,21 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                 .update(createDesafiosRecordData(
                               estaArchivado: true,
                             ));
+                            Navigator.pop(context);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Desafío eliminado!',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                  ),
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                              ),
+                            );
                           }
                         },
                         text: 'Archivar',
@@ -911,7 +912,7 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                           color: FlutterFlowTheme.of(context).error,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.interTight(
+                                    font: GoogleFonts.outfit(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .fontWeight,

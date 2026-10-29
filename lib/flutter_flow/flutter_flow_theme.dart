@@ -120,17 +120,17 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF47E9FF);
-  late Color secondary = const Color(0xFF39D2C0);
-  late Color tertiary = const Color(0xFFEE8B60);
-  late Color alternate = const Color(0xFFE0E3E7);
-  late Color primaryText = const Color(0xFF14181B);
-  late Color secondaryText = const Color(0xFF57636C);
-  late Color primaryBackground = const Color(0xFFF1F4F8);
-  late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color accent1 = const Color(0x4C4B39EF);
-  late Color accent2 = const Color(0x4D39D2C0);
-  late Color accent3 = const Color(0x4DEE8B60);
+  late Color primary = const Color(0xFF00ACC1);
+  late Color secondary = const Color(0xFFF59E0B);
+  late Color tertiary = const Color(0xFF7C3AED);
+  late Color alternate = const Color(0xFFE2E8F0);
+  late Color primaryText = const Color(0xFF0F172A);
+  late Color secondaryText = const Color(0xFF394555);
+  late Color primaryBackground = const Color(0xFFF4F6F9);
+  late Color secondaryBackground = const Color(0xFFD7D7D7);
+  late Color accent1 = const Color(0x2600ACC1);
+  late Color accent2 = const Color(0x26F59E0B);
+  late Color accent3 = const Color(0x267C3AED);
   late Color accent4 = const Color(0xCCFFFFFF);
   late Color success = const Color(0xFF249689);
   late Color warning = const Color(0xFFF9CF58);
@@ -191,107 +191,107 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Inter Tight';
+  String get displayLargeFamily => 'Outfit';
   bool get displayLargeIsCustom => false;
-  TextStyle get displayLarge => GoogleFonts.interTight(
+  TextStyle get displayLarge => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Inter Tight';
+  String get displayMediumFamily => 'Outfit';
   bool get displayMediumIsCustom => false;
-  TextStyle get displayMedium => GoogleFonts.interTight(
+  TextStyle get displayMedium => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Inter Tight';
+  String get displaySmallFamily => 'Outfit';
   bool get displaySmallIsCustom => false;
-  TextStyle get displaySmall => GoogleFonts.interTight(
+  TextStyle get displaySmall => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Inter Tight';
+  String get headlineLargeFamily => 'Outfit';
   bool get headlineLargeIsCustom => false;
-  TextStyle get headlineLarge => GoogleFonts.interTight(
+  TextStyle get headlineLarge => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Inter Tight';
+  String get headlineMediumFamily => 'Outfit';
   bool get headlineMediumIsCustom => false;
-  TextStyle get headlineMedium => GoogleFonts.interTight(
+  TextStyle get headlineMedium => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
       );
-  String get headlineSmallFamily => 'Inter Tight';
+  String get headlineSmallFamily => 'Outfit';
   bool get headlineSmallIsCustom => false;
-  TextStyle get headlineSmall => GoogleFonts.interTight(
+  TextStyle get headlineSmall => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Inter Tight';
+  String get titleLargeFamily => 'Outfit';
   bool get titleLargeIsCustom => false;
-  TextStyle get titleLarge => GoogleFonts.interTight(
+  TextStyle get titleLarge => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20.0,
       );
-  String get titleMediumFamily => 'Inter Tight';
+  String get titleMediumFamily => 'Outfit';
   bool get titleMediumIsCustom => false;
-  TextStyle get titleMedium => GoogleFonts.interTight(
+  TextStyle get titleMedium => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Inter Tight';
+  String get titleSmallFamily => 'Outfit';
   bool get titleSmallIsCustom => false;
-  TextStyle get titleSmall => GoogleFonts.interTight(
+  TextStyle get titleSmall => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Inter';
+  String get labelLargeFamily => 'Roboto';
   bool get labelLargeIsCustom => false;
-  TextStyle get labelLarge => GoogleFonts.inter(
+  TextStyle get labelLarge => GoogleFonts.roboto(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Inter';
+  String get labelMediumFamily => 'Roboto';
   bool get labelMediumIsCustom => false;
-  TextStyle get labelMedium => GoogleFonts.inter(
+  TextStyle get labelMedium => GoogleFonts.roboto(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Inter';
+  String get labelSmallFamily => 'Roboto';
   bool get labelSmallIsCustom => false;
-  TextStyle get labelSmall => GoogleFonts.inter(
+  TextStyle get labelSmall => GoogleFonts.roboto(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Inter';
+  String get bodyLargeFamily => 'Roboto';
   bool get bodyLargeIsCustom => false;
-  TextStyle get bodyLarge => GoogleFonts.inter(
+  TextStyle get bodyLarge => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Inter';
+  String get bodyMediumFamily => 'Roboto';
   bool get bodyMediumIsCustom => false;
-  TextStyle get bodyMedium => GoogleFonts.inter(
+  TextStyle get bodyMedium => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Inter';
+  String get bodySmallFamily => 'Roboto';
   bool get bodySmallIsCustom => false;
-  TextStyle get bodySmall => GoogleFonts.inter(
+  TextStyle get bodySmall => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
