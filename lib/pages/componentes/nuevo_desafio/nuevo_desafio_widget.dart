@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -6,8 +7,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import '/pages/componentes/modal_exito_qr/modal_exito_qr_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'nuevo_desafio_model.dart';
 export 'nuevo_desafio_model.dart';
@@ -71,9 +74,6 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
         child: Container(
           width: 450.0,
-          constraints: BoxConstraints(
-            maxWidth: 530.0,
-          ),
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
@@ -92,8 +92,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
               width: 1.0,
             ),
           ),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,84 +103,57 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Container(
-                        width: 60.0,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF5FBFB),
-                          borderRadius: BorderRadius.circular(8.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsets.all(2.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(6.0),
-                            child: Image.network(
-                              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60',
-                              width: 100.0,
-                              height: 100.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
                       Expanded(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Nuevo desafío',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      font: GoogleFonts.inter(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .fontStyle,
-                                      ),
-                                      color: Color(0xFF101518),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontStyle,
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment:
+                                    (FFMainAxisAlignment.center).flutterValue,
+                                children: [
+                                  Icon(
+                                    Icons.qr_code,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 38.0,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Nuevo desafío',
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineSmall
+                                          .override(
+                                            font: GoogleFonts.outfit(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall
+                                                      .fontStyle,
+                                            ),
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
+                                          ),
                                     ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 0.0),
-                                child: Text(
-                                  'User Title',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight: FontWeight.normal,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelSmall
-                                                  .fontStyle,
-                                        ),
-                                        color: Color(0xFF57636C),
-                                        fontSize: 12.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontStyle,
-                                      ),
-                                ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -189,12 +161,13 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                       ),
                       FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 30.0,
+                        borderRadius: 8.0,
                         borderWidth: 1.0,
-                        buttonSize: 44.0,
+                        buttonSize: 40.0,
+                        fillColor: FlutterFlowTheme.of(context).primary,
                         icon: Icon(
                           Icons.close_rounded,
-                          color: Color(0xFF57636C),
+                          color: FlutterFlowTheme.of(context).primaryBackground,
                           size: 24.0,
                         ),
                         onPressed: () async {
@@ -216,16 +189,20 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                       EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 16.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: (FFMainAxisAlignment.start).flutterValue,
+                    crossAxisAlignment:
+                        (FFCrossAxisAlignment.center).flutterValue,
+                    textBaseline: TextBaseline.alphabetic,
                     children: [
                       Form(
                         key: _model.formKey,
-                        autovalidateMode: AutovalidateMode.disabled,
+                        autovalidateMode: AutovalidateMode.always,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController1,
                                 focusNode: _model.textFieldFocusNode1,
@@ -234,10 +211,11 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Numero de orden',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -255,11 +233,10 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Numero de orden',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -279,7 +256,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -307,23 +285,20 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
+                                      font: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.w500,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontStyle,
                                       ),
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
+                                      fontWeight: FontWeight.w500,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontStyle,
@@ -335,10 +310,15 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 enableInteractiveSelection: true,
                                 validator: _model.textController1Validator
                                     .asValidator(context),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp('[0-9]'))
+                                ],
                               ),
                             ),
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController2,
                                 focusNode: _model.textFieldFocusNode2,
@@ -347,10 +327,11 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Nombre',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -368,11 +349,10 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Nombre',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -392,7 +372,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -420,12 +401,12 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -448,8 +429,9 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController3,
                                 focusNode: _model.textFieldFocusNode3,
@@ -458,10 +440,11 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Pista',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -479,11 +462,10 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Pista',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -503,7 +485,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -531,12 +514,12 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -552,6 +535,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                maxLines: 3,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 enableInteractiveSelection: true,
@@ -559,8 +543,9 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController4,
                                 focusNode: _model.textFieldFocusNode4,
@@ -569,10 +554,11 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Pista extra',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -590,11 +576,10 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Pista extra',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -614,7 +599,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -642,12 +628,12 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -663,6 +649,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                maxLines: 3,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 enableInteractiveSelection: true,
@@ -670,8 +657,9 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                            Container(
-                              width: 200.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController5,
                                 focusNode: _model.textFieldFocusNode5,
@@ -680,10 +668,11 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  labelText: 'Puntos',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -701,11 +690,10 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                  hintText: 'Puntos',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        font: GoogleFonts.inter(
+                                        font: GoogleFonts.roboto(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -725,7 +713,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -753,12 +742,12 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.inter(
+                                      font: GoogleFonts.roboto(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontWeight,
@@ -774,25 +763,35 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                keyboardType:
+                                    (FFKeyboardType.number).flutterValue,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 enableInteractiveSelection: true,
                                 validator: _model.textController5Validator
                                     .asValidator(context),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp('[0-9]'))
+                                ],
                               ),
                             ),
                             FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController ??=
-                                  FormFieldController<String>(null),
+                              controller:
+                                  _model.dropDownValidacionValueController ??=
+                                      FormFieldController<String>(null),
                               options: ['QR', 'IA'],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.dropDownValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.dropDownValidacionValue = val);
+                                _model.updatePage(() {});
+                              },
                               width: 200.0,
                               height: 40.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.inter(
+                                    font: GoogleFonts.roboto(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontWeight,
@@ -816,9 +815,10 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 size: 24.0,
                               ),
                               fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                                  .primaryBackground,
                               elevation: 2.0,
-                              borderColor: Colors.transparent,
+                              borderColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
                               borderWidth: 0.0,
                               borderRadius: 8.0,
                               margin: EdgeInsetsDirectional.fromSTEB(
@@ -828,6 +828,119 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                               isSearchable: false,
                               isMultiSelect: false,
                             ),
+                            if (_model.dropDownValidacionValue == 'IA')
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 15.0, 0.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    final selectedMedia =
+                                        await selectMediaWithSourceBottomSheet(
+                                      context: context,
+                                      maxWidth: 800.00,
+                                      imageQuality: 70,
+                                      allowPhoto: true,
+                                    );
+                                    if (selectedMedia != null &&
+                                        selectedMedia.every((m) =>
+                                            validateFileFormat(
+                                                m.storagePath, context))) {
+                                      safeSetState(() =>
+                                          _model.isDataUploading_uploadDataVlf =
+                                              true);
+                                      var selectedUploadedFiles =
+                                          <FFUploadedFile>[];
+
+                                      var downloadUrls = <String>[];
+                                      try {
+                                        selectedUploadedFiles = selectedMedia
+                                            .map((m) => FFUploadedFile(
+                                                  name: m.storagePath
+                                                      .split('/')
+                                                      .last,
+                                                  bytes: m.bytes,
+                                                  height: m.dimensions?.height,
+                                                  width: m.dimensions?.width,
+                                                  blurHash: m.blurHash,
+                                                  originalFilename:
+                                                      m.originalFilename,
+                                                ))
+                                            .toList();
+
+                                        downloadUrls = (await Future.wait(
+                                          selectedMedia.map(
+                                            (m) async => await uploadData(
+                                                m.storagePath, m.bytes),
+                                          ),
+                                        ))
+                                            .where((u) => u != null)
+                                            .map((u) => u!)
+                                            .toList();
+                                      } finally {
+                                        _model.isDataUploading_uploadDataVlf =
+                                            false;
+                                      }
+                                      if (selectedUploadedFiles.length ==
+                                              selectedMedia.length &&
+                                          downloadUrls.length ==
+                                              selectedMedia.length) {
+                                        safeSetState(() {
+                                          _model.uploadedLocalFile_uploadDataVlf =
+                                              selectedUploadedFiles.first;
+                                          _model.uploadedFileUrl_uploadDataVlf =
+                                              downloadUrls.first;
+                                        });
+                                      } else {
+                                        safeSetState(() {});
+                                        return;
+                                      }
+                                    }
+                                  },
+                                  text: _model.uploadedFileUrl_uploadDataVlf !=
+                                              ''
+                                      ? 'Imagen cargada!'
+                                      : 'Subir imagen',
+                                  icon: Icon(
+                                    Icons.camera_alt,
+                                    size: 15.0,
+                                  ),
+                                  options: FFButtonOptions(
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    iconAlignment: IconAlignment.start,
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          font: GoogleFonts.outfit(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                ),
+                              ),
                           ],
                         ),
                       ),
@@ -835,7 +948,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 12.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -843,55 +957,193 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                       Builder(
                         builder: (context) => FFButtonWidget(
                           onPressed: () async {
-                            var desafiosRecordReference =
-                                DesafiosRecord.collection.doc();
-                            await desafiosRecordReference
-                                .set(createDesafiosRecordData(
-                              misionDesafioFk: widget.misionPadreID,
-                              infoHistorica: _model.textController1.text,
-                              pistaBusqueda: _model.textController3.text,
-                              numeroOrden:
-                                  int.tryParse(_model.textController1.text),
-                              pistaExtra: _model.textController4.text,
-                              tipoValidacion: _model.dropDownValue,
-                              valorPuntos:
-                                  int.tryParse(_model.textController5.text),
-                              estaArchivado: false,
-                            ));
-                            _model.nuevoDesafioCreado =
-                                DesafiosRecord.getDocumentFromData(
-                                    createDesafiosRecordData(
-                                      misionDesafioFk: widget.misionPadreID,
-                                      infoHistorica:
-                                          _model.textController1.text,
-                                      pistaBusqueda:
-                                          _model.textController3.text,
-                                      numeroOrden: int.tryParse(
-                                          _model.textController1.text),
-                                      pistaExtra: _model.textController4.text,
-                                      tipoValidacion: _model.dropDownValue,
-                                      valorPuntos: int.tryParse(
-                                          _model.textController5.text),
-                                      estaArchivado: false,
+                            _model.formDesafioCompleto = true;
+                            if (_model.formKey.currentState == null ||
+                                !_model.formKey.currentState!.validate()) {
+                              _model.formDesafioCompleto = false;
+                            }
+                            if (_model.dropDownValidacionValue == null) {
+                              _model.formDesafioCompleto = false;
+                            }
+                            if (_model.formDesafioCompleto!) {
+                              if (_model.dropDownValidacionValue == 'QR') {
+                                var desafiosRecordReference1 =
+                                    DesafiosRecord.collection.doc();
+                                await desafiosRecordReference1
+                                    .set(createDesafiosRecordData(
+                                  misionDesafioFk: widget.misionPadreID,
+                                  infoHistorica: _model.textController2.text,
+                                  pistaBusqueda: _model.textController3.text,
+                                  numeroOrden:
+                                      int.tryParse(_model.textController1.text),
+                                  pistaExtra: _model.textController4.text,
+                                  tipoValidacion:
+                                      _model.dropDownValidacionValue,
+                                  valorPuntos:
+                                      int.tryParse(_model.textController5.text),
+                                  estaArchivado: false,
+                                ));
+                                _model.nuevoDesafioCreado =
+                                    DesafiosRecord.getDocumentFromData(
+                                        createDesafiosRecordData(
+                                          misionDesafioFk:
+                                              widget.misionPadreID,
+                                          infoHistorica:
+                                              _model.textController2.text,
+                                          pistaBusqueda:
+                                              _model.textController3.text,
+                                          numeroOrden: int.tryParse(
+                                              _model.textController1.text),
+                                          pistaExtra:
+                                              _model.textController4.text,
+                                          tipoValidacion:
+                                              _model.dropDownValidacionValue,
+                                          valorPuntos: int.tryParse(
+                                              _model.textController5.text),
+                                          estaArchivado: false,
+                                        ),
+                                        desafiosRecordReference1);
+                                Navigator.pop(context);
+                                if (_model.nuevoDesafioCreado?.tipoValidacion ==
+                                    'QR') {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (dialogContext) {
+                                      return Dialog(
+                                        elevation: 0,
+                                        insetPadding: EdgeInsets.zero,
+                                        backgroundColor: Colors.transparent,
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        child: ModalExitoQrWidget(
+                                          modalGeneradoID: _model
+                                              .nuevoDesafioCreado!.reference.id,
+                                        ),
+                                      );
+                                    },
+                                  );
+                                }
+                              } else {
+                                if ((_model.dropDownValidacionValue == 'IA') &&
+                                    (_model.uploadedFileUrl_uploadDataVlf !=
+                                            '')) {
+                                  var desafiosRecordReference2 =
+                                      DesafiosRecord.collection.doc();
+                                  await desafiosRecordReference2
+                                      .set(createDesafiosRecordData(
+                                    misionDesafioFk: widget.misionPadreID,
+                                    infoHistorica: _model.textController2.text,
+                                    pistaBusqueda: _model.textController3.text,
+                                    numeroOrden: int.tryParse(
+                                        _model.textController1.text),
+                                    pistaExtra: _model.textController4.text,
+                                    tipoValidacion:
+                                        _model.dropDownValidacionValue,
+                                    valorPuntos: int.tryParse(
+                                        _model.textController5.text),
+                                    estaArchivado: false,
+                                    imagenReferenciaIa:
+                                        _model.uploadedFileUrl_uploadDataVlf,
+                                  ));
+                                  _model.nuevoDesafioCreadoIA =
+                                      DesafiosRecord.getDocumentFromData(
+                                          createDesafiosRecordData(
+                                            misionDesafioFk:
+                                                widget.misionPadreID,
+                                            infoHistorica:
+                                                _model.textController2.text,
+                                            pistaBusqueda:
+                                                _model.textController3.text,
+                                            numeroOrden: int.tryParse(
+                                                _model.textController1.text),
+                                            pistaExtra:
+                                                _model.textController4.text,
+                                            tipoValidacion:
+                                                _model.dropDownValidacionValue,
+                                            valorPuntos: int.tryParse(
+                                                _model.textController5.text),
+                                            estaArchivado: false,
+                                            imagenReferenciaIa: _model
+                                                .uploadedFileUrl_uploadDataVlf,
+                                          ),
+                                          desafiosRecordReference2);
+                                  Navigator.pop(context);
+                                  if (_model.nuevoDesafioCreadoIA
+                                          ?.tipoValidacion ==
+                                      'QR') {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (dialogContext) {
+                                        return Dialog(
+                                          elevation: 0,
+                                          insetPadding: EdgeInsets.zero,
+                                          backgroundColor: Colors.transparent,
+                                          alignment: AlignmentDirectional(
+                                                  0.0, 0.0)
+                                              .resolve(
+                                                  Directionality.of(context)),
+                                          child: ModalExitoQrWidget(
+                                            modalGeneradoID: _model
+                                                .nuevoDesafioCreadoIA!
+                                                .reference
+                                                .id,
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Desafio creado!',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .success,
+                                      ),
+                                    );
+                                  }
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Para los desafíos con IA es obligatorio subir una foto de referencia',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
                                     ),
-                                    desafiosRecordReference);
-                            Navigator.pop(context);
-                            await showDialog(
-                              context: context,
-                              builder: (dialogContext) {
-                                return Dialog(
-                                  elevation: 0,
-                                  insetPadding: EdgeInsets.zero,
-                                  backgroundColor: Colors.transparent,
-                                  alignment: AlignmentDirectional(0.0, 0.0)
-                                      .resolve(Directionality.of(context)),
-                                  child: ModalExitoQrWidget(
-                                    modalGeneradoID:
-                                        _model.nuevoDesafioCreado!.reference.id,
+                                  );
+                                }
+                              }
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Campos incompletos',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
                                   ),
-                                );
-                              },
-                            );
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            }
 
                             safeSetState(() {});
                           },

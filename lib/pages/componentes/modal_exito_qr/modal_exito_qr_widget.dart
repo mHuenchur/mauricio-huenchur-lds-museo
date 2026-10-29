@@ -1,3 +1,5 @@
+import '/flutter_flow/ff_builtin_enums.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -46,10 +48,10 @@ class _ModalExitoQrWidgetState extends State<ModalExitoQrWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+    return Align(
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 400.0,
+        width: 300.0,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -68,118 +70,111 @@ class _ModalExitoQrWidgetState extends State<ModalExitoQrWidget> {
           padding: EdgeInsets.all(12.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: (FFMainAxisAlignment.center).flutterValue,
+            crossAxisAlignment: (FFCrossAxisAlignment.center).flutterValue,
+            textBaseline: TextBaseline.alphabetic,
             children: [
               Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: (FFMainAxisAlignment.end).flutterValue,
                 children: [
-                  BarcodeWidget(
-                    data: widget.modalGeneradoID!,
-                    barcode: Barcode.qrCode(),
-                    width: 200.0,
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    backgroundColor: Colors.transparent,
-                    errorBuilder: (_context, _error) => SizedBox(
-                      width: 200.0,
+                  FlutterFlowIconButton(
+                    borderRadius: 8.0,
+                    buttonSize: 40.0,
+                    fillColor: FlutterFlowTheme.of(context).primary,
+                    icon: Icon(
+                      Icons.close,
+                      color: FlutterFlowTheme.of(context).info,
+                      size: 24.0,
                     ),
-                    drawText: true,
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 0.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'QR desafio',
-                            style:
-                                FlutterFlowTheme.of(context).bodyLarge.override(
-                                      font: GoogleFonts.plusJakartaSans(
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .fontStyle,
-                                      ),
-                                      color: Color(0xFF14181B),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontStyle,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    onPressed: () async {
+                      Navigator.pop(context);
+                    },
                   ),
                 ],
               ),
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [],
-                    ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                child: BarcodeWidget(
+                  data: widget.modalGeneradoID!,
+                  barcode: Barcode.qrCode(),
+                  width: 200.0,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  backgroundColor: Colors.transparent,
+                  errorBuilder: (_context, _error) => SizedBox(
+                    width: 200.0,
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          if (isWeb == true) {
-                            await actions.imprimirPantalla(
-                              widget.modalGeneradoID!,
-                              'Desafio QR',
-                            );
-                          } else {
-                            await launchURL(
-                                'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=](https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${widget.modalGeneradoID}');
-                          }
-                        },
-                        text: 'Descargar QR',
-                        options: FFButtonOptions(
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFF39D2C0),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.plusJakartaSans(
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
+                  drawText: true,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                child: Text(
+                  'QR desafio',
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        font: GoogleFonts.outfit(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontStyle,
                         ),
+                        letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
                       ),
-                    ],
+                ),
+              ),
+              FFButtonWidget(
+                onPressed: _model.estaProcesando
+                    ? null
+                    : () async {
+                        _model.estaProcesando = true;
+                        if (isWeb == true) {
+                          await actions.imprimirPantalla(
+                            widget.modalGeneradoID!,
+                            'Desafio QR',
+                          );
+                        } else {
+                          await launchURL(
+                              'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=](https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${widget.modalGeneradoID}');
+                        }
+
+                        _model.estaProcesando = false;
+                        safeSetState(() {});
+                      },
+                text: 'Descargar QR',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: Color(0xFF39D2C0),
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        font: GoogleFonts.plusJakartaSans(
+                          fontWeight: FontWeight.w500,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
+                        color: Colors.white,
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w500,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                      ),
+                  elevation: 2.0,
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
                   ),
-                ],
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
               ),
             ],
           ),

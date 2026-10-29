@@ -12,11 +12,14 @@ class NuevaSalaModel extends FlutterFlowModel<NuevaSalaWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   String? _textControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Nombre is required';
+      return 'Field is required';
     }
 
     return null;
   }
+
+  // Stores action output result for [Validate Form] action in IconButton widget.
+  bool? formSalaCompleto;
 
   @override
   void initState(BuildContext context) {

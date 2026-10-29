@@ -258,14 +258,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFF1F4F8),
-        appBar: AppBar(
-          backgroundColor: Color(0xFFF1F4F8),
-          automaticallyImplyLeading: false,
-          actions: [],
-          centerTitle: false,
-          elevation: 0.0,
-        ),
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
           child: Column(
@@ -283,7 +276,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                         maxWidth: 770.0,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: FlutterFlowTheme.of(context).alternate,
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 3.0,
@@ -360,7 +353,8 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                             .displaySmall
                                             .fontStyle,
                                       ),
-                                      color: Color(0xFF15161E),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       fontSize: 36.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -384,7 +378,8 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                             .labelMedium
                                             .fontStyle,
                                       ),
-                                      color: Color(0xFF606A85),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -398,7 +393,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                             Divider(
                               height: 44.0,
                               thickness: 2.0,
-                              color: Color(0xFFE5E7EB),
+                              color: FlutterFlowTheme.of(context).alternate,
                             ).animateOnPageLoad(
                                 animationsMap['dividerOnPageLoadAnimation']!),
                             Expanded(
@@ -421,7 +416,8 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                                       .labelMedium
                                                       .fontStyle,
                                             ),
-                                            color: Color(0xFF606A85),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -444,7 +440,8 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                                       .headlineSmall
                                                       .fontStyle,
                                             ),
-                                            color: Color(0xFF15161E),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             fontSize: 22.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
@@ -521,22 +518,24 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                     24.0, 0.0, 24.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFF6F61EF),
+                                color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
+                                    .titleMedium
                                     .override(
-                                      font: GoogleFonts.figtree(
-                                        fontWeight: FontWeight.w500,
+                                      font: GoogleFonts.outfit(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
+                                            .titleMedium
                                             .fontStyle,
                                       ),
-                                      color: Colors.white,
-                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
+                                          .titleMedium
                                           .fontStyle,
                                     ),
                                 elevation: 3.0,

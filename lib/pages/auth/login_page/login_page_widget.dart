@@ -498,9 +498,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                 !_model
                                                                     .passwordVisibility);
                                                           },
-                                                          focusNode: FocusNode(
-                                                              skipTraversal:
-                                                                  true),
+                                                          focusNode: _model
+                                                              .passwordPasswordVisibilityFocusNode
+                                                            ..skipTraversal =
+                                                                !(false),
                                                           child: Icon(
                                                             _model.passwordVisibility
                                                                 ? Icons
@@ -766,8 +767,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               },
                                               text: 'Acceder con Google',
                                               icon: FaIcon(
-                                                FaIconData(FontAwesomeIcons
-                                                    .google.data),
+                                                FaIconData(const IconData(
+                                                    /* google */ 0xf1a0,
+                                                    fontFamily:
+                                                        'FontAwesomeBrands',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(
@@ -893,78 +898,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 12.0, 0.0, 0.0),
-                                            child: RichText(
-                                              textScaler: MediaQuery.of(context)
-                                                  .textScaler,
-                                              text: TextSpan(
-                                                children: [
-                                                  TextSpan(
-                                                    text:
-                                                        'Olvidé mi contraseña',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  )
-                                                ],
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)

@@ -43,6 +43,7 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
   }
 
   // State field(s) for password widget.
+  late FocusNode passwordPasswordVisibilityFocusNode;
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;
   late bool passwordVisibility;
@@ -60,6 +61,7 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
   }
 
   // State field(s) for password_confirm widget.
+  late FocusNode passwordConfirmPasswordVisibilityFocusNode;
   FocusNode? passwordConfirmFocusNode;
   TextEditingController? passwordConfirmTextController;
   late bool passwordConfirmVisibility;
@@ -82,8 +84,10 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
     logoAppModel = createModel(context, () => LogoAppModel());
     nameTextControllerValidator = _nameTextControllerValidator;
     emailAddressTextControllerValidator = _emailAddressTextControllerValidator;
+    passwordPasswordVisibilityFocusNode = FocusNode();
     passwordVisibility = false;
     passwordTextControllerValidator = _passwordTextControllerValidator;
+    passwordConfirmPasswordVisibilityFocusNode = FocusNode();
     passwordConfirmVisibility = false;
     passwordConfirmTextControllerValidator =
         _passwordConfirmTextControllerValidator;
@@ -100,8 +104,9 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();
-
+    passwordPasswordVisibilityFocusNode.dispose();
     passwordConfirmFocusNode?.dispose();
     passwordConfirmTextController?.dispose();
+    passwordConfirmPasswordVisibilityFocusNode.dispose();
   }
 }

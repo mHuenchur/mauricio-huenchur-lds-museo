@@ -20,8 +20,14 @@ class SalasRecord extends FirestoreRecord {
   String get nombreSala => _nombreSala ?? '';
   bool hasNombreSala() => _nombreSala != null;
 
+  // "esta_archivada" field.
+  bool? _estaArchivada;
+  bool get estaArchivada => _estaArchivada ?? false;
+  bool hasEstaArchivada() => _estaArchivada != null;
+
   void _initializeFields() {
     _nombreSala = snapshotData['nombre_sala'] as String?;
+    _estaArchivada = snapshotData['esta_archivada'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -58,10 +64,12 @@ class SalasRecord extends FirestoreRecord {
 
 Map<String, dynamic> createSalasRecordData({
   String? nombreSala,
+  bool? estaArchivada,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'nombre_sala': nombreSala,
+      'esta_archivada': estaArchivada,
     }.withoutNulls,
   );
 
@@ -73,11 +81,13 @@ class SalasRecordDocumentEquality implements Equality<SalasRecord> {
 
   @override
   bool equals(SalasRecord? e1, SalasRecord? e2) {
-    return e1?.nombreSala == e2?.nombreSala;
+    return e1?.nombreSala == e2?.nombreSala &&
+        e1?.estaArchivada == e2?.estaArchivada;
   }
 
   @override
-  int hash(SalasRecord? e) => const ListEquality().hash([e?.nombreSala]);
+  int hash(SalasRecord? e) =>
+      const ListEquality().hash([e?.nombreSala, e?.estaArchivada]);
 
   @override
   bool isValidKey(Object? o) => o is SalasRecord;

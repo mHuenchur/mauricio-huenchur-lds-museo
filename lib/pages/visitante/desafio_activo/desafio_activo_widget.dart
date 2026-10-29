@@ -1,11 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:collection/collection.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -205,28 +209,35 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .headlineMedium
+                                                      .titleLarge
                                                       .override(
                                                         font:
-                                                            GoogleFonts.roboto(
+                                                            GoogleFonts.outfit(
                                                           fontWeight:
-                                                              FontWeight.normal,
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleLarge
+                                                                  .fontWeight,
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .headlineMedium
+                                                                  .titleLarge
                                                                   .fontStyle,
                                                         ),
                                                         color:
-                                                            Color(0xFF101518),
-                                                        fontSize: 28.0,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
-                                                            FontWeight.normal,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLarge
+                                                                .fontWeight,
                                                         fontStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .headlineMedium
+                                                                .titleLarge
                                                                 .fontStyle,
                                                       ),
                                                 ),
@@ -242,93 +253,36 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .labelMedium
+                                                        .labelLarge
                                                         .override(
-                                                          font:
-                                                              GoogleFonts.inter(
+                                                          font: GoogleFonts
+                                                              .roboto(
                                                             fontWeight:
-                                                                FontWeight
-                                                                    .normal,
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontWeight,
                                                             fontStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium
+                                                                    .labelLarge
                                                                     .fontStyle,
                                                           ),
-                                                          color:
-                                                              Color(0xFF57636C),
-                                                          fontSize: 14.0,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.normal,
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelLarge
+                                                                  .fontWeight,
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMedium
+                                                                  .labelLarge
                                                                   .fontStyle,
                                                         ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 12.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
-                                                  },
-                                                  text: 'Action 1',
-                                                  options: FFButtonOptions(
-                                                    height: 40.0,
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(20.0, 0.0,
-                                                                20.0, 0.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: Color(0xFF06D5CD),
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: Colors.white,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                    elevation: 0.0,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            40.0),
                                                   ),
                                                 ),
                                               ],
@@ -395,29 +349,34 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .headlineMedium
+                                                        .titleLarge
                                                         .override(
                                                           font: GoogleFonts
-                                                              .roboto(
+                                                              .outfit(
                                                             fontWeight:
-                                                                FontWeight
-                                                                    .normal,
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge
+                                                                    .fontWeight,
                                                             fontStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .headlineMedium
+                                                                    .titleLarge
                                                                     .fontStyle,
                                                           ),
-                                                          color:
-                                                              Color(0xFF101518),
-                                                          fontSize: 28.0,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiary,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.normal,
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleLarge
+                                                                  .fontWeight,
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .headlineMedium
+                                                                  .titleLarge
                                                                   .fontStyle,
                                                         ),
                                                   ),
@@ -432,108 +391,36 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                             ?.pistaExtra,
                                                         'PISTA EXTRA',
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .inter(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            color: Color(
-                                                                0xFF57636C),
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 12.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'Action 1',
-                                                    options: FFButtonOptions(
-                                                      height: 40.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  20.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color: Color(0xFF06D5CD),
-                                                      textStyle:
+                                                      style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .titleSmall
+                                                              .labelMedium
                                                               .override(
                                                                 font:
                                                                     GoogleFonts
                                                                         .inter(
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w500,
+                                                                          .normal,
                                                                   fontStyle: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleSmall
+                                                                      .labelMedium
                                                                       .fontStyle,
                                                                 ),
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 16.0,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w500,
+                                                                        .normal,
                                                                 fontStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleSmall
+                                                                    .labelMedium
                                                                     .fontStyle,
                                                               ),
-                                                      elevation: 0.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              40.0),
                                                     ),
                                                   ),
                                                 ],
@@ -547,150 +434,341 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                 ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  _model.codigoLeido =
-                                      await FlutterBarcodeScanner.scanBarcode(
-                                    '#C62828', // scanning line color
-                                    'Cancel', // cancel button text
-                                    true, // whether to show the torch (camera LED) toggle icon
-                                    ScanMode.QR,
-                                  );
-
-                                  if (_model.codigoLeido ==
-                                      columnDesafiosRecord?.reference.id) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Objeto encontrado!',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
+                                  if (columnDesafiosRecord?.tipoValidacion ==
+                                      'QR') {
+                                    _model.codigoLeido =
+                                        await FlutterBarcodeScanner.scanBarcode(
+                                      '#C62828', // scanning line color
+                                      'Cancel', // cancel button text
+                                      true, // whether to show the torch (camera LED) toggle icon
+                                      ScanMode.QR,
                                     );
-                                    _model.mostrarPistaExtra = false;
-                                    safeSetState(() {});
-                                    _model.numeroDesafioSiguiente =
-                                        await queryDesafiosRecordOnce(
-                                      queryBuilder: (desafiosRecord) =>
-                                          desafiosRecord
-                                              .where(
-                                                'mision_desafio_fk',
-                                                isEqualTo: widget.misionActual,
-                                              )
-                                              .where(
-                                                'numero_orden',
-                                                isEqualTo:
-                                                    stackProgresoMisionVisitanteRecord!
-                                                            .numeroDesafioActual +
-                                                        1,
-                                              )
-                                              .where(
-                                                'esta_archivado',
-                                                isEqualTo: false,
-                                              ),
-                                      singleRecord: true,
-                                    ).then((s) => s.firstOrNull);
-                                    if (_model.numeroDesafioSiguiente?.reference
-                                                .id !=
-                                            null &&
-                                        _model.numeroDesafioSiguiente?.reference
-                                                .id !=
-                                            '') {
-                                      await stackProgresoMisionVisitanteRecord!
-                                          .reference
-                                          .update({
-                                        ...mapToFirestore(
-                                          {
-                                            'numero_desafio_actual':
-                                                FieldValue.increment(1),
-                                          },
+
+                                    if (_model.codigoLeido ==
+                                        columnDesafiosRecord?.reference.id) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Objeto encontrado!',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
                                         ),
-                                      });
-
-                                      context.pushNamed(
-                                        DesafioActivoWidget.routeName,
-                                        queryParameters: {
-                                          'misionActual': serializeParam(
-                                            widget.misionActual,
-                                            ParamType.DocumentReference,
-                                          ),
-                                          'numeroPistaParam': serializeParam(
-                                            _model.numeroDesafioSiguiente
-                                                ?.numeroOrden,
-                                            ParamType.int,
-                                          ),
-                                        }.withoutNulls,
                                       );
-                                    } else {
-                                      await stackProgresoMisionVisitanteRecord!
-                                          .reference
-                                          .update(
-                                              createProgresoMisionVisitanteRecordData(
-                                        misionCompletada: true,
-                                      ));
+                                      _model.mostrarPistaExtra = false;
+                                      safeSetState(() {});
+                                      _model.numeroDesafioSiguiente =
+                                          await queryDesafiosRecordOnce(
+                                        queryBuilder: (desafiosRecord) =>
+                                            desafiosRecord
+                                                .where(
+                                                  'mision_desafio_fk',
+                                                  isEqualTo:
+                                                      widget.misionActual,
+                                                )
+                                                .where(
+                                                  'numero_orden',
+                                                  isEqualTo:
+                                                      stackProgresoMisionVisitanteRecord!
+                                                              .numeroDesafioActual +
+                                                          1,
+                                                )
+                                                .where(
+                                                  'esta_archivado',
+                                                  isEqualTo: false,
+                                                ),
+                                        singleRecord: true,
+                                      ).then((s) => s.firstOrNull);
+                                      if (_model.numeroDesafioSiguiente
+                                                  ?.reference.id !=
+                                              null &&
+                                          _model.numeroDesafioSiguiente
+                                                  ?.reference.id !=
+                                              '') {
+                                        await stackProgresoMisionVisitanteRecord!
+                                            .reference
+                                            .update({
+                                          ...mapToFirestore(
+                                            {
+                                              'numero_desafio_actual':
+                                                  FieldValue.increment(1),
+                                            },
+                                          ),
+                                        });
 
-                                      context.goNamed(
-                                          MisionCompletadaWidget.routeName);
+                                        context.pushNamed(
+                                          DesafioActivoWidget.routeName,
+                                          queryParameters: {
+                                            'misionActual': serializeParam(
+                                              widget.misionActual,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'numeroPistaParam': serializeParam(
+                                              _model.numeroDesafioSiguiente
+                                                  ?.numeroOrden,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      } else {
+                                        await stackProgresoMisionVisitanteRecord!
+                                            .reference
+                                            .update(
+                                                createProgresoMisionVisitanteRecordData(
+                                          misionCompletada: true,
+                                        ));
+
+                                        context.goNamed(
+                                            MisionCompletadaWidget.routeName);
+                                      }
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Objeto incorrecto!',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .warning,
+                                        ),
+                                      );
+                                      _model.mostrarPistaExtra = true;
+                                      safeSetState(() {});
                                     }
                                   } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Objeto incorrecto!',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                      ),
+                                    final selectedMedia = await selectMedia(
+                                      maxWidth: 800.00,
+                                      imageQuality: 70,
+                                      multiImage: false,
                                     );
-                                    _model.mostrarPistaExtra = true;
-                                    safeSetState(() {});
+                                    if (selectedMedia != null &&
+                                        selectedMedia.every((m) =>
+                                            validateFileFormat(
+                                                m.storagePath, context))) {
+                                      safeSetState(() =>
+                                          _model.isDataUploading_uploadDataUq5 =
+                                              true);
+                                      var selectedUploadedFiles =
+                                          <FFUploadedFile>[];
+
+                                      var downloadUrls = <String>[];
+                                      try {
+                                        selectedUploadedFiles = selectedMedia
+                                            .map((m) => FFUploadedFile(
+                                                  name: m.storagePath
+                                                      .split('/')
+                                                      .last,
+                                                  bytes: m.bytes,
+                                                  height: m.dimensions?.height,
+                                                  width: m.dimensions?.width,
+                                                  blurHash: m.blurHash,
+                                                  originalFilename:
+                                                      m.originalFilename,
+                                                ))
+                                            .toList();
+
+                                        downloadUrls = (await Future.wait(
+                                          selectedMedia.map(
+                                            (m) async => await uploadData(
+                                                m.storagePath, m.bytes),
+                                          ),
+                                        ))
+                                            .where((u) => u != null)
+                                            .map((u) => u!)
+                                            .toList();
+                                      } finally {
+                                        _model.isDataUploading_uploadDataUq5 =
+                                            false;
+                                      }
+                                      if (selectedUploadedFiles.length ==
+                                              selectedMedia.length &&
+                                          downloadUrls.length ==
+                                              selectedMedia.length) {
+                                        safeSetState(() {
+                                          _model.uploadedLocalFile_uploadDataUq5 =
+                                              selectedUploadedFiles.first;
+                                          _model.uploadedFileUrl_uploadDataUq5 =
+                                              downloadUrls.first;
+                                        });
+                                      } else {
+                                        safeSetState(() {});
+                                        return;
+                                      }
+                                    }
+
+                                    _model.respuestaIA =
+                                        await actions.compararObjetosIA(
+                                      columnDesafiosRecord!.imagenReferenciaIa,
+                                      _model.uploadedFileUrl_uploadDataUq5,
+                                      'CLAVE',
+                                    );
+                                    if (_model.respuestaIA == 'SI') {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Objeto encontrado!',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                        ),
+                                      );
+                                      await FirebaseStorage.instance
+                                          .refFromURL(_model
+                                              .uploadedFileUrl_uploadDataUq5)
+                                          .delete();
+                                      _model.mostrarPistaExtra = false;
+                                      safeSetState(() {});
+                                      _model.numeroDesafioSiguienteIA =
+                                          await queryDesafiosRecordOnce(
+                                        queryBuilder: (desafiosRecord) =>
+                                            desafiosRecord
+                                                .where(
+                                                  'mision_desafio_fk',
+                                                  isEqualTo:
+                                                      widget.misionActual,
+                                                )
+                                                .where(
+                                                  'numero_orden',
+                                                  isEqualTo:
+                                                      stackProgresoMisionVisitanteRecord!
+                                                              .numeroDesafioActual +
+                                                          1,
+                                                )
+                                                .where(
+                                                  'esta_archivado',
+                                                  isEqualTo: false,
+                                                ),
+                                        singleRecord: true,
+                                      ).then((s) => s.firstOrNull);
+                                      if (_model.numeroDesafioSiguienteIA
+                                                  ?.reference.id !=
+                                              null &&
+                                          _model.numeroDesafioSiguienteIA
+                                                  ?.reference.id !=
+                                              '') {
+                                        await stackProgresoMisionVisitanteRecord!
+                                            .reference
+                                            .update({
+                                          ...mapToFirestore(
+                                            {
+                                              'numero_desafio_actual':
+                                                  FieldValue.increment(1),
+                                            },
+                                          ),
+                                        });
+
+                                        context.pushNamed(
+                                          DesafioActivoWidget.routeName,
+                                          queryParameters: {
+                                            'misionActual': serializeParam(
+                                              widget.misionActual,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'numeroPistaParam': serializeParam(
+                                              _model.numeroDesafioSiguienteIA
+                                                  ?.numeroOrden,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      } else {
+                                        await stackProgresoMisionVisitanteRecord!
+                                            .reference
+                                            .update(
+                                                createProgresoMisionVisitanteRecordData(
+                                          misionCompletada: true,
+                                        ));
+
+                                        context.goNamed(
+                                            MisionCompletadaWidget.routeName);
+                                      }
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            _model.respuestaIA!,
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .warning,
+                                        ),
+                                      );
+                                      await FirebaseStorage.instance
+                                          .refFromURL(_model
+                                              .uploadedFileUrl_uploadDataUq5)
+                                          .delete();
+                                      _model.mostrarPistaExtra = true;
+                                      safeSetState(() {});
+                                    }
                                   }
 
                                   safeSetState(() {});
                                 },
-                                text: 'Escanear',
+                                text: 'Camara',
+                                icon: Icon(
+                                  Icons.camera_alt,
+                                  size: 30.0,
+                                ),
                                 options: FFButtonOptions(
-                                  height: 40.0,
+                                  width: 200.0,
+                                  height: 60.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: Color(0xFF0CDCF9),
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
+                                      .headlineMedium
                                       .override(
-                                        font: GoogleFonts.interTight(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontWeight,
+                                        font: GoogleFonts.outfit(
+                                          fontWeight: FontWeight.w500,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .titleSmall
+                                                  .headlineMedium
                                                   .fontStyle,
                                         ),
-                                        color: Colors.white,
                                         letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
+                                        fontWeight: FontWeight.w500,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
+                                            .headlineMedium
                                             .fontStyle,
                                       ),
                                   elevation: 0.0,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                             ],
