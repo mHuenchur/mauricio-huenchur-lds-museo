@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'editar_desafio_model.dart';
 export 'editar_desafio_model.dart';
@@ -751,11 +752,17 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                keyboardType:
+                                    (FFKeyboardType.number).flutterValue,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 enableInteractiveSelection: true,
                                 validator: _model.textController5Validator
                                     .asValidator(context),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp('[0-9]'))
+                                ],
                               ),
                             ),
                           ],

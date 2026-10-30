@@ -53,8 +53,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
 
-    _model.textController5 ??= TextEditingController();
-    _model.textFieldFocusNode5 ??= FocusNode();
+    _model.campoPuntosTextController ??= TextEditingController();
+    _model.campoPuntosFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -661,8 +661,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
-                                controller: _model.textController5,
-                                focusNode: _model.textFieldFocusNode5,
+                                controller: _model.campoPuntosTextController,
+                                focusNode: _model.campoPuntosFocusNode,
                                 autofocus: false,
                                 enabled: true,
                                 obscureText: false,
@@ -768,7 +768,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 enableInteractiveSelection: true,
-                                validator: _model.textController5Validator
+                                validator: _model
+                                    .campoPuntosTextControllerValidator
                                     .asValidator(context),
                                 inputFormatters: [
                                   FilteringTextInputFormatter.allow(
@@ -979,8 +980,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                   pistaExtra: _model.textController4.text,
                                   tipoValidacion:
                                       _model.dropDownValidacionValue,
-                                  valorPuntos:
-                                      int.tryParse(_model.textController5.text),
+                                  valorPuntos: int.tryParse(
+                                      _model.campoPuntosTextController.text),
                                   estaArchivado: false,
                                 ));
                                 _model.nuevoDesafioCreado =
@@ -998,8 +999,8 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                               _model.textController4.text,
                                           tipoValidacion:
                                               _model.dropDownValidacionValue,
-                                          valorPuntos: int.tryParse(
-                                              _model.textController5.text),
+                                          valorPuntos: int.tryParse(_model
+                                              .campoPuntosTextController.text),
                                           estaArchivado: false,
                                         ),
                                         desafiosRecordReference1);
@@ -1042,7 +1043,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                     tipoValidacion:
                                         _model.dropDownValidacionValue,
                                     valorPuntos: int.tryParse(
-                                        _model.textController5.text),
+                                        _model.campoPuntosTextController.text),
                                     estaArchivado: false,
                                     imagenReferenciaIa:
                                         _model.uploadedFileUrl_uploadDataVlf,
@@ -1062,8 +1063,9 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                                 _model.textController4.text,
                                             tipoValidacion:
                                                 _model.dropDownValidacionValue,
-                                            valorPuntos: int.tryParse(
-                                                _model.textController5.text),
+                                            valorPuntos: int.tryParse(_model
+                                                .campoPuntosTextController
+                                                .text),
                                             estaArchivado: false,
                                             imagenReferenciaIa: _model
                                                 .uploadedFileUrl_uploadDataVlf,

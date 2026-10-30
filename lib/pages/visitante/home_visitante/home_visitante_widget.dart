@@ -9,7 +9,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/componentes/detalles_mision/detalles_mision_widget.dart';
 import 'dart:ui';
 import '/index.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -173,13 +172,8 @@ class _HomeVisitanteWidgetState extends State<HomeVisitanteWidget>
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 500),
-                                            imageUrl:
-                                                'https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHVzZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+                                          child: Image.asset(
+                                            'assets/images/user.png',
                                             width: 44.0,
                                             height: 44.0,
                                             fit: BoxFit.cover,
