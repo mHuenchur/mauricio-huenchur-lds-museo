@@ -422,8 +422,7 @@ class _AdminPruebaWidgetState extends State<AdminPruebaWidget> {
                                                                         5.0,
                                                                         0.0),
                                                             child: Text(
-                                                              listViewMisionesRecord
-                                                                  .dificultad,
+                                                              'Hello World',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -964,8 +963,7 @@ class _AdminPruebaWidgetState extends State<AdminPruebaWidget> {
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          listViewMisionesRecord
-                                                                              .dificultad,
+                                                                          'Hello World',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(

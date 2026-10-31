@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "88183425566-ehk3fnogsq8jtj2rgid14vkl1gs52vr8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.lds2026",
+            "certificate_hash": "25c3631c071f906779f716be1f0179ead632efc9"
+          }
+        },
+        {
           "client_id": "88183425566-i6q0tmp3dou3v09jgm248s07eg9hup02.apps.googleusercontent.com",
           "client_type": 3
         }

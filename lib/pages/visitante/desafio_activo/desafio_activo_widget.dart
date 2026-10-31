@@ -466,6 +466,34 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                       );
                                       _model.mostrarPistaExtra = false;
                                       safeSetState(() {});
+
+                                      await stackProgresoMisionVisitanteRecord!
+                                          .reference
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'puntos_totales_ganados':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord!
+                                                        .valorPuntos),
+                                          },
+                                        ),
+                                      });
+
+                                      await currentUserReference!.update({
+                                        ...mapToFirestore(
+                                          {
+                                            'puntos_disponibles':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                            'puntos_totales_ganados':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                          },
+                                        ),
+                                      });
                                       _model.numeroDesafioSiguiente =
                                           await queryDesafiosRecordOnce(
                                         queryBuilder: (desafiosRecord) =>
@@ -478,7 +506,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                 .where(
                                                   'numero_orden',
                                                   isEqualTo:
-                                                      stackProgresoMisionVisitanteRecord!
+                                                      stackProgresoMisionVisitanteRecord
                                                               .numeroDesafioActual +
                                                           1,
                                                 )
@@ -494,7 +522,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           _model.numeroDesafioSiguiente
                                                   ?.reference.id !=
                                               '') {
-                                        await stackProgresoMisionVisitanteRecord!
+                                        await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update({
                                           ...mapToFirestore(
@@ -504,7 +532,9 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                             },
                                           ),
                                         });
-
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
                                         context.pushNamed(
                                           DesafioActivoWidget.routeName,
                                           queryParameters: {
@@ -520,14 +550,16 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           }.withoutNulls,
                                         );
                                       } else {
-                                        await stackProgresoMisionVisitanteRecord!
+                                        await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update(
                                                 createProgresoMisionVisitanteRecordData(
                                           misionCompletada: true,
                                         ));
-
-                                        context.goNamed(
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
+                                        context.pushNamed(
                                             MisionCompletadaWidget.routeName);
                                       }
                                     } else {
@@ -644,6 +676,34 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           .delete();
                                       _model.mostrarPistaExtra = false;
                                       safeSetState(() {});
+
+                                      await stackProgresoMisionVisitanteRecord!
+                                          .reference
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'puntos_totales_ganados':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                          },
+                                        ),
+                                      });
+
+                                      await currentUserReference!.update({
+                                        ...mapToFirestore(
+                                          {
+                                            'puntos_disponibles':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                            'puntos_totales_ganados':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                          },
+                                        ),
+                                      });
                                       _model.numeroDesafioSiguienteIA =
                                           await queryDesafiosRecordOnce(
                                         queryBuilder: (desafiosRecord) =>
@@ -656,7 +716,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                 .where(
                                                   'numero_orden',
                                                   isEqualTo:
-                                                      stackProgresoMisionVisitanteRecord!
+                                                      stackProgresoMisionVisitanteRecord
                                                               .numeroDesafioActual +
                                                           1,
                                                 )
@@ -672,7 +732,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           _model.numeroDesafioSiguienteIA
                                                   ?.reference.id !=
                                               '') {
-                                        await stackProgresoMisionVisitanteRecord!
+                                        await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update({
                                           ...mapToFirestore(
@@ -682,7 +742,9 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                             },
                                           ),
                                         });
-
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
                                         context.pushNamed(
                                           DesafioActivoWidget.routeName,
                                           queryParameters: {
@@ -698,14 +760,16 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           }.withoutNulls,
                                         );
                                       } else {
-                                        await stackProgresoMisionVisitanteRecord!
+                                        await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update(
                                                 createProgresoMisionVisitanteRecordData(
                                           misionCompletada: true,
                                         ));
-
-                                        context.goNamed(
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
+                                        context.pushNamed(
                                             MisionCompletadaWidget.routeName);
                                       }
                                     } else {

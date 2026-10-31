@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -741,6 +742,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     .signInWithGoogle(context);
                                                 if (user == null) {
                                                   return;
+                                                }
+                                                if (!(valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.puntosTotalesGanados,
+                                                        0) !=
+                                                    null)) {
+                                                  await currentUserReference!
+                                                      .update(
+                                                          createUsersRecordData(
+                                                    puntosDisponibles: 0,
+                                                    puntosTotalesGanados: 0,
+                                                  ));
                                                 }
                                                 if (valueOrDefault(
                                                         currentUserDocument

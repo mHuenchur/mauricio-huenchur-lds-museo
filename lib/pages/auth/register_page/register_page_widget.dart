@@ -946,6 +946,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                               displayName: _model
                                                                   .nameTextController
                                                                   .text,
+                                                              puntosDisponibles:
+                                                                  0,
+                                                              puntosTotalesGanados:
+                                                                  0,
                                                             ));
 
                                                         if (valueOrDefault(
@@ -1122,6 +1126,18 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                     .signInWithGoogle(context);
                                                 if (user == null) {
                                                   return;
+                                                }
+                                                if (!(valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.puntosTotalesGanados,
+                                                        0) !=
+                                                    null)) {
+                                                  await currentUserReference!
+                                                      .update(
+                                                          createUsersRecordData(
+                                                    puntosDisponibles: 0,
+                                                    puntosTotalesGanados: 0,
+                                                  ));
                                                 }
                                                 if (valueOrDefault(
                                                         currentUserDocument

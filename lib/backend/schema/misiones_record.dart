@@ -25,11 +25,6 @@ class MisionesRecord extends FirestoreRecord {
   String get descripcion => _descripcion ?? '';
   bool hasDescripcion() => _descripcion != null;
 
-  // "dificultad" field.
-  String? _dificultad;
-  String get dificultad => _dificultad ?? '';
-  bool hasDificultad() => _dificultad != null;
-
   // "esta_activa" field.
   bool? _estaActiva;
   bool get estaActiva => _estaActiva ?? false;
@@ -39,11 +34,6 @@ class MisionesRecord extends FirestoreRecord {
   String? _imagen;
   String get imagen => _imagen ?? '';
   bool hasImagen() => _imagen != null;
-
-  // "duracion" field.
-  int? _duracion;
-  int get duracion => _duracion ?? 0;
-  bool hasDuracion() => _duracion != null;
 
   // "esta_archivada" field.
   bool? _estaArchivada;
@@ -58,10 +48,8 @@ class MisionesRecord extends FirestoreRecord {
   void _initializeFields() {
     _nombreMision = snapshotData['nombre_mision'] as String?;
     _descripcion = snapshotData['descripcion'] as String?;
-    _dificultad = snapshotData['dificultad'] as String?;
     _estaActiva = snapshotData['esta_activa'] as bool?;
     _imagen = snapshotData['imagen'] as String?;
-    _duracion = castToType<int>(snapshotData['duracion']);
     _estaArchivada = snapshotData['esta_archivada'] as bool?;
     _nombreSala = snapshotData['nombre_sala'] as String?;
   }
@@ -102,10 +90,8 @@ class MisionesRecord extends FirestoreRecord {
 Map<String, dynamic> createMisionesRecordData({
   String? nombreMision,
   String? descripcion,
-  String? dificultad,
   bool? estaActiva,
   String? imagen,
-  int? duracion,
   bool? estaArchivada,
   String? nombreSala,
 }) {
@@ -113,10 +99,8 @@ Map<String, dynamic> createMisionesRecordData({
     <String, dynamic>{
       'nombre_mision': nombreMision,
       'descripcion': descripcion,
-      'dificultad': dificultad,
       'esta_activa': estaActiva,
       'imagen': imagen,
-      'duracion': duracion,
       'esta_archivada': estaArchivada,
       'nombre_sala': nombreSala,
     }.withoutNulls,
@@ -132,10 +116,8 @@ class MisionesRecordDocumentEquality implements Equality<MisionesRecord> {
   bool equals(MisionesRecord? e1, MisionesRecord? e2) {
     return e1?.nombreMision == e2?.nombreMision &&
         e1?.descripcion == e2?.descripcion &&
-        e1?.dificultad == e2?.dificultad &&
         e1?.estaActiva == e2?.estaActiva &&
         e1?.imagen == e2?.imagen &&
-        e1?.duracion == e2?.duracion &&
         e1?.estaArchivada == e2?.estaArchivada &&
         e1?.nombreSala == e2?.nombreSala;
   }
@@ -144,10 +126,8 @@ class MisionesRecordDocumentEquality implements Equality<MisionesRecord> {
   int hash(MisionesRecord? e) => const ListEquality().hash([
         e?.nombreMision,
         e?.descripcion,
-        e?.dificultad,
         e?.estaActiva,
         e?.imagen,
-        e?.duracion,
         e?.estaArchivada,
         e?.nombreSala
       ]);
