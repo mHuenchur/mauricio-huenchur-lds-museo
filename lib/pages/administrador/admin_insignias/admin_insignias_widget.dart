@@ -550,8 +550,38 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
                                                     .fromSTEB(
                                                         0.0, 0.0, 10.0, 0.0),
                                                 child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
+                                                  onPressed: () async {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return GestureDetector(
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                FormInsigniaWidget(
+                                                              insigniaEditar:
+                                                                  listViewInsigniasRecord,
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
                                                   },
                                                   text: 'Editar',
                                                   options: FFButtonOptions(
@@ -605,8 +635,49 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
                                                 ),
                                               ),
                                               FFButtonWidget(
-                                                onPressed: () {
-                                                  print('Button pressed ...');
+                                                onPressed: () async {
+                                                  var confirmDialogResponse =
+                                                      await showDialog<bool>(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                title: Text(
+                                                                    'Archivar insignia'),
+                                                                content: Text(
+                                                                    'Esta insignia dejará de ofrecerse para nuevas participaciones. Los visitantes que ya la obtuvieron la conservarán y quienes comenzaron una misión con ella podrán recibirla al completarla.'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                    child: Text(
+                                                                        'Cancelar'),
+                                                                  ),
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                    child: Text(
+                                                                        'Archivar'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
+                                                          ) ??
+                                                          false;
+                                                  if (confirmDialogResponse) {
+                                                    await listViewInsigniasRecord
+                                                        .reference
+                                                        .update(
+                                                            createInsigniasRecordData(
+                                                      archivada: true,
+                                                      fechaActualizacion:
+                                                          getCurrentTimestamp,
+                                                    ));
+                                                  }
                                                 },
                                                 text: 'Archivar',
                                                 options: FFButtonOptions(

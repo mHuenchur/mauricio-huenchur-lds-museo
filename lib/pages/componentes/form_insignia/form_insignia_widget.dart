@@ -15,7 +15,12 @@ import 'form_insignia_model.dart';
 export 'form_insignia_model.dart';
 
 class FormInsigniaWidget extends StatefulWidget {
-  const FormInsigniaWidget({super.key});
+  const FormInsigniaWidget({
+    super.key,
+    this.insigniaEditar,
+  });
+
+  final InsigniasRecord? insigniaEditar;
 
   @override
   State<FormInsigniaWidget> createState() => _FormInsigniaWidgetState();
@@ -38,10 +43,12 @@ class _FormInsigniaWidgetState extends State<FormInsigniaWidget>
     super.initState();
     _model = createModel(context, () => FormInsigniaModel());
 
-    _model.txtNombreInsigniaTextController ??= TextEditingController();
+    _model.txtNombreInsigniaTextController ??=
+        TextEditingController(text: widget.insigniaEditar?.nombre);
     _model.txtNombreInsigniaFocusNode ??= FocusNode();
 
-    _model.txtDescripcionInsigniaTextController ??= TextEditingController();
+    _model.txtDescripcionInsigniaTextController ??=
+        TextEditingController(text: widget.insigniaEditar?.descripcion);
     _model.txtDescripcionInsigniaFocusNode ??= FocusNode();
 
     animationsMap.addAll({
@@ -163,7 +170,9 @@ class _FormInsigniaWidgetState extends State<FormInsigniaWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 4.0),
                                             child: Text(
-                                              'Crear Insignia',
+                                              widget.insigniaEditar != null
+                                                  ? 'Editar Insignia'
+                                                  : 'Crear Insignia',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .headlineMedium
@@ -408,8 +417,14 @@ class _FormInsigniaWidgetState extends State<FormInsigniaWidget>
                                                     ),
                                                   ],
                                                 ),
-                                              if (_model.uploadedFileUrl_uploadDataTl7 !=
-                                                      '')
+                                              if ((_model.uploadedFileUrl_uploadDataTl7 !=
+                                                          '') ||
+                                                  (widget.insigniaEditar
+                                                              ?.imagen !=
+                                                          null &&
+                                                      widget.insigniaEditar
+                                                              ?.imagen !=
+                                                          ''))
                                                 Padding(
                                                   padding: EdgeInsets.all(8.0),
                                                   child: ClipRRect(
@@ -421,8 +436,13 @@ class _FormInsigniaWidgetState extends State<FormInsigniaWidget>
                                                           milliseconds: 500),
                                                       fadeOutDuration: Duration(
                                                           milliseconds: 500),
-                                                      imageUrl: _model
-                                                          .uploadedFileUrl_uploadDataTl7,
+                                                      imageUrl: _model.uploadedFileUrl_uploadDataTl7 !=
+                                                                  ''
+                                                          ? _model
+                                                              .uploadedFileUrl_uploadDataTl7
+                                                          : widget
+                                                              .insigniaEditar!
+                                                              .imagen,
                                                       width: double.infinity,
                                                       height: double.infinity,
                                                       fit: BoxFit.contain,
@@ -712,32 +732,62 @@ class _FormInsigniaWidgetState extends State<FormInsigniaWidget>
                                                   .validate()) {
                                             return;
                                           }
-                                          if (_model.uploadedFileUrl_uploadDataTl7 !=
-                                                  '') {
-                                            await InsigniasRecord.collection
-                                                .doc()
-                                                .set(createInsigniasRecordData(
-                                                  nombre: _model
-                                                      .txtNombreInsigniaTextController
-                                                      .text,
-                                                  descripcion: _model
-                                                      .txtDescripcionInsigniaTextController
-                                                      .text,
-                                                  imagen: _model
-                                                      .uploadedFileUrl_uploadDataTl7,
-                                                  archivada: false,
-                                                  fechaCreacion:
-                                                      getCurrentTimestamp,
-                                                  fechaActualizacion:
-                                                      getCurrentTimestamp,
-                                                ));
+                                          if ((_model.uploadedFileUrl_uploadDataTl7 !=
+                                                      '') ||
+                                              (widget.insigniaEditar?.imagen !=
+                                                      null &&
+                                                  widget.insigniaEditar
+                                                          ?.imagen !=
+                                                      '')) {
+                                            if (widget.insigniaEditar !=
+                                                null) {
+                                              await widget
+                                                  .insigniaEditar!.reference
+                                                  .update(
+                                                      createInsigniasRecordData(
+                                                nombre: _model
+                                                    .txtNombreInsigniaTextController
+                                                    .text,
+                                                descripcion: _model
+                                                    .txtDescripcionInsigniaTextController
+                                                    .text,
+                                                imagen: _model.uploadedFileUrl_uploadDataTl7 !=
+                                                            ''
+                                                    ? _model
+                                                        .uploadedFileUrl_uploadDataTl7
+                                                    : widget
+                                                        .insigniaEditar?.imagen,
+                                                fechaActualizacion:
+                                                    getCurrentTimestamp,
+                                              ));
+                                            } else {
+                                              await InsigniasRecord.collection
+                                                  .doc()
+                                                  .set(
+                                                      createInsigniasRecordData(
+                                                    nombre: _model
+                                                        .txtNombreInsigniaTextController
+                                                        .text,
+                                                    descripcion: _model
+                                                        .txtDescripcionInsigniaTextController
+                                                        .text,
+                                                    imagen: _model
+                                                        .uploadedFileUrl_uploadDataTl7,
+                                                    archivada: false,
+                                                    fechaCreacion:
+                                                        getCurrentTimestamp,
+                                                    fechaActualizacion:
+                                                        getCurrentTimestamp,
+                                                  ));
+                                            }
+
                                             Navigator.pop(context);
                                           } else {
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
                                               SnackBar(
                                                 content: Text(
-                                                  'Agrega una imagen para la insignia',
+                                                  'Seleccioná una imagen para la insignia',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)
