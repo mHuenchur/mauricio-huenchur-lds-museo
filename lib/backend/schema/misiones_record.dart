@@ -45,6 +45,11 @@ class MisionesRecord extends FirestoreRecord {
   String get nombreSala => _nombreSala ?? '';
   bool hasNombreSala() => _nombreSala != null;
 
+  // "insignia_ref" field.
+  DocumentReference? _insigniaRef;
+  DocumentReference? get insigniaRef => _insigniaRef;
+  bool hasInsigniaRef() => _insigniaRef != null;
+
   void _initializeFields() {
     _nombreMision = snapshotData['nombre_mision'] as String?;
     _descripcion = snapshotData['descripcion'] as String?;
@@ -52,6 +57,7 @@ class MisionesRecord extends FirestoreRecord {
     _imagen = snapshotData['imagen'] as String?;
     _estaArchivada = snapshotData['esta_archivada'] as bool?;
     _nombreSala = snapshotData['nombre_sala'] as String?;
+    _insigniaRef = snapshotData['insignia_ref'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -94,6 +100,7 @@ Map<String, dynamic> createMisionesRecordData({
   String? imagen,
   bool? estaArchivada,
   String? nombreSala,
+  DocumentReference? insigniaRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,6 +110,7 @@ Map<String, dynamic> createMisionesRecordData({
       'imagen': imagen,
       'esta_archivada': estaArchivada,
       'nombre_sala': nombreSala,
+      'insignia_ref': insigniaRef,
     }.withoutNulls,
   );
 
@@ -119,7 +127,8 @@ class MisionesRecordDocumentEquality implements Equality<MisionesRecord> {
         e1?.estaActiva == e2?.estaActiva &&
         e1?.imagen == e2?.imagen &&
         e1?.estaArchivada == e2?.estaArchivada &&
-        e1?.nombreSala == e2?.nombreSala;
+        e1?.nombreSala == e2?.nombreSala &&
+        e1?.insigniaRef == e2?.insigniaRef;
   }
 
   @override
@@ -129,7 +138,8 @@ class MisionesRecordDocumentEquality implements Equality<MisionesRecord> {
         e?.estaActiva,
         e?.imagen,
         e?.estaArchivada,
-        e?.nombreSala
+        e?.nombreSala,
+        e?.insigniaRef
       ]);
 
   @override

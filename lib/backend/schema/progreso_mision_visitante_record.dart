@@ -40,6 +40,31 @@ class ProgresoMisionVisitanteRecord extends FirestoreRecord {
   int get puntosTotalesGanados => _puntosTotalesGanados ?? 0;
   bool hasPuntosTotalesGanados() => _puntosTotalesGanados != null;
 
+  // "insignia_ref" field.
+  DocumentReference? _insigniaRef;
+  DocumentReference? get insigniaRef => _insigniaRef;
+  bool hasInsigniaRef() => _insigniaRef != null;
+
+  // "insignia_nombre" field.
+  String? _insigniaNombre;
+  String get insigniaNombre => _insigniaNombre ?? '';
+  bool hasInsigniaNombre() => _insigniaNombre != null;
+
+  // "insignia_descripcion" field.
+  String? _insigniaDescripcion;
+  String get insigniaDescripcion => _insigniaDescripcion ?? '';
+  bool hasInsigniaDescripcion() => _insigniaDescripcion != null;
+
+  // "insignia_imagen" field.
+  String? _insigniaImagen;
+  String get insigniaImagen => _insigniaImagen ?? '';
+  bool hasInsigniaImagen() => _insigniaImagen != null;
+
+  // "nombre_mision_inicio" field.
+  String? _nombreMisionInicio;
+  String get nombreMisionInicio => _nombreMisionInicio ?? '';
+  bool hasNombreMisionInicio() => _nombreMisionInicio != null;
+
   void _initializeFields() {
     _visitanteId = snapshotData['visitante_id'] as String?;
     _misionId = snapshotData['mision_id'] as String?;
@@ -48,6 +73,11 @@ class ProgresoMisionVisitanteRecord extends FirestoreRecord {
     _misionCompletada = snapshotData['mision_completada'] as bool?;
     _puntosTotalesGanados =
         castToType<int>(snapshotData['puntos_totales_ganados']);
+    _insigniaRef = snapshotData['insignia_ref'] as DocumentReference?;
+    _insigniaNombre = snapshotData['insignia_nombre'] as String?;
+    _insigniaDescripcion = snapshotData['insignia_descripcion'] as String?;
+    _insigniaImagen = snapshotData['insignia_imagen'] as String?;
+    _nombreMisionInicio = snapshotData['nombre_mision_inicio'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -93,6 +123,11 @@ Map<String, dynamic> createProgresoMisionVisitanteRecordData({
   int? numeroDesafioActual,
   bool? misionCompletada,
   int? puntosTotalesGanados,
+  DocumentReference? insigniaRef,
+  String? insigniaNombre,
+  String? insigniaDescripcion,
+  String? insigniaImagen,
+  String? nombreMisionInicio,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -101,6 +136,11 @@ Map<String, dynamic> createProgresoMisionVisitanteRecordData({
       'numero_desafio_actual': numeroDesafioActual,
       'mision_completada': misionCompletada,
       'puntos_totales_ganados': puntosTotalesGanados,
+      'insignia_ref': insigniaRef,
+      'insignia_nombre': insigniaNombre,
+      'insignia_descripcion': insigniaDescripcion,
+      'insignia_imagen': insigniaImagen,
+      'nombre_mision_inicio': nombreMisionInicio,
     }.withoutNulls,
   );
 
@@ -118,7 +158,12 @@ class ProgresoMisionVisitanteRecordDocumentEquality
         e1?.misionId == e2?.misionId &&
         e1?.numeroDesafioActual == e2?.numeroDesafioActual &&
         e1?.misionCompletada == e2?.misionCompletada &&
-        e1?.puntosTotalesGanados == e2?.puntosTotalesGanados;
+        e1?.puntosTotalesGanados == e2?.puntosTotalesGanados &&
+        e1?.insigniaRef == e2?.insigniaRef &&
+        e1?.insigniaNombre == e2?.insigniaNombre &&
+        e1?.insigniaDescripcion == e2?.insigniaDescripcion &&
+        e1?.insigniaImagen == e2?.insigniaImagen &&
+        e1?.nombreMisionInicio == e2?.nombreMisionInicio;
   }
 
   @override
@@ -127,7 +172,12 @@ class ProgresoMisionVisitanteRecordDocumentEquality
         e?.misionId,
         e?.numeroDesafioActual,
         e?.misionCompletada,
-        e?.puntosTotalesGanados
+        e?.puntosTotalesGanados,
+        e?.insigniaRef,
+        e?.insigniaNombre,
+        e?.insigniaDescripcion,
+        e?.insigniaImagen,
+        e?.nombreMisionInicio
       ]);
 
   @override

@@ -10,6 +10,8 @@ import 'schema/misiones_record.dart';
 import 'schema/salas_record.dart';
 import 'schema/desafios_record.dart';
 import 'schema/progreso_mision_visitante_record.dart';
+import 'schema/insignias_record.dart';
+import 'schema/insignias_obtenidas_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order, Type;
@@ -23,6 +25,8 @@ export 'schema/misiones_record.dart';
 export 'schema/salas_record.dart';
 export 'schema/desafios_record.dart';
 export 'schema/progreso_mision_visitante_record.dart';
+export 'schema/insignias_record.dart';
+export 'schema/insignias_obtenidas_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -209,6 +213,80 @@ Future<List<ProgresoMisionVisitanteRecord>>
           limit: limit,
           singleRecord: singleRecord,
         );
+
+/// Functions to query InsigniasRecords (as a Stream and as a Future).
+Future<int> queryInsigniasRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      InsigniasRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<InsigniasRecord>> queryInsigniasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      InsigniasRecord.collection,
+      InsigniasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<InsigniasRecord>> queryInsigniasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      InsigniasRecord.collection,
+      InsigniasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query InsigniasObtenidasRecords (as a Stream and as a Future).
+Future<int> queryInsigniasObtenidasRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      InsigniasObtenidasRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<InsigniasObtenidasRecord>> queryInsigniasObtenidasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      InsigniasObtenidasRecord.collection,
+      InsigniasObtenidasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<InsigniasObtenidasRecord>> queryInsigniasObtenidasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      InsigniasObtenidasRecord.collection,
+      InsigniasObtenidasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
 
 Future<int> queryCollectionCount(
   Query collection, {

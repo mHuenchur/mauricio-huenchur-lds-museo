@@ -160,6 +160,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomeVisitanteWidget.routeName,
           path: HomeVisitanteWidget.routePath,
           builder: (context, params) => HomeVisitanteWidget(),
+        ),
+        FFRoute(
+          name: AdminInsigniasWidget.routeName,
+          path: AdminInsigniasWidget.routePath,
+          builder: (context, params) => AdminInsigniasWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
