@@ -110,7 +110,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: MisionCompletadaWidget.routeName,
           path: MisionCompletadaWidget.routePath,
-          builder: (context, params) => MisionCompletadaWidget(),
+          builder: (context, params) => MisionCompletadaWidget(
+            progresoMisionRef: params.getParam(
+              'progresoMisionRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['progreso_mision_visitante'],
+            ),
+            misionRef: params.getParam(
+              'misionRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['misiones'],
+            ),
+          ),
         ),
         FFRoute(
           name: DesafioActivoWidget.routeName,

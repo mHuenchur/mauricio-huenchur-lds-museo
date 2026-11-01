@@ -560,14 +560,26 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           context.pop();
                                         }
                                         context.pushNamed(
-                                            MisionCompletadaWidget.routeName);
+                                          MisionCompletadaWidget.routeName,
+                                          queryParameters: {
+                                            'progresoMisionRef': serializeParam(
+                                              stackProgresoMisionVisitanteRecord
+                                                  .reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'misionRef': serializeParam(
+                                              widget.misionActual,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                        );
                                       }
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            'Objeto incorrecto!',
+                                            'No es el objeto, vuelve a intentarlo!',
                                             style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -770,14 +782,26 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           context.pop();
                                         }
                                         context.pushNamed(
-                                            MisionCompletadaWidget.routeName);
+                                          MisionCompletadaWidget.routeName,
+                                          queryParameters: {
+                                            'progresoMisionRef': serializeParam(
+                                              stackProgresoMisionVisitanteRecord
+                                                  .reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'misionRef': serializeParam(
+                                              widget.misionActual,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                        );
                                       }
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            _model.respuestaIA!,
+                                            'No es el objeto, vuelve a intentarlo!',
                                             style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)
