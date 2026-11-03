@@ -2051,6 +2051,8 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                             EditarMisionWidget(
                                                                           editarMision:
                                                                               listViewMisionesRecord,
+                                                                          insigniaActualRef:
+                                                                              listViewMisionesRecord.insigniaRef,
                                                                         ),
                                                                       ),
                                                                     );
@@ -2668,6 +2670,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                                     },
                                                                                     child: EditarMisionWidget(
                                                                                       editarMision: listViewMisionesRecord,
+                                                                                      insigniaActualRef: listViewMisionesRecord.insigniaRef,
                                                                                     ),
                                                                                   ),
                                                                                 );

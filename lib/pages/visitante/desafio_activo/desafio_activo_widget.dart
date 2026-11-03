@@ -550,6 +550,140 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           }.withoutNulls,
                                         );
                                       } else {
+                                        _model.progresoParaPremioQR =
+                                            await ProgresoMisionVisitanteRecord
+                                                .getDocumentOnce(
+                                                    stackProgresoMisionVisitanteRecord
+                                                        .reference);
+                                        if (_model.progresoParaPremioQR
+                                                ?.insigniaRef !=
+                                            null) {
+                                          _model.premioExistenteQR =
+                                              await queryInsigniasObtenidasRecordOnce(
+                                            queryBuilder:
+                                                (insigniasObtenidasRecord) =>
+                                                    insigniasObtenidasRecord
+                                                        .where(
+                                              'progreso_ref',
+                                              isEqualTo: _model
+                                                  .progresoParaPremioQR
+                                                  ?.reference,
+                                            ),
+                                            singleRecord: true,
+                                          ).then((s) => s.firstOrNull);
+                                          if (_model.premioExistenteQR !=
+                                              null) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'La consulta encontró un premio existente',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Voy a crear el premio',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+
+                                            await InsigniasObtenidasRecord
+                                                .collection
+                                                .doc(_model
+                                                    .progresoParaPremioQR!
+                                                    .reference
+                                                    .id)
+                                                .set(
+                                                    createInsigniasObtenidasRecordData(
+                                                  visitanteRef:
+                                                      currentUserReference,
+                                                  insigniaRef: _model
+                                                      .progresoParaPremioQR
+                                                      ?.insigniaRef,
+                                                  misionRef:
+                                                      widget.misionActual,
+                                                  progresoRef: _model
+                                                      .progresoParaPremioQR
+                                                      ?.reference,
+                                                  nombre: _model
+                                                      .progresoParaPremioQR
+                                                      ?.insigniaNombre,
+                                                  descripcion: _model
+                                                      .progresoParaPremioQR
+                                                      ?.insigniaDescripcion,
+                                                  imagen: _model
+                                                      .progresoParaPremioQR
+                                                      ?.insigniaImagen,
+                                                  nombreMision: _model
+                                                      .progresoParaPremioQR
+                                                      ?.nombreMisionInicio,
+                                                  fechaObtencion:
+                                                      getCurrentTimestamp,
+                                                ));
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Terminó la acción de crear premio',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          }
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'El progreso no tiene insignia',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                        }
+
                                         await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update(
@@ -772,6 +906,12 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           }.withoutNulls,
                                         );
                                       } else {
+                                        _model.progresoParaPremioIA =
+                                            await ProgresoMisionVisitanteRecord
+                                                .getDocumentOnce(
+                                                    stackProgresoMisionVisitanteRecord
+                                                        .reference);
+
                                         await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update(

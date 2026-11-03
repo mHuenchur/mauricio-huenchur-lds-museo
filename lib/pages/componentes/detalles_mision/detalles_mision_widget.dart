@@ -483,24 +483,102 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                 }.withoutNulls,
                                                               );
                                                             } else {
-                                                              await ProgresoMisionVisitanteRecord
-                                                                  .collection
-                                                                  .doc()
+                                                              _model.insigniaAlInicio =
+                                                                  null;
+                                                              safeSetState(
+                                                                  () {});
+                                                              _model.misionLeida =
+                                                                  await MisionesRecord
+                                                                      .getDocumentOnce(
+                                                                          widget
+                                                                              .misionParametro!);
+                                                              if (_model
+                                                                      .misionLeida
+                                                                      ?.insigniaRef !=
+                                                                  null) {
+                                                                _model.insigniaConsultada =
+                                                                    await InsigniasRecord.getDocumentOnce(_model
+                                                                        .misionLeida!
+                                                                        .insigniaRef!);
+                                                                if (_model
+                                                                        .insigniaConsultada !=
+                                                                    null) {
+                                                                  if (_model
+                                                                          .insigniaConsultada
+                                                                          ?.archivada ==
+                                                                      false) {
+                                                                    _model.insigniaAlInicio =
+                                                                        _model
+                                                                            .insigniaConsultada;
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  }
+                                                                }
+                                                              }
+
+                                                              var progresoMisionVisitanteRecordReference =
+                                                                  ProgresoMisionVisitanteRecord
+                                                                      .collection
+                                                                      .doc();
+                                                              await progresoMisionVisitanteRecordReference
                                                                   .set(
                                                                       createProgresoMisionVisitanteRecordData(
-                                                                    visitanteId:
-                                                                        currentUserReference
-                                                                            ?.id,
-                                                                    misionId: widget
-                                                                        .misionParametro
+                                                                visitanteId:
+                                                                    currentUserReference
                                                                         ?.id,
-                                                                    numeroDesafioActual:
-                                                                        1,
-                                                                    misionCompletada:
-                                                                        false,
-                                                                    puntosTotalesGanados:
-                                                                        0,
-                                                                  ));
+                                                                misionId: widget
+                                                                    .misionParametro
+                                                                    ?.id,
+                                                                numeroDesafioActual:
+                                                                    1,
+                                                                misionCompletada:
+                                                                    false,
+                                                                puntosTotalesGanados:
+                                                                    0,
+                                                                insigniaRef: _model
+                                                                    .insigniaAlInicio
+                                                                    ?.reference,
+                                                                insigniaNombre:
+                                                                    _model
+                                                                        .insigniaAlInicio
+                                                                        ?.nombre,
+                                                                insigniaDescripcion: _model
+                                                                    .insigniaAlInicio
+                                                                    ?.descripcion,
+                                                                insigniaImagen:
+                                                                    _model
+                                                                        .insigniaAlInicio
+                                                                        ?.imagen,
+                                                                nombreMisionInicio:
+                                                                    widget
+                                                                        .nombreParametro,
+                                                              ));
+                                                              _model.progresoCreado =
+                                                                  ProgresoMisionVisitanteRecord
+                                                                      .getDocumentFromData(
+                                                                          createProgresoMisionVisitanteRecordData(
+                                                                            visitanteId:
+                                                                                currentUserReference?.id,
+                                                                            misionId:
+                                                                                widget.misionParametro?.id,
+                                                                            numeroDesafioActual:
+                                                                                1,
+                                                                            misionCompletada:
+                                                                                false,
+                                                                            puntosTotalesGanados:
+                                                                                0,
+                                                                            insigniaRef:
+                                                                                _model.insigniaAlInicio?.reference,
+                                                                            insigniaNombre:
+                                                                                _model.insigniaAlInicio?.nombre,
+                                                                            insigniaDescripcion:
+                                                                                _model.insigniaAlInicio?.descripcion,
+                                                                            insigniaImagen:
+                                                                                _model.insigniaAlInicio?.imagen,
+                                                                            nombreMisionInicio:
+                                                                                widget.nombreParametro,
+                                                                          ),
+                                                                          progresoMisionVisitanteRecordReference);
 
                                                               context.pushNamed(
                                                                 DesafioActivoWidget
