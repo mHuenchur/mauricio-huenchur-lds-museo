@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
-import 'admin_prueba_widget.dart' show AdminPruebaWidget;
+import 'mensaje_sin_insignia_widget.dart' show MensajeSinInsigniaWidget;
 import 'package:flutter/material.dart';
 
-class AdminPruebaModel extends FlutterFlowModel<AdminPruebaWidget> {
+class MensajeSinInsigniaModel
+    extends FlutterFlowModel<MensajeSinInsigniaWidget> {
   @override
   void initState(BuildContext context) {}
 

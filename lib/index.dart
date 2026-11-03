@@ -8,13 +8,11 @@ export '/pages/visitante/mision_completada/mision_completada_widget.dart'
     show MisionCompletadaWidget;
 export '/pages/visitante/desafio_activo/desafio_activo_widget.dart'
     show DesafioActivoWidget;
-export '/pages/administrador/admin_prueba/admin_prueba_widget.dart'
-    show AdminPruebaWidget;
-export '/pages/administrador/admin_prueba_copy/admin_prueba_copy_widget.dart'
-    show AdminPruebaCopyWidget;
 export '/pages/administrador/home_administrador/home_administrador_widget.dart'
     show HomeAdministradorWidget;
 export '/pages/visitante/home_visitante/home_visitante_widget.dart'
     show HomeVisitanteWidget;
 export '/pages/administrador/admin_insignias/admin_insignias_widget.dart'
     show AdminInsigniasWidget;
+export '/pages/visitante/mis_insignias/mis_insignias_widget.dart'
+    show MisInsigniasWidget;

@@ -1731,7 +1731,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           font:
-                                                                              GoogleFonts.roboto(
+                                                                              GoogleFonts.outfit(
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                             fontStyle:
@@ -2220,7 +2220,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.roboto(
+                                    font: GoogleFonts.outfit(
                                       fontWeight: FontWeight.w500,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -2279,7 +2279,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.roboto(
+                                              font: GoogleFonts.outfit(
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
@@ -2489,7 +2489,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                               Text(
                                                                                 'Inactiva/Activa',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.roboto(
+                                                                                      font: GoogleFonts.outfit(
                                                                                         fontWeight: FontWeight.w500,
                                                                                         fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
@@ -2759,7 +2759,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                         textStyle: FlutterFlowTheme.of(context)
                                                                             .bodyLarge
                                                                             .override(
-                                                                              font: GoogleFonts.roboto(
+                                                                              font: GoogleFonts.outfit(
                                                                                 fontWeight: FontWeight.w500,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                               ),

@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'admin_prueba_copy_widget.dart' show AdminPruebaCopyWidget;
+import 'mis_insignias_widget.dart' show MisInsigniasWidget;
 import 'package:flutter/material.dart';
 
-class AdminPruebaCopyModel extends FlutterFlowModel<AdminPruebaCopyWidget> {
+class MisInsigniasModel extends FlutterFlowModel<MisInsigniasWidget> {
   @override
   void initState(BuildContext context) {}
 

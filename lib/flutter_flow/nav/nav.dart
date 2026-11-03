@@ -142,16 +142,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: AdminPruebaWidget.routeName,
-          path: AdminPruebaWidget.routePath,
-          builder: (context, params) => AdminPruebaWidget(),
-        ),
-        FFRoute(
-          name: AdminPruebaCopyWidget.routeName,
-          path: AdminPruebaCopyWidget.routePath,
-          builder: (context, params) => AdminPruebaCopyWidget(),
-        ),
-        FFRoute(
           name: HomeAdministradorWidget.routeName,
           path: HomeAdministradorWidget.routePath,
           builder: (context, params) => HomeAdministradorWidget(),
@@ -165,6 +155,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: AdminInsigniasWidget.routeName,
           path: AdminInsigniasWidget.routePath,
           builder: (context, params) => AdminInsigniasWidget(),
+        ),
+        FFRoute(
+          name: MisInsigniasWidget.routeName,
+          path: MisInsigniasWidget.routePath,
+          builder: (context, params) => MisInsigniasWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -116,7 +116,7 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
                   child: Text(
                     'Crea insignias para las misiones, los visitantes que completen misiones podrán recibirlas.',
                     style: FlutterFlowTheme.of(context).labelMedium.override(
-                          font: GoogleFonts.roboto(
+                          font: GoogleFonts.outfit(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .fontWeight,
@@ -404,7 +404,7 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
                   child: Text(
                     'Listado Insignias',
                     style: FlutterFlowTheme.of(context).labelMedium.override(
-                          font: GoogleFonts.roboto(
+                          font: GoogleFonts.outfit(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .fontWeight,

@@ -256,7 +256,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                         .labelLarge
                                                         .override(
                                                           font: GoogleFonts
-                                                              .roboto(
+                                                              .outfit(
                                                             fontWeight:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -398,7 +398,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                               .override(
                                                                 font:
                                                                     GoogleFonts
-                                                                        .inter(
+                                                                        .outfit(
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,

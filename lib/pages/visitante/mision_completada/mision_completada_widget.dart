@@ -776,7 +776,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   font: GoogleFonts
-                                                                      .roboto(
+                                                                      .outfit(
                                                                     fontWeight: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
