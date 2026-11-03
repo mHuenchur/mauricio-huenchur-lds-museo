@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -160,6 +161,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: MisInsigniasWidget.routeName,
           path: MisInsigniasWidget.routePath,
           builder: (context, params) => MisInsigniasWidget(),
+        ),
+        FFRoute(
+          name: CrearRecompensaWidget.routeName,
+          path: CrearRecompensaWidget.routePath,
+          asyncParams: {
+            'recompensaEditar':
+                getDoc(['recompensas'], RecompensasRecord.fromSnapshot),
+          },
+          builder: (context, params) => CrearRecompensaWidget(
+            recompensaEditar: params.getParam(
+              'recompensaEditar',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: AdminRecompensasWidget.routeName,
+          path: AdminRecompensasWidget.routePath,
+          builder: (context, params) => AdminRecompensasWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

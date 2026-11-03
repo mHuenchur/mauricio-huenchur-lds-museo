@@ -12,6 +12,8 @@ import 'schema/desafios_record.dart';
 import 'schema/progreso_mision_visitante_record.dart';
 import 'schema/insignias_record.dart';
 import 'schema/insignias_obtenidas_record.dart';
+import 'schema/recompensas_record.dart';
+import 'schema/canjes_recompensas_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order, Type;
@@ -27,6 +29,8 @@ export 'schema/desafios_record.dart';
 export 'schema/progreso_mision_visitante_record.dart';
 export 'schema/insignias_record.dart';
 export 'schema/insignias_obtenidas_record.dart';
+export 'schema/recompensas_record.dart';
+export 'schema/canjes_recompensas_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -283,6 +287,80 @@ Future<List<InsigniasObtenidasRecord>> queryInsigniasObtenidasRecordOnce({
     queryCollectionOnce(
       InsigniasObtenidasRecord.collection,
       InsigniasObtenidasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query RecompensasRecords (as a Stream and as a Future).
+Future<int> queryRecompensasRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      RecompensasRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<RecompensasRecord>> queryRecompensasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      RecompensasRecord.collection,
+      RecompensasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<RecompensasRecord>> queryRecompensasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      RecompensasRecord.collection,
+      RecompensasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query CanjesRecompensasRecords (as a Stream and as a Future).
+Future<int> queryCanjesRecompensasRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CanjesRecompensasRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CanjesRecompensasRecord>> queryCanjesRecompensasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CanjesRecompensasRecord.collection,
+      CanjesRecompensasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CanjesRecompensasRecord>> queryCanjesRecompensasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CanjesRecompensasRecord.collection,
+      CanjesRecompensasRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

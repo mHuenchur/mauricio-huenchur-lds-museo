@@ -16,3 +16,7 @@ export '/pages/administrador/admin_insignias/admin_insignias_widget.dart'
     show AdminInsigniasWidget;
 export '/pages/visitante/mis_insignias/mis_insignias_widget.dart'
     show MisInsigniasWidget;
+export '/pages/administrador/crear_recompensa/crear_recompensa_widget.dart'
+    show CrearRecompensaWidget;
+export '/pages/administrador/admin_recompensas/admin_recompensas_widget.dart'
+    show AdminRecompensasWidget;
