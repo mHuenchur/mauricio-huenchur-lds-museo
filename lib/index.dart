@@ -22,3 +22,5 @@ export '/pages/administrador/admin_recompensas/admin_recompensas_widget.dart'
     show AdminRecompensasWidget;
 export '/pages/visitante/recompensas_visitante/recompensas_visitante_widget.dart'
     show RecompensasVisitanteWidget;
+export '/pages/visitante/historial_misiones/historial_misiones_widget.dart'
+    show HistorialMisionesWidget;

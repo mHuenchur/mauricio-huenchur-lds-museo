@@ -887,6 +887,8 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                             .update(
                                                 createProgresoMisionVisitanteRecordData(
                                           misionCompletada: true,
+                                          fechaFinalizacion:
+                                              getCurrentTimestamp,
                                         ));
                                         if (Navigator.of(context).canPop()) {
                                           context.pop();
@@ -1115,6 +1117,8 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                             .update(
                                                 createProgresoMisionVisitanteRecordData(
                                           misionCompletada: true,
+                                          fechaFinalizacion:
+                                              getCurrentTimestamp,
                                         ));
                                         if (Navigator.of(context).canPop()) {
                                           context.pop();

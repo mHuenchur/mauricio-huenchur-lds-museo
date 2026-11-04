@@ -65,6 +65,11 @@ class ProgresoMisionVisitanteRecord extends FirestoreRecord {
   String get nombreMisionInicio => _nombreMisionInicio ?? '';
   bool hasNombreMisionInicio() => _nombreMisionInicio != null;
 
+  // "fecha_finalizacion" field.
+  DateTime? _fechaFinalizacion;
+  DateTime? get fechaFinalizacion => _fechaFinalizacion;
+  bool hasFechaFinalizacion() => _fechaFinalizacion != null;
+
   void _initializeFields() {
     _visitanteId = snapshotData['visitante_id'] as String?;
     _misionId = snapshotData['mision_id'] as String?;
@@ -78,6 +83,7 @@ class ProgresoMisionVisitanteRecord extends FirestoreRecord {
     _insigniaDescripcion = snapshotData['insignia_descripcion'] as String?;
     _insigniaImagen = snapshotData['insignia_imagen'] as String?;
     _nombreMisionInicio = snapshotData['nombre_mision_inicio'] as String?;
+    _fechaFinalizacion = snapshotData['fecha_finalizacion'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -128,6 +134,7 @@ Map<String, dynamic> createProgresoMisionVisitanteRecordData({
   String? insigniaDescripcion,
   String? insigniaImagen,
   String? nombreMisionInicio,
+  DateTime? fechaFinalizacion,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -141,6 +148,7 @@ Map<String, dynamic> createProgresoMisionVisitanteRecordData({
       'insignia_descripcion': insigniaDescripcion,
       'insignia_imagen': insigniaImagen,
       'nombre_mision_inicio': nombreMisionInicio,
+      'fecha_finalizacion': fechaFinalizacion,
     }.withoutNulls,
   );
 
@@ -163,7 +171,8 @@ class ProgresoMisionVisitanteRecordDocumentEquality
         e1?.insigniaNombre == e2?.insigniaNombre &&
         e1?.insigniaDescripcion == e2?.insigniaDescripcion &&
         e1?.insigniaImagen == e2?.insigniaImagen &&
-        e1?.nombreMisionInicio == e2?.nombreMisionInicio;
+        e1?.nombreMisionInicio == e2?.nombreMisionInicio &&
+        e1?.fechaFinalizacion == e2?.fechaFinalizacion;
   }
 
   @override
@@ -177,7 +186,8 @@ class ProgresoMisionVisitanteRecordDocumentEquality
         e?.insigniaNombre,
         e?.insigniaDescripcion,
         e?.insigniaImagen,
-        e?.nombreMisionInicio
+        e?.nombreMisionInicio,
+        e?.fechaFinalizacion
       ]);
 
   @override

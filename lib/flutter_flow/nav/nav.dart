@@ -185,6 +185,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: RecompensasVisitanteWidget.routeName,
           path: RecompensasVisitanteWidget.routePath,
           builder: (context, params) => RecompensasVisitanteWidget(),
+        ),
+        FFRoute(
+          name: HistorialMisionesWidget.routeName,
+          path: HistorialMisionesWidget.routePath,
+          builder: (context, params) => HistorialMisionesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
