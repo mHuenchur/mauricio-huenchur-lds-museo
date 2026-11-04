@@ -180,6 +180,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: AdminRecompensasWidget.routeName,
           path: AdminRecompensasWidget.routePath,
           builder: (context, params) => AdminRecompensasWidget(),
+        ),
+        FFRoute(
+          name: RecompensasVisitanteWidget.routeName,
+          path: RecompensasVisitanteWidget.routePath,
+          builder: (context, params) => RecompensasVisitanteWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

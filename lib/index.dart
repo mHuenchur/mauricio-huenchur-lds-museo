@@ -20,3 +20,5 @@ export '/pages/administrador/crear_recompensa/crear_recompensa_widget.dart'
     show CrearRecompensaWidget;
 export '/pages/administrador/admin_recompensas/admin_recompensas_widget.dart'
     show AdminRecompensasWidget;
+export '/pages/visitante/recompensas_visitante/recompensas_visitante_widget.dart'
+    show RecompensasVisitanteWidget;
