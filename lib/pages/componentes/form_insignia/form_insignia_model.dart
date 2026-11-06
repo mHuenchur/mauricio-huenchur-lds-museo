@@ -19,7 +19,7 @@ class FormInsigniaModel extends FlutterFlowModel<FormInsigniaWidget> {
   String? _txtNombreInsigniaTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Nombre de la insignia is required';
+      return 'Falta Nombre de la insignia';
     }
 
     return null;
@@ -33,7 +33,7 @@ class FormInsigniaModel extends FlutterFlowModel<FormInsigniaWidget> {
   String? _txtDescripcionInsigniaTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Descripción de la insignia is required';
+      return 'Falta Descripción de la insignia';
     }
 
     return null;

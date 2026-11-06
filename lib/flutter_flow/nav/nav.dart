@@ -190,6 +190,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HistorialMisionesWidget.routeName,
           path: HistorialMisionesWidget.routePath,
           builder: (context, params) => HistorialMisionesWidget(),
+        ),
+        FFRoute(
+          name: MisRecompensasWidget.routeName,
+          path: MisRecompensasWidget.routePath,
+          builder: (context, params) => MisRecompensasWidget(),
+        ),
+        FFRoute(
+          name: DetalleCuponWidget.routeName,
+          path: DetalleCuponWidget.routePath,
+          builder: (context, params) => DetalleCuponWidget(
+            canjeRef: params.getParam(
+              'canjeRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['canjes_recompensas'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ValidarCuponWidget.routeName,
+          path: ValidarCuponWidget.routePath,
+          builder: (context, params) => ValidarCuponWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -309,6 +331,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -327,6 +350,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }

@@ -12,6 +12,7 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_visitante_model.dart';
 export 'home_visitante_model.dart';
@@ -289,7 +290,7 @@ class _HomeVisitanteWidgetState extends State<HomeVisitanteWidget>
                           width: double.infinity,
                           height: 50.0,
                           decoration: BoxDecoration(
-                            color: Color(0x4D9489F5),
+                            color: Color(0xFF6F61EF),
                             borderRadius: BorderRadius.circular(12.0),
                             shape: BoxShape.rectangle,
                             border: Border.all(
@@ -310,7 +311,7 @@ class _HomeVisitanteWidgetState extends State<HomeVisitanteWidget>
                                     width: 4.0,
                                     height: 100.0,
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: Color(0x4D9489F5),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                   ),
@@ -399,7 +400,83 @@ class _HomeVisitanteWidgetState extends State<HomeVisitanteWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Recompensas',
+                                    'Canjear recompensas',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.plusJakartaSans(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(MisRecompensasWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF6F61EF),
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: 4.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x4D9489F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                ),
+                                FaIcon(
+                                  FaIconData(const IconData(/* gift */ 0xf06b,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
+                                  color: Colors.white,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Mis recompensas',
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -536,8 +613,10 @@ class _HomeVisitanteWidgetState extends State<HomeVisitanteWidget>
                                     ),
                                   ),
                                 ),
-                                Icon(
-                                  Icons.groups,
+                                FaIcon(
+                                  FaIconData(const IconData(/* award */ 0xf559,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
                                   color: Colors.white,
                                   size: 28.0,
                                 ),
@@ -545,7 +624,7 @@ class _HomeVisitanteWidgetState extends State<HomeVisitanteWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Gestionar cuentas',
+                                    'Mis insignias',
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(

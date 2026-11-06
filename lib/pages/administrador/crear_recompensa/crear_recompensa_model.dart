@@ -14,7 +14,7 @@ class CrearRecompensaModel extends FlutterFlowModel<CrearRecompensaWidget> {
   String? Function(BuildContext, String?)? txtNombreTextControllerValidator;
   String? _txtNombreTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Hello World is required';
+      return 'Falta nombre';
     }
 
     return null;
@@ -28,7 +28,7 @@ class CrearRecompensaModel extends FlutterFlowModel<CrearRecompensaWidget> {
   String? _txtDescripcionTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Hello World is required';
+      return 'Falta descripcion';
     }
 
     return null;
@@ -45,7 +45,7 @@ class CrearRecompensaModel extends FlutterFlowModel<CrearRecompensaWidget> {
   String? _txtCostoPuntosTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Hello World is required';
+      return 'Falta costo puntos';
     }
 
     if (!RegExp('^[1-9][0-9]*\$').hasMatch(val)) {

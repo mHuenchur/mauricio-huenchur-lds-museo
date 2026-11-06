@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -109,23 +108,6 @@ class _CrearRecompensaWidgetState extends State<CrearRecompensaWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderRadius: 8.0,
-                        buttonSize: 40.0,
-                        fillColor: Colors.white,
-                        icon: Icon(
-                          Icons.menu,
-                          color: Colors.black,
-                          size: 24.0,
-                        ),
-                        onPressed: () async {
-                          scaffoldKey.currentState!.openDrawer();
-                        },
-                      ),
-                    ),
                     Expanded(
                       child: Text(
                         widget.recompensaEditar != null
@@ -165,7 +147,7 @@ class _CrearRecompensaWidgetState extends State<CrearRecompensaWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, -1.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               constraints: BoxConstraints(
                                 maxWidth: 770.0,
@@ -176,7 +158,10 @@ class _CrearRecompensaWidgetState extends State<CrearRecompensaWidget> {
                                     16.0, 12.0, 16.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  crossAxisAlignment:
+                                      (FFCrossAxisAlignment.center)
+                                          .flutterValue,
+                                  textBaseline: TextBaseline.alphabetic,
                                   children: [
                                     Container(
                                       width: 200.0,
@@ -948,6 +933,32 @@ class _CrearRecompensaWidgetState extends State<CrearRecompensaWidget> {
                                           ],
                                         ),
                                       ),
+                                    Text(
+                                      'Tiene stock?',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.roboto(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
                                     Switch.adaptive(
                                       value: _model.swStockLimitadoValue!,
                                       onChanged: (newValue) async {
@@ -1219,7 +1230,8 @@ class _CrearRecompensaWidgetState extends State<CrearRecompensaWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                     ),
-                                    if (_model.isDataUploading_uploadDataAlm)
+                                    if (_model.uploadedFileUrl_uploadDataAlm !=
+                                            '')
                                       ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),

@@ -24,3 +24,9 @@ export '/pages/visitante/recompensas_visitante/recompensas_visitante_widget.dart
     show RecompensasVisitanteWidget;
 export '/pages/visitante/historial_misiones/historial_misiones_widget.dart'
     show HistorialMisionesWidget;
+export '/pages/visitante/mis_recompensas/mis_recompensas_widget.dart'
+    show MisRecompensasWidget;
+export '/pages/visitante/detalle_cupon/detalle_cupon_widget.dart'
+    show DetalleCuponWidget;
+export '/pages/administrador/validar_cupon/validar_cupon_widget.dart'
+    show ValidarCuponWidget;

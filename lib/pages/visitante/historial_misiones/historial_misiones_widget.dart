@@ -49,54 +49,42 @@ class _HistorialMisionesWidgetState extends State<HistorialMisionesWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: double.infinity,
-                height: 230.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: Image.network(
-                      'https://images.unsplash.com/photo-1626684496076-07e23c6361ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bW91bnRhaW4lMjBob3VzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                    ).image,
-                  ),
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 230.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: Image.asset(
+                    'assets/images/Atmsfera_musestica_en_teal_y_bronce.png',
+                  ).image,
                 ),
-                child: Container(
-                  width: 100.0,
-                  height: 170.0,
-                  decoration: BoxDecoration(
-                    color: Color(0x9A1D2428),
-                  ),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 64.0, 16.0, 12.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
-                          child: Text(
-                            'Misiones completadas',
-                            style: FlutterFlowTheme.of(context)
-                                .displaySmall
-                                .override(
-                                  font: GoogleFonts.outfit(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .displaySmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .displaySmall
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
+              ),
+              child: Container(
+                width: 100.0,
+                height: 170.0,
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 64.0, 16.0, 12.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                        child: Text(
+                          'Misiones completadas',
+                          style: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .override(
+                                font: GoogleFonts.outfit(
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .fontWeight,
@@ -104,22 +92,22 @@ class _HistorialMisionesWidgetState extends State<HistorialMisionesWidget> {
                                       .displaySmall
                                       .fontStyle,
                                 ),
-                          ),
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontStyle,
+                              ),
                         ),
-                        Text(
-                          'Aquí podrás ver todas las misiones que \nhas completado hasta ahora.',
-                          style:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    font: GoogleFonts.outfit(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xBEFFFFFF),
-                                    letterSpacing: 0.0,
+                      ),
+                      Text(
+                        'Aquí podrás ver todas las misiones que \nhas completado hasta ahora.',
+                        style:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  font: GoogleFonts.outfit(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontWeight,
@@ -127,181 +115,213 @@ class _HistorialMisionesWidgetState extends State<HistorialMisionesWidget> {
                                         .labelMedium
                                         .fontStyle,
                                   ),
-                        ),
-                      ],
-                    ),
+                                  color: Color(0xBEFFFFFF),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
-                child: Text(
-                  'Tu recorrido por el museo',
-                  style: FlutterFlowTheme.of(context).labelLarge.override(
-                        font: GoogleFonts.outfit(
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .labelLarge
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                        ),
-                        letterSpacing: 0.0,
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+              child: Text(
+                'Tu recorrido por el museo',
+                style: FlutterFlowTheme.of(context).labelLarge.override(
+                      font: GoogleFonts.outfit(
                         fontWeight:
                             FlutterFlowTheme.of(context).labelLarge.fontWeight,
                         fontStyle:
                             FlutterFlowTheme.of(context).labelLarge.fontStyle,
                       ),
-                ),
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).labelLarge.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                    ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 52.0),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    StreamBuilder<List<ProgresoMisionVisitanteRecord>>(
-                      stream: queryProgresoMisionVisitanteRecord(
-                        queryBuilder: (progresoMisionVisitanteRecord) =>
-                            progresoMisionVisitanteRecord
-                                .where(
-                                  'visitante_id',
-                                  isEqualTo: currentUserUid,
-                                )
-                                .where(
-                                  'mision_completada',
-                                  isEqualTo: true,
-                                ),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
+                    Expanded(
+                      child: StreamBuilder<List<ProgresoMisionVisitanteRecord>>(
+                        stream: queryProgresoMisionVisitanteRecord(
+                          queryBuilder: (progresoMisionVisitanteRecord) =>
+                              progresoMisionVisitanteRecord
+                                  .where(
+                                    'visitante_id',
+                                    isEqualTo: currentUserUid,
+                                  )
+                                  .where(
+                                    'mision_completada',
+                                    isEqualTo: true,
+                                  )
+                                  .orderBy('fecha_finalizacion',
+                                      descending: true),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        }
-                        List<ProgresoMisionVisitanteRecord>
-                            listViewProgresoMisionVisitanteRecordList =
-                            snapshot.data!;
-                        if (listViewProgresoMisionVisitanteRecordList.isEmpty) {
-                          return MensajeSinMisionesWidget();
-                        }
+                            );
+                          }
+                          List<ProgresoMisionVisitanteRecord>
+                              listViewProgresoMisionVisitanteRecordList =
+                              snapshot.data!;
+                          if (listViewProgresoMisionVisitanteRecordList
+                              .isEmpty) {
+                            return MensajeSinMisionesWidget();
+                          }
 
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount:
-                              listViewProgresoMisionVisitanteRecordList.length,
-                          itemBuilder: (context, listViewIndex) {
-                            final listViewProgresoMisionVisitanteRecord =
-                                listViewProgresoMisionVisitanteRecordList[
-                                    listViewIndex];
-                            return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 10.0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 7.0,
-                                      color: Color(0x2F1D2429),
-                                      offset: Offset(
-                                        0.0,
-                                        3.0,
-                                      ),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 12.0, 16.0, 12.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        listViewProgresoMisionVisitanteRecord
-                                            .nombreMisionInicio,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.plusJakartaSans(
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewProgresoMisionVisitanteRecordList
+                                .length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewProgresoMisionVisitanteRecord =
+                                  listViewProgresoMisionVisitanteRecordList[
+                                      listViewIndex];
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 10.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 7.0,
+                                        color: Color(0x2F1D2429),
+                                        offset: Offset(
+                                          0.0,
+                                          3.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 12.0, 16.0, 12.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          listViewProgresoMisionVisitanteRecord
+                                              .nombreMisionInicio,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font:
+                                                    GoogleFonts.plusJakartaSans(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Divider(
-                                        height: 16.0,
-                                        thickness: 2.0,
-                                        color: Color(0xFFF1F4F8),
-                                      ),
-                                      Text(
-                                        listViewProgresoMisionVisitanteRecord
-                                                    .fechaFinalizacion !=
-                                                null
-                                            ? 'Completada el ${dateTimeFormat(
-                                                "d/M/y",
-                                                listViewProgresoMisionVisitanteRecord
-                                                    .fechaFinalizacion,
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              )}'
-                                            : 'Fecha no registrada',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              font: GoogleFonts.plusJakartaSans(
+                                        ),
+                                        Divider(
+                                          height: 16.0,
+                                          thickness: 2.0,
+                                          color: Color(0xFFF1F4F8),
+                                        ),
+                                        Text(
+                                          listViewProgresoMisionVisitanteRecord
+                                                      .fechaFinalizacion !=
+                                                  null
+                                              ? 'Completada el ${dateTimeFormat(
+                                                  "d/M/y",
+                                                  listViewProgresoMisionVisitanteRecord
+                                                      .fechaFinalizacion,
+                                                  locale: FFLocalizations.of(
+                                                          context)
+                                                      .languageCode,
+                                                )}'
+                                              : 'Fecha no registrada',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                font:
+                                                    GoogleFonts.plusJakartaSans(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontStyle,
+                                                ),
+                                                color: Color(0xFF14181B),
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .fontStyle,
                                               ),
-                                              color: Color(0xFF14181B),
-                                              fontSize: 16.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Obtuviste ${listViewProgresoMisionVisitanteRecord.puntosTotalesGanados.toString()} puntos',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                font: GoogleFonts.outfit(
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Obtuviste ${listViewProgresoMisionVisitanteRecord.puntosTotalesGanados.toString()} puntos',
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  font: GoogleFonts.outfit(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelLarge
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelLarge
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiary,
+                                                  letterSpacing: 0.0,
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -313,35 +333,23 @@ class _HistorialMisionesWidgetState extends State<HistorialMisionesWidget> {
                                                           .labelLarge
                                                           .fontStyle,
                                                 ),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .fontStyle,
-                                              ),
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            );
-                          },
-                        );
-                      },
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

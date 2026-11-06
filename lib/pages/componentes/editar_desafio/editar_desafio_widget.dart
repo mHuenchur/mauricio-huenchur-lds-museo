@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'editar_desafio_model.dart';
 export 'editar_desafio_model.dart';
@@ -115,10 +116,24 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Icon(
-                          Icons.qr_code,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 45.0,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (widget.editarDesafio?.tipoValidacion == 'QR')
+                              Icon(
+                                Icons.qr_code,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 45.0,
+                              ),
+                            if (widget.editarDesafio?.tipoValidacion == 'IA')
+                              FaIcon(
+                                FaIconData(const IconData(/* robot */ 0xf544,
+                                    fontFamily: 'FontAwesomeSolid',
+                                    fontPackage: 'font_awesome_flutter')),
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 45.0,
+                              ),
+                          ],
                         ),
                       ),
                       Expanded(
@@ -795,6 +810,9 @@ class _EditarDesafioWidgetState extends State<EditarDesafioWidget> {
                                     int.tryParse(_model.textController1.text),
                                 pistaBusqueda: _model.textController3.text,
                                 infoHistorica: _model.textController2.text,
+                                pistaExtra: _model.textController4.text,
+                                valorPuntos:
+                                    int.tryParse(_model.textController5.text),
                               ));
                               Navigator.pop(context);
                               ScaffoldMessenger.of(context).showSnackBar(

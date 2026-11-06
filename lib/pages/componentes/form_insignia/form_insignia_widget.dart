@@ -209,7 +209,7 @@ class _FormInsigniaWidgetState extends State<FormInsigniaWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 8.0),
                                             child: Text(
-                                              'Please enter the information below to add a project.',
+                                              'Completa los campos para guardar la insignia.',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
