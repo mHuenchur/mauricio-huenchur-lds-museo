@@ -9,11 +9,11 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/componentes/editar_mision/editar_mision_widget.dart';
 import '/pages/componentes/nueva_mision/nueva_mision_widget.dart';
 import '/pages/componentes/nueva_sala/nueva_sala_widget.dart';
-import 'dart:ui';
+import '/pages/componentes/switch_mision/switch_mision_widget.dart';
 import '/index.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_administrador_model.dart';
 export 'home_administrador_model.dart';
@@ -177,13 +177,8 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 500),
-                                            imageUrl:
-                                                'https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHVzZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+                                          child: Image.asset(
+                                            'assets/images/user.png',
                                             width: 44.0,
                                             height: 44.0,
                                             fit: BoxFit.cover,
@@ -287,131 +282,73 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: Color(0x4D9489F5),
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                          border: Border.all(
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(CrearRecompensaWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50.0,
+                          decoration: BoxDecoration(
                             color: Color(0xFF6F61EF),
-                            width: 1.0,
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
                           ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 12.0, 12.0),
-                                child: Container(
-                                  width: 4.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(12.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: 4.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x4D9489F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Icon(
-                                Icons.stacked_bar_chart_rounded,
-                                color: Colors.white,
-                                size: 28.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Misiones',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        font: GoogleFonts.plusJakartaSans(
-                                          fontWeight: FontWeight.w500,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontStyle,
-                                        ),
-                                        color: Colors.white,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
+                                Icon(
+                                  Icons.attach_money_rounded,
+                                  color: Colors.white,
+                                  size: 28.0,
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF6F61EF),
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 12.0, 12.0),
-                                child: Container(
-                                  width: 4.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0x4D9489F5),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                ),
-                              ),
-                              Icon(
-                                Icons.attach_money_rounded,
-                                color: Colors.white,
-                                size: 28.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Recompensas',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        font: GoogleFonts.plusJakartaSans(
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Crear recompensas',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.plusJakartaSans(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .fontStyle,
                                         ),
-                                        color: Colors.white,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .fontStyle,
-                                      ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -419,63 +356,75 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF6F61EF),
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 12.0, 12.0),
-                                child: Container(
-                                  width: 4.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0x4D9489F5),
-                                    borderRadius: BorderRadius.circular(12.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(AdminRecompensasWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF6F61EF),
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: 4.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x4D9489F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Icon(
-                                Icons.query_stats_sharp,
-                                color: Colors.white,
-                                size: 28.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Estadisticas',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        font: GoogleFonts.plusJakartaSans(
+                                FaIcon(
+                                  FaIconData(const IconData(/* gift */ 0xf06b,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
+                                  color: Colors.white,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Gestionar recompensas',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.plusJakartaSans(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .fontStyle,
                                         ),
-                                        color: Colors.white,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .fontStyle,
-                                      ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -483,63 +432,75 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF6F61EF),
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 12.0, 12.0),
-                                child: Container(
-                                  width: 4.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0x4D9489F5),
-                                    borderRadius: BorderRadius.circular(12.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(AdminInsigniasWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF6F61EF),
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: 4.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x4D9489F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Icon(
-                                Icons.groups,
-                                color: Colors.white,
-                                size: 28.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Gestionar cuentas',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        font: GoogleFonts.plusJakartaSans(
+                                FaIcon(
+                                  FaIconData(const IconData(/* medal */ 0xf5a2,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
+                                  color: Colors.white,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Gestionar insignias',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          font: GoogleFonts.plusJakartaSans(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .fontStyle,
                                         ),
-                                        color: Colors.white,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -776,13 +737,8 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
-                                                child: CachedNetworkImage(
-                                                  fadeInDuration: Duration(
-                                                      milliseconds: 500),
-                                                  fadeOutDuration: Duration(
-                                                      milliseconds: 500),
-                                                  imageUrl:
-                                                      'https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHVzZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+                                                child: Image.asset(
+                                                  'assets/images/user.png',
                                                   width: 44.0,
                                                   height: 44.0,
                                                   fit: BoxFit.cover,
@@ -1375,89 +1331,16 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                               ),
                               Padding(
                                 padding: EdgeInsets.all(10.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      (FFMainAxisAlignment.start).flutterValue,
-                                  children: [
-                                    Builder(
-                                      builder: (context) => FFButtonWidget(
-                                        onPressed: () async {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (dialogContext) {
-                                              return Dialog(
-                                                elevation: 0,
-                                                insetPadding: EdgeInsets.zero,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                alignment: AlignmentDirectional(
-                                                        0.0, 0.0)
-                                                    .resolve(Directionality.of(
-                                                        context)),
-                                                child: GestureDetector(
-                                                  onTap: () {
-                                                    FocusScope.of(dialogContext)
-                                                        .unfocus();
-                                                    FocusManager
-                                                        .instance.primaryFocus
-                                                        ?.unfocus();
-                                                  },
-                                                  child: NuevaMisionWidget(),
-                                                ),
-                                              );
-                                            },
-                                          );
-                                        },
-                                        text: 'Nueva Misión',
-                                        options: FFButtonOptions(
-                                          height: 40.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                font: GoogleFonts.outfit(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.white,
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .fontStyle,
-                                              ),
-                                          elevation: 0.0,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                      ),
-                                    ),
-                                    Builder(
-                                      builder: (context) => Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 0.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        (FFMainAxisAlignment.start)
+                                            .flutterValue,
+                                    children: [
+                                      Builder(
+                                        builder: (context) => FFButtonWidget(
                                           onPressed: () async {
                                             await showDialog(
                                               context: context,
@@ -1482,13 +1365,13 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                           .instance.primaryFocus
                                                           ?.unfocus();
                                                     },
-                                                    child: NuevaSalaWidget(),
+                                                    child: NuevaMisionWidget(),
                                                   ),
                                                 );
                                               },
                                             );
                                           },
-                                          text: 'Gestionar salas',
+                                          text: 'Nueva Misión',
                                           options: FFButtonOptions(
                                             height: 40.0,
                                             padding:
@@ -1534,8 +1417,141 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Builder(
+                                        builder: (context) => Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 0.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(
+                                                                dialogContext)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child: NuevaSalaWidget(),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                            text: 'Gestionar salas',
+                                            options: FFButtonOptions(
+                                              height: 40.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 16.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.outfit(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                              elevation: 0.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      FFButtonWidget(
+                                        onPressed: () async {
+                                          context.pushNamed(
+                                              ValidarCuponWidget.routeName);
+                                        },
+                                        text: 'Escanear cupón',
+                                        options: FFButtonOptions(
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                font: GoogleFonts.outfit(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
+                                          elevation: 0.0,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -1575,7 +1591,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                           padding: EdgeInsets.all(10.0),
                           child: Container(
                             width: double.infinity,
-                            height: 270.0,
+                            height: 300.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).accent2,
                               borderRadius: BorderRadius.circular(6.0),
@@ -1699,88 +1715,77 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                 1.0, -1.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      8.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                            child:
-                                                                BackdropFilter(
-                                                              filter:
-                                                                  ImageFilter
-                                                                      .blur(
-                                                                sigmaX: 5.0,
-                                                                sigmaY: 2.0,
-                                                              ),
-                                                              child: Row(
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .info,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          14.0),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(8.0),
+                                                              child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .min,
+                                                                mainAxisAlignment:
+                                                                    (FFMainAxisAlignment
+                                                                            .start)
+                                                                        .flutterValue,
                                                                 children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Container(
-                                                                      height:
-                                                                          36.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Color(
-                                                                            0x9AFFFFFF),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(12.0),
-                                                                        border:
-                                                                            Border.all(
-                                                                          color:
-                                                                              Color(0xFFE5E7EB),
-                                                                          width:
-                                                                              2.0,
-                                                                        ),
-                                                                      ),
-                                                                      alignment:
-                                                                          AlignmentDirectional(
+                                                                  Text(
+                                                                    'Inactiva/Activa',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.outfit(
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          letterSpacing:
                                                                               0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          (int
-                                                                              cantidad) {
-                                                                            return cantidad <= 3
-                                                                                ? "Fácil"
-                                                                                : (cantidad <= 6 ? "Intermedio" : "Difícil");
-                                                                          }(containerCount),
-                                                                          style: FlutterFlowTheme.of(context)
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
-                                                                              .override(
-                                                                                font: GoogleFonts.outfit(
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                ),
-                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                              ),
+                                                                              .fontStyle,
                                                                         ),
+                                                                  ),
+                                                                  wrapWithModel(
+                                                                    model: _model
+                                                                        .switchMisionModels1
+                                                                        .getModel(
+                                                                      'superior_${listViewMisionesRecord.reference.id}_${listViewMisionesRecord.estaActiva ? 'activa' : 'inactiva'}',
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
+                                                                    updateOnChange:
+                                                                        true,
+                                                                    child:
+                                                                        SwitchMisionWidget(
+                                                                      key: Key(
+                                                                        'Keye7b_${'superior_${listViewMisionesRecord.reference.id}_${listViewMisionesRecord.estaActiva ? 'activa' : 'inactiva'}'}',
                                                                       ),
+                                                                      activaInicial:
+                                                                          listViewMisionesRecord
+                                                                              .estaActiva,
+                                                                      misionRef:
+                                                                          listViewMisionesRecord
+                                                                              .reference,
                                                                     ),
                                                                   ),
                                                                 ],
@@ -1832,7 +1837,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
-                                                                0.0, 8.0),
+                                                                0.0, 4.0),
                                                     child: RichText(
                                                       textScaler:
                                                           MediaQuery.of(context)
@@ -1880,6 +1885,97 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                       .labelSmall
                                                                       .fontStyle,
                                                                 ),
+                                                          )
+                                                        ],
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .labelMedium
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .outfit(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              color: Color(
+                                                                  0xFF606A85),
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 8.0),
+                                                    child: RichText(
+                                                      textScaler:
+                                                          MediaQuery.of(context)
+                                                              .textScaler,
+                                                      text: TextSpan(
+                                                        children: [
+                                                          TextSpan(
+                                                            text:
+                                                                'Dificultad: ',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelSmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelSmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF606A85),
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelSmall
+                                                                      .fontStyle,
+                                                                ),
+                                                          ),
+                                                          TextSpan(
+                                                            text:
+                                                                (int cantidad) {
+                                                              return cantidad <=
+                                                                      3
+                                                                  ? "Fácil"
+                                                                  : (cantidad <=
+                                                                          6
+                                                                      ? "Intermedio"
+                                                                      : "Difícil");
+                                                            }(containerCount),
+                                                            style: TextStyle(
+                                                              color: Color(
+                                                                  0xFF6F61EF),
+                                                            ),
                                                           )
                                                         ],
                                                         style: FlutterFlowTheme
@@ -1972,6 +2068,8 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                             EditarMisionWidget(
                                                                           editarMision:
                                                                               listViewMisionesRecord,
+                                                                          insigniaActualRef:
+                                                                              listViewMisionesRecord.insigniaRef,
                                                                         ),
                                                                       ),
                                                                     );
@@ -2139,7 +2237,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.roboto(
+                                    font: GoogleFonts.outfit(
                                       fontWeight: FontWeight.w500,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -2198,7 +2296,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.roboto(
+                                              font: GoogleFonts.outfit(
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
@@ -2378,60 +2476,58 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                             -1.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          8.0,
-                                                                          0.0),
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              6.0),
                                                                       child:
-                                                                          ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(12.0),
+                                                                          Container(
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).info,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(14.0),
+                                                                        ),
                                                                         child:
-                                                                            BackdropFilter(
-                                                                          filter:
-                                                                              ImageFilter.blur(
-                                                                            sigmaX:
-                                                                                5.0,
-                                                                            sigmaY:
-                                                                                2.0,
-                                                                          ),
+                                                                            Padding(
+                                                                          padding:
+                                                                              EdgeInsets.all(8.0),
                                                                           child:
-                                                                              Row(
+                                                                              Column(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                (FFMainAxisAlignment.start).flutterValue,
+                                                                            crossAxisAlignment:
+                                                                                (FFCrossAxisAlignment.center).flutterValue,
+                                                                            textBaseline:
+                                                                                TextBaseline.alphabetic,
                                                                             children: [
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                                                                                child: Container(
-                                                                                  height: 36.0,
-                                                                                  decoration: BoxDecoration(
-                                                                                    color: Color(0x9AFFFFFF),
-                                                                                    borderRadius: BorderRadius.circular(12.0),
-                                                                                    border: Border.all(
-                                                                                      color: Color(0xFFE5E7EB),
-                                                                                      width: 2.0,
+                                                                              Text(
+                                                                                'Inactiva/Activa',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      font: GoogleFonts.outfit(
+                                                                                        fontWeight: FontWeight.w500,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                      ),
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
+                                                                              ),
+                                                                              wrapWithModel(
+                                                                                model: _model.switchMisionModels2.getModel(
+                                                                                  'sala_${listViewMisionesRecord.reference.id}_${listViewMisionesRecord.estaActiva ? 'activa' : 'inactiva'}',
+                                                                                  listViewIndex,
+                                                                                ),
+                                                                                updateCallback: () => safeSetState(() {}),
+                                                                                updateOnChange: true,
+                                                                                child: SwitchMisionWidget(
+                                                                                  key: Key(
+                                                                                    'Keyh9m_${'sala_${listViewMisionesRecord.reference.id}_${listViewMisionesRecord.estaActiva ? 'activa' : 'inactiva'}'}',
                                                                                   ),
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
-                                                                                    child: Text(
-                                                                                      (int cantidad) {
-                                                                                        return cantidad <= 3 ? "Fácil" : (cantidad <= 6 ? "Intermedio" : "Difícil");
-                                                                                      }(containerCount),
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            font: GoogleFonts.roboto(
-                                                                                              fontWeight: FontWeight.w600,
-                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                            ),
-                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w600,
-                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
+                                                                                  activaInicial: listViewMisionesRecord.estaActiva,
+                                                                                  misionRef: listViewMisionesRecord.reference,
                                                                                 ),
                                                                               ),
                                                                             ],
@@ -2591,6 +2687,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                                     },
                                                                                     child: EditarMisionWidget(
                                                                                       editarMision: listViewMisionesRecord,
+                                                                                      insigniaActualRef: listViewMisionesRecord.insigniaRef,
                                                                                     ),
                                                                                   ),
                                                                                 );
@@ -2679,7 +2776,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                                         textStyle: FlutterFlowTheme.of(context)
                                                                             .bodyLarge
                                                                             .override(
-                                                                              font: GoogleFonts.roboto(
+                                                                              font: GoogleFonts.outfit(
                                                                                 fontWeight: FontWeight.w500,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                               ),

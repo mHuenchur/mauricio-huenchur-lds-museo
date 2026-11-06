@@ -56,11 +56,12 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
     return null;
   }
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
-  String? _textController5Validator(BuildContext context, String? val) {
+  // State field(s) for campoPuntos widget.
+  FocusNode? campoPuntosFocusNode;
+  TextEditingController? campoPuntosTextController;
+  String? Function(BuildContext, String?)? campoPuntosTextControllerValidator;
+  String? _campoPuntosTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Campo vacio';
     }
@@ -89,7 +90,7 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
     textController2Validator = _textController2Validator;
     textController3Validator = _textController3Validator;
     textController4Validator = _textController4Validator;
-    textController5Validator = _textController5Validator;
+    campoPuntosTextControllerValidator = _campoPuntosTextControllerValidator;
   }
 
   @override
@@ -106,7 +107,7 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
     textFieldFocusNode4?.dispose();
     textController4?.dispose();
 
-    textFieldFocusNode5?.dispose();
-    textController5?.dispose();
+    campoPuntosFocusNode?.dispose();
+    campoPuntosTextController?.dispose();
   }
 }

@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'admin_prueba_copy_widget.dart' show AdminPruebaCopyWidget;
+import '/index.dart';
+import 'admin_recompensas_widget.dart' show AdminRecompensasWidget;
 import 'package:flutter/material.dart';
 
-class AdminPruebaCopyModel extends FlutterFlowModel<AdminPruebaCopyWidget> {
+class AdminRecompensasModel extends FlutterFlowModel<AdminRecompensasWidget> {
   @override
   void initState(BuildContext context) {}
 

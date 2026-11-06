@@ -13,6 +13,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'desafio_activo_model.dart';
 export 'desafio_activo_model.dart';
 
@@ -159,6 +160,278 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                 (FFCrossAxisAlignment.center).flutterValue,
                             textBaseline: TextBaseline.alphabetic,
                             children: [
+                              Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: StreamBuilder<List<DesafiosRecord>>(
+                                  stream: queryDesafiosRecord(
+                                    queryBuilder: (desafiosRecord) =>
+                                        desafiosRecord.where(
+                                      'mision_desafio_fk',
+                                      isEqualTo: widget.misionActual,
+                                    ),
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<DesafiosRecord>
+                                        containerDesafiosRecordList =
+                                        snapshot.data!;
+
+                                    return Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 5.0),
+                                            child: Text(
+                                              'Progreso de la misión',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.outfit(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLarge
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLarge
+                                                                .fontStyle,
+                                                      ),
+                                            ),
+                                          ),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .success,
+                                              ),
+                                            ),
+                                            child: LinearPercentIndicator(
+                                              percent: (int actual, int total,
+                                                      bool completada) {
+                                                return total <= 0
+                                                    ? 0.0
+                                                    : (completada
+                                                        ? 1.0
+                                                        : ((actual - 1) / total)
+                                                            .clamp(0.0, 1.0)
+                                                            .toDouble());
+                                              }(
+                                                  stackProgresoMisionVisitanteRecord!
+                                                      .numeroDesafioActual,
+                                                  containerDesafiosRecordList
+                                                      .length,
+                                                  stackProgresoMisionVisitanteRecord
+                                                      .misionCompletada),
+                                              lineHeight: 50.0,
+                                              animation: true,
+                                              animateFromLastPercent: true,
+                                              progressColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .success,
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent4,
+                                              center: Text(
+                                                (int actual, int total,
+                                                        bool completada) {
+                                                  return total <= 0
+                                                      ? '0%'
+                                                      : (completada
+                                                          ? '100%'
+                                                          : '${(((actual - 1) / total).clamp(0.0, 1.0) * 100).round()}%');
+                                                }(
+                                                    stackProgresoMisionVisitanteRecord
+                                                        .numeroDesafioActual,
+                                                    containerDesafiosRecordList
+                                                        .length,
+                                                    stackProgresoMisionVisitanteRecord
+                                                        .misionCompletada),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      font: GoogleFonts.outfit(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLarge
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLarge
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge
+                                                              .fontStyle,
+                                                    ),
+                                              ),
+                                              padding: EdgeInsets.zero,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: Text(
+                                              (int actual, int total,
+                                                      bool completada) {
+                                                return total <= 0
+                                                    ? '0 de 0 desafíos completados'
+                                                    : '${completada ? total : (actual - 1).clamp(0, total)} de $total desafíos completados';
+                                              }(
+                                                  stackProgresoMisionVisitanteRecord
+                                                      .numeroDesafioActual,
+                                                  containerDesafiosRecordList
+                                                      .length,
+                                                  stackProgresoMisionVisitanteRecord
+                                                      .misionCompletada),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.outfit(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 0.0, 5.0),
+                                  child: Text(
+                                    'Desafío ${columnDesafiosRecord?.numeroOrden.toString()}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          font: GoogleFonts.outfit(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Tipo de desafío: ${columnDesafiosRecord?.tipoValidacion == 'QR' ? 'Validación por QR' : 'Validacion por IA'}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          font: GoogleFonts.outfit(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ),
                               Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
@@ -205,7 +478,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'PISTA PRINCIPAL',
+                                                  'PISTA',
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -256,7 +529,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                         .labelLarge
                                                         .override(
                                                           font: GoogleFonts
-                                                              .roboto(
+                                                              .outfit(
                                                             fontWeight:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -398,7 +671,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                               .override(
                                                                 font:
                                                                     GoogleFonts
-                                                                        .inter(
+                                                                        .outfit(
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -466,6 +739,34 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                       );
                                       _model.mostrarPistaExtra = false;
                                       safeSetState(() {});
+
+                                      await stackProgresoMisionVisitanteRecord!
+                                          .reference
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'puntos_totales_ganados':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord!
+                                                        .valorPuntos),
+                                          },
+                                        ),
+                                      });
+
+                                      await currentUserReference!.update({
+                                        ...mapToFirestore(
+                                          {
+                                            'puntos_disponibles':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                            'puntos_totales_ganados':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                          },
+                                        ),
+                                      });
                                       _model.numeroDesafioSiguiente =
                                           await queryDesafiosRecordOnce(
                                         queryBuilder: (desafiosRecord) =>
@@ -478,7 +779,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                 .where(
                                                   'numero_orden',
                                                   isEqualTo:
-                                                      stackProgresoMisionVisitanteRecord!
+                                                      stackProgresoMisionVisitanteRecord
                                                               .numeroDesafioActual +
                                                           1,
                                                 )
@@ -494,7 +795,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           _model.numeroDesafioSiguiente
                                                   ?.reference.id !=
                                               '') {
-                                        await stackProgresoMisionVisitanteRecord!
+                                        await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update({
                                           ...mapToFirestore(
@@ -504,7 +805,9 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                             },
                                           ),
                                         });
-
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
                                         context.pushNamed(
                                           DesafioActivoWidget.routeName,
                                           queryParameters: {
@@ -520,22 +823,97 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           }.withoutNulls,
                                         );
                                       } else {
-                                        await stackProgresoMisionVisitanteRecord!
+                                        _model.progresoParaPremioQR =
+                                            await ProgresoMisionVisitanteRecord
+                                                .getDocumentOnce(
+                                                    stackProgresoMisionVisitanteRecord
+                                                        .reference);
+                                        if (_model.progresoParaPremioQR
+                                                ?.insigniaRef !=
+                                            null) {
+                                          _model.premioExistenteQR =
+                                              await queryInsigniasObtenidasRecordOnce(
+                                            queryBuilder:
+                                                (insigniasObtenidasRecord) =>
+                                                    insigniasObtenidasRecord
+                                                        .where(
+                                              'progreso_ref',
+                                              isEqualTo: _model
+                                                  .progresoParaPremioQR
+                                                  ?.reference,
+                                            ),
+                                            singleRecord: true,
+                                          ).then((s) => s.firstOrNull);
+                                          if (!(_model.premioExistenteQR !=
+                                              null)) {
+                                            await InsigniasObtenidasRecord
+                                                .collection
+                                                .doc(_model
+                                                    .progresoParaPremioQR!
+                                                    .reference
+                                                    .id)
+                                                .set(
+                                                    createInsigniasObtenidasRecordData(
+                                                  visitanteRef:
+                                                      currentUserReference,
+                                                  insigniaRef: _model
+                                                      .progresoParaPremioQR
+                                                      ?.insigniaRef,
+                                                  misionRef:
+                                                      widget.misionActual,
+                                                  progresoRef: _model
+                                                      .progresoParaPremioQR
+                                                      ?.reference,
+                                                  nombre: _model
+                                                      .progresoParaPremioQR
+                                                      ?.insigniaNombre,
+                                                  descripcion: _model
+                                                      .progresoParaPremioQR
+                                                      ?.insigniaDescripcion,
+                                                  imagen: _model
+                                                      .progresoParaPremioQR
+                                                      ?.insigniaImagen,
+                                                  nombreMision: _model
+                                                      .progresoParaPremioQR
+                                                      ?.nombreMisionInicio,
+                                                  fechaObtencion:
+                                                      getCurrentTimestamp,
+                                                ));
+                                          }
+                                        }
+
+                                        await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update(
                                                 createProgresoMisionVisitanteRecordData(
                                           misionCompletada: true,
+                                          fechaFinalizacion:
+                                              getCurrentTimestamp,
                                         ));
-
-                                        context.goNamed(
-                                            MisionCompletadaWidget.routeName);
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
+                                        context.pushNamed(
+                                          MisionCompletadaWidget.routeName,
+                                          queryParameters: {
+                                            'progresoMisionRef': serializeParam(
+                                              stackProgresoMisionVisitanteRecord
+                                                  .reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'misionRef': serializeParam(
+                                              widget.misionActual,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                        );
                                       }
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            'Objeto incorrecto!',
+                                            'No es el objeto, vuelve a intentarlo!',
                                             style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -644,6 +1022,34 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           .delete();
                                       _model.mostrarPistaExtra = false;
                                       safeSetState(() {});
+
+                                      await stackProgresoMisionVisitanteRecord!
+                                          .reference
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'puntos_totales_ganados':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                          },
+                                        ),
+                                      });
+
+                                      await currentUserReference!.update({
+                                        ...mapToFirestore(
+                                          {
+                                            'puntos_disponibles':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                            'puntos_totales_ganados':
+                                                FieldValue.increment(
+                                                    columnDesafiosRecord
+                                                        .valorPuntos),
+                                          },
+                                        ),
+                                      });
                                       _model.numeroDesafioSiguienteIA =
                                           await queryDesafiosRecordOnce(
                                         queryBuilder: (desafiosRecord) =>
@@ -656,7 +1062,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                 .where(
                                                   'numero_orden',
                                                   isEqualTo:
-                                                      stackProgresoMisionVisitanteRecord!
+                                                      stackProgresoMisionVisitanteRecord
                                                               .numeroDesafioActual +
                                                           1,
                                                 )
@@ -672,7 +1078,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           _model.numeroDesafioSiguienteIA
                                                   ?.reference.id !=
                                               '') {
-                                        await stackProgresoMisionVisitanteRecord!
+                                        await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update({
                                           ...mapToFirestore(
@@ -682,7 +1088,9 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                             },
                                           ),
                                         });
-
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
                                         context.pushNamed(
                                           DesafioActivoWidget.routeName,
                                           queryParameters: {
@@ -698,22 +1106,44 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                           }.withoutNulls,
                                         );
                                       } else {
-                                        await stackProgresoMisionVisitanteRecord!
+                                        _model.progresoParaPremioIA =
+                                            await ProgresoMisionVisitanteRecord
+                                                .getDocumentOnce(
+                                                    stackProgresoMisionVisitanteRecord
+                                                        .reference);
+
+                                        await stackProgresoMisionVisitanteRecord
                                             .reference
                                             .update(
                                                 createProgresoMisionVisitanteRecordData(
                                           misionCompletada: true,
+                                          fechaFinalizacion:
+                                              getCurrentTimestamp,
                                         ));
-
-                                        context.goNamed(
-                                            MisionCompletadaWidget.routeName);
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
+                                        context.pushNamed(
+                                          MisionCompletadaWidget.routeName,
+                                          queryParameters: {
+                                            'progresoMisionRef': serializeParam(
+                                              stackProgresoMisionVisitanteRecord
+                                                  .reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'misionRef': serializeParam(
+                                              widget.misionActual,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                        );
                                       }
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            _model.respuestaIA!,
+                                            'No es el objeto, vuelve a intentarlo!',
                                             style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)

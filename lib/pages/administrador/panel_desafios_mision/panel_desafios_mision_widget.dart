@@ -9,8 +9,6 @@ import '/pages/componentes/editar_desafio/editar_desafio_widget.dart';
 import '/pages/componentes/modal_exito_qr/modal_exito_qr_widget.dart';
 import '/pages/componentes/nuevo_desafio/nuevo_desafio_widget.dart';
 import '/index.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -46,9 +44,6 @@ class _PanelDesafiosMisionWidgetState extends State<PanelDesafiosMisionWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => PanelDesafiosMisionModel());
-
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'containerOnActionTriggerAnimation': AnimationInfo(
@@ -172,13 +167,8 @@ class _PanelDesafiosMisionWidgetState extends State<PanelDesafiosMisionWidget>
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 500),
-                                            imageUrl:
-                                                'https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHVzZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+                                          child: Image.asset(
+                                            'assets/images/user.png',
                                             width: 44.0,
                                             height: 44.0,
                                             fit: BoxFit.cover,
@@ -830,132 +820,30 @@ class _PanelDesafiosMisionWidgetState extends State<PanelDesafiosMisionWidget>
                     ],
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: _model.textController,
-                          focusNode: _model.textFieldFocusNode,
-                          onChanged: (_) => EasyDebounce.debounce(
-                            '_model.textController',
-                            Duration(milliseconds: 2000),
-                            () => safeSetState(() {}),
-                          ),
-                          autofocus: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Buscar...',
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.plusJakartaSans(
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  color: Color(0xFF57636C),
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.white,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFF4B39EF),
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFFF5963),
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFFF5963),
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            filled: true,
-                            fillColor: Colors.white,
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.plusJakartaSans(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xFF14181B),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                          validator: _model.textControllerValidator
-                              .asValidator(context),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30.0,
-                          borderWidth: 1.0,
-                          buttonSize: 44.0,
-                          icon: Icon(
-                            Icons.search_rounded,
-                            color: Color(0xFF14181B),
-                            size: 24.0,
-                          ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
+                Divider(
+                  height: 40.0,
+                  thickness: 2.0,
+                  color: FlutterFlowTheme.of(context).alternate,
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'Lista de desafios',
-                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                          font: GoogleFonts.plusJakartaSans(
-                            fontWeight: FontWeight.normal,
+                    style: FlutterFlowTheme.of(context).labelLarge.override(
+                          font: GoogleFonts.outfit(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelLarge
+                                .fontWeight,
                             fontStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
+                                .labelLarge
                                 .fontStyle,
                           ),
-                          color: Color(0xFF57636C),
-                          fontSize: 14.0,
                           letterSpacing: 0.0,
-                          fontWeight: FontWeight.normal,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .fontStyle,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelLarge.fontStyle,
                         ),
                   ),
                 ),
@@ -1063,32 +951,30 @@ class _PanelDesafiosMisionWidgetState extends State<PanelDesafiosMisionWidget>
                                             Text(
                                               listViewDesafiosRecord
                                                   .infoHistorica,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .plusJakartaSans(
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            Color(0xFF14181B),
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.outfit(
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Color(0xFF14181B),
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1106,7 +992,7 @@ class _PanelDesafiosMisionWidgetState extends State<PanelDesafiosMisionWidget>
                                                         .labelMedium
                                                         .override(
                                                           font: GoogleFonts
-                                                              .plusJakartaSans(
+                                                              .outfit(
                                                             fontWeight:
                                                                 FontWeight
                                                                     .normal,

@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -18,7 +19,7 @@ Future<String> compararObjetosIA(
 ) async {
   try {
     if (urlReferencia.isEmpty || urlVisitante.isEmpty) {
-      return "ERROR: Falta una URL";
+      return "Toma una foto para continuar";
     }
 
     // 1. Descargamos y validamos la foto del administrador

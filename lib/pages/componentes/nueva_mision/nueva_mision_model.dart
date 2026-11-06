@@ -5,6 +5,10 @@ import 'nueva_mision_widget.dart' show NuevaMisionWidget;
 import 'package:flutter/material.dart';
 
 class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
+  ///  Local state fields for this component.
+
+  DocumentReference? insigniaSeleccionadaRef;
+
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
@@ -44,6 +48,10 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
 
   // Stores action output result for [Validate Form] action in Button widget.
   bool? datosCompletos;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  List<MisionesRecord>? misionesConInsignia;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  InsigniasRecord? documentoLeido;
 
   @override
   void initState(BuildContext context) {

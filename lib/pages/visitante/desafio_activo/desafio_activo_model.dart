@@ -14,6 +14,10 @@ class DesafioActivoModel extends FlutterFlowModel<DesafioActivoWidget> {
   var codigoLeido = '';
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   DesafiosRecord? numeroDesafioSiguiente;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  ProgresoMisionVisitanteRecord? progresoParaPremioQR;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  InsigniasObtenidasRecord? premioExistenteQR;
   bool isDataUploading_uploadDataUq5 = false;
   FFUploadedFile uploadedLocalFile_uploadDataUq5 =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
@@ -23,6 +27,8 @@ class DesafioActivoModel extends FlutterFlowModel<DesafioActivoWidget> {
   String? respuestaIA;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   DesafiosRecord? numeroDesafioSiguienteIA;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  ProgresoMisionVisitanteRecord? progresoParaPremioIA;
 
   @override
   void initState(BuildContext context) {}

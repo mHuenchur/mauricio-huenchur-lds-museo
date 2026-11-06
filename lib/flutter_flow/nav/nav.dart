@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -110,7 +111,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: MisionCompletadaWidget.routeName,
           path: MisionCompletadaWidget.routePath,
-          builder: (context, params) => MisionCompletadaWidget(),
+          builder: (context, params) => MisionCompletadaWidget(
+            progresoMisionRef: params.getParam(
+              'progresoMisionRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['progreso_mision_visitante'],
+            ),
+            misionRef: params.getParam(
+              'misionRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['misiones'],
+            ),
+          ),
         ),
         FFRoute(
           name: DesafioActivoWidget.routeName,
@@ -129,16 +143,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: AdminPruebaWidget.routeName,
-          path: AdminPruebaWidget.routePath,
-          builder: (context, params) => AdminPruebaWidget(),
-        ),
-        FFRoute(
-          name: AdminPruebaCopyWidget.routeName,
-          path: AdminPruebaCopyWidget.routePath,
-          builder: (context, params) => AdminPruebaCopyWidget(),
-        ),
-        FFRoute(
           name: HomeAdministradorWidget.routeName,
           path: HomeAdministradorWidget.routePath,
           builder: (context, params) => HomeAdministradorWidget(),
@@ -147,6 +151,67 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomeVisitanteWidget.routeName,
           path: HomeVisitanteWidget.routePath,
           builder: (context, params) => HomeVisitanteWidget(),
+        ),
+        FFRoute(
+          name: AdminInsigniasWidget.routeName,
+          path: AdminInsigniasWidget.routePath,
+          builder: (context, params) => AdminInsigniasWidget(),
+        ),
+        FFRoute(
+          name: MisInsigniasWidget.routeName,
+          path: MisInsigniasWidget.routePath,
+          builder: (context, params) => MisInsigniasWidget(),
+        ),
+        FFRoute(
+          name: CrearRecompensaWidget.routeName,
+          path: CrearRecompensaWidget.routePath,
+          asyncParams: {
+            'recompensaEditar':
+                getDoc(['recompensas'], RecompensasRecord.fromSnapshot),
+          },
+          builder: (context, params) => CrearRecompensaWidget(
+            recompensaEditar: params.getParam(
+              'recompensaEditar',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: AdminRecompensasWidget.routeName,
+          path: AdminRecompensasWidget.routePath,
+          builder: (context, params) => AdminRecompensasWidget(),
+        ),
+        FFRoute(
+          name: RecompensasVisitanteWidget.routeName,
+          path: RecompensasVisitanteWidget.routePath,
+          builder: (context, params) => RecompensasVisitanteWidget(),
+        ),
+        FFRoute(
+          name: HistorialMisionesWidget.routeName,
+          path: HistorialMisionesWidget.routePath,
+          builder: (context, params) => HistorialMisionesWidget(),
+        ),
+        FFRoute(
+          name: MisRecompensasWidget.routeName,
+          path: MisRecompensasWidget.routePath,
+          builder: (context, params) => MisRecompensasWidget(),
+        ),
+        FFRoute(
+          name: DetalleCuponWidget.routeName,
+          path: DetalleCuponWidget.routePath,
+          builder: (context, params) => DetalleCuponWidget(
+            canjeRef: params.getParam(
+              'canjeRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['canjes_recompensas'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ValidarCuponWidget.routeName,
+          path: ValidarCuponWidget.routePath,
+          builder: (context, params) => ValidarCuponWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -266,6 +331,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -284,6 +350,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }

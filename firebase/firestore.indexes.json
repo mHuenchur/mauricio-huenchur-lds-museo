@@ -17,6 +17,24 @@
           "order": "ASCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "progreso_mision_visitante",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "visitante_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "mision_completada",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_finalizacion",
+          "order": "DESCENDING"
+        }
+      ]
     }
   ]
 }

@@ -14,11 +14,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "88183425566-0938mh8skv3erfmc4g8bkls0p0otvnq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.lds2026",
+            "certificate_hash": "21ee988e6729510199abeab989eba6c041170b57"
+          }
+        },
+        {
           "client_id": "88183425566-6tk8jn6gmcug6kmp6sb7ctmnkb1n8koh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.mycompany.lds2026",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "88183425566-ehk3fnogsq8jtj2rgid14vkl1gs52vr8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.lds2026",
+            "certificate_hash": "25c3631c071f906779f716be1f0179ead632efc9"
           }
         },
         {
