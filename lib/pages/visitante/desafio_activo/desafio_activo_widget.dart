@@ -717,220 +717,245 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                       ScanMode.QR,
                                     );
 
-                                    if (_model.codigoLeido ==
-                                        columnDesafiosRecord?.reference.id) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Objeto encontrado!',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                    if ((_model.codigoLeido != '') &&
+                                        (_model.codigoLeido != '-1')) {
+                                      if (_model.codigoLeido ==
+                                          columnDesafiosRecord?.reference.id) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Objeto encontrado!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
                                             ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .success,
                                           ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .success,
-                                        ),
-                                      );
-                                      _model.mostrarPistaExtra = false;
-                                      safeSetState(() {});
+                                        );
+                                        _model.mostrarPistaExtra = false;
+                                        safeSetState(() {});
 
-                                      await stackProgresoMisionVisitanteRecord!
-                                          .reference
-                                          .update({
-                                        ...mapToFirestore(
-                                          {
-                                            'puntos_totales_ganados':
-                                                FieldValue.increment(
-                                                    columnDesafiosRecord!
-                                                        .valorPuntos),
-                                          },
-                                        ),
-                                      });
-
-                                      await currentUserReference!.update({
-                                        ...mapToFirestore(
-                                          {
-                                            'puntos_disponibles':
-                                                FieldValue.increment(
-                                                    columnDesafiosRecord
-                                                        .valorPuntos),
-                                            'puntos_totales_ganados':
-                                                FieldValue.increment(
-                                                    columnDesafiosRecord
-                                                        .valorPuntos),
-                                          },
-                                        ),
-                                      });
-                                      _model.numeroDesafioSiguiente =
-                                          await queryDesafiosRecordOnce(
-                                        queryBuilder: (desafiosRecord) =>
-                                            desafiosRecord
-                                                .where(
-                                                  'mision_desafio_fk',
-                                                  isEqualTo:
-                                                      widget.misionActual,
-                                                )
-                                                .where(
-                                                  'numero_orden',
-                                                  isEqualTo:
-                                                      stackProgresoMisionVisitanteRecord
-                                                              .numeroDesafioActual +
-                                                          1,
-                                                )
-                                                .where(
-                                                  'esta_archivado',
-                                                  isEqualTo: false,
-                                                ),
-                                        singleRecord: true,
-                                      ).then((s) => s.firstOrNull);
-                                      if (_model.numeroDesafioSiguiente
-                                                  ?.reference.id !=
-                                              null &&
-                                          _model.numeroDesafioSiguiente
-                                                  ?.reference.id !=
-                                              '') {
-                                        await stackProgresoMisionVisitanteRecord
+                                        await stackProgresoMisionVisitanteRecord!
                                             .reference
                                             .update({
                                           ...mapToFirestore(
                                             {
-                                              'numero_desafio_actual':
-                                                  FieldValue.increment(1),
+                                              'puntos_totales_ganados':
+                                                  FieldValue.increment(
+                                                      columnDesafiosRecord!
+                                                          .valorPuntos),
                                             },
                                           ),
                                         });
-                                        if (Navigator.of(context).canPop()) {
-                                          context.pop();
-                                        }
-                                        context.pushNamed(
-                                          DesafioActivoWidget.routeName,
-                                          queryParameters: {
-                                            'misionActual': serializeParam(
-                                              widget.misionActual,
-                                              ParamType.DocumentReference,
-                                            ),
-                                            'numeroPistaParam': serializeParam(
-                                              _model.numeroDesafioSiguiente
-                                                  ?.numeroOrden,
-                                              ParamType.int,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      } else {
-                                        _model.progresoParaPremioQR =
-                                            await ProgresoMisionVisitanteRecord
-                                                .getDocumentOnce(
-                                                    stackProgresoMisionVisitanteRecord
-                                                        .reference);
-                                        if (_model.progresoParaPremioQR
-                                                ?.insigniaRef !=
-                                            null) {
-                                          _model.premioExistenteQR =
-                                              await queryInsigniasObtenidasRecordOnce(
-                                            queryBuilder:
-                                                (insigniasObtenidasRecord) =>
-                                                    insigniasObtenidasRecord
-                                                        .where(
-                                              'progreso_ref',
-                                              isEqualTo: _model
-                                                  .progresoParaPremioQR
-                                                  ?.reference,
-                                            ),
-                                            singleRecord: true,
-                                          ).then((s) => s.firstOrNull);
-                                          if (!(_model.premioExistenteQR !=
-                                              null)) {
-                                            await InsigniasObtenidasRecord
-                                                .collection
-                                                .doc(_model
-                                                    .progresoParaPremioQR!
-                                                    .reference
-                                                    .id)
-                                                .set(
-                                                    createInsigniasObtenidasRecordData(
-                                                  visitanteRef:
-                                                      currentUserReference,
-                                                  insigniaRef: _model
-                                                      .progresoParaPremioQR
-                                                      ?.insigniaRef,
-                                                  misionRef:
-                                                      widget.misionActual,
-                                                  progresoRef: _model
-                                                      .progresoParaPremioQR
-                                                      ?.reference,
-                                                  nombre: _model
-                                                      .progresoParaPremioQR
-                                                      ?.insigniaNombre,
-                                                  descripcion: _model
-                                                      .progresoParaPremioQR
-                                                      ?.insigniaDescripcion,
-                                                  imagen: _model
-                                                      .progresoParaPremioQR
-                                                      ?.insigniaImagen,
-                                                  nombreMision: _model
-                                                      .progresoParaPremioQR
-                                                      ?.nombreMisionInicio,
-                                                  fechaObtencion:
-                                                      getCurrentTimestamp,
-                                                ));
-                                          }
-                                        }
 
-                                        await stackProgresoMisionVisitanteRecord
-                                            .reference
-                                            .update(
-                                                createProgresoMisionVisitanteRecordData(
-                                          misionCompletada: true,
-                                          fechaFinalizacion:
-                                              getCurrentTimestamp,
-                                        ));
-                                        if (Navigator.of(context).canPop()) {
-                                          context.pop();
+                                        await currentUserReference!.update({
+                                          ...mapToFirestore(
+                                            {
+                                              'puntos_disponibles':
+                                                  FieldValue.increment(
+                                                      columnDesafiosRecord
+                                                          .valorPuntos),
+                                              'puntos_totales_ganados':
+                                                  FieldValue.increment(
+                                                      columnDesafiosRecord
+                                                          .valorPuntos),
+                                            },
+                                          ),
+                                        });
+                                        _model.numeroDesafioSiguiente =
+                                            await queryDesafiosRecordOnce(
+                                          queryBuilder: (desafiosRecord) =>
+                                              desafiosRecord
+                                                  .where(
+                                                    'mision_desafio_fk',
+                                                    isEqualTo:
+                                                        widget.misionActual,
+                                                  )
+                                                  .where(
+                                                    'numero_orden',
+                                                    isEqualTo:
+                                                        stackProgresoMisionVisitanteRecord
+                                                                .numeroDesafioActual +
+                                                            1,
+                                                  )
+                                                  .where(
+                                                    'esta_archivado',
+                                                    isEqualTo: false,
+                                                  ),
+                                          singleRecord: true,
+                                        ).then((s) => s.firstOrNull);
+                                        if (_model.numeroDesafioSiguiente
+                                                    ?.reference.id !=
+                                                null &&
+                                            _model.numeroDesafioSiguiente
+                                                    ?.reference.id !=
+                                                '') {
+                                          await stackProgresoMisionVisitanteRecord
+                                              .reference
+                                              .update({
+                                            ...mapToFirestore(
+                                              {
+                                                'numero_desafio_actual':
+                                                    FieldValue.increment(1),
+                                              },
+                                            ),
+                                          });
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
+                                          context.pushNamed(
+                                            DesafioActivoWidget.routeName,
+                                            queryParameters: {
+                                              'misionActual': serializeParam(
+                                                widget.misionActual,
+                                                ParamType.DocumentReference,
+                                              ),
+                                              'numeroPistaParam':
+                                                  serializeParam(
+                                                _model.numeroDesafioSiguiente
+                                                    ?.numeroOrden,
+                                                ParamType.int,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        } else {
+                                          _model.progresoParaPremioQR =
+                                              await ProgresoMisionVisitanteRecord
+                                                  .getDocumentOnce(
+                                                      stackProgresoMisionVisitanteRecord
+                                                          .reference);
+                                          if (_model.progresoParaPremioQR
+                                                  ?.insigniaRef !=
+                                              null) {
+                                            _model.premioExistenteQR =
+                                                await queryInsigniasObtenidasRecordOnce(
+                                              queryBuilder:
+                                                  (insigniasObtenidasRecord) =>
+                                                      insigniasObtenidasRecord
+                                                          .where(
+                                                'progreso_ref',
+                                                isEqualTo: _model
+                                                    .progresoParaPremioQR
+                                                    ?.reference,
+                                              ),
+                                              singleRecord: true,
+                                            ).then((s) => s.firstOrNull);
+                                            if (!(_model.premioExistenteQR !=
+                                                null)) {
+                                              await InsigniasObtenidasRecord
+                                                  .collection
+                                                  .doc(_model
+                                                      .progresoParaPremioQR!
+                                                      .reference
+                                                      .id)
+                                                  .set(
+                                                      createInsigniasObtenidasRecordData(
+                                                    visitanteRef:
+                                                        currentUserReference,
+                                                    insigniaRef: _model
+                                                        .progresoParaPremioQR
+                                                        ?.insigniaRef,
+                                                    misionRef:
+                                                        widget.misionActual,
+                                                    progresoRef: _model
+                                                        .progresoParaPremioQR
+                                                        ?.reference,
+                                                    nombre: _model
+                                                        .progresoParaPremioQR
+                                                        ?.insigniaNombre,
+                                                    descripcion: _model
+                                                        .progresoParaPremioQR
+                                                        ?.insigniaDescripcion,
+                                                    imagen: _model
+                                                        .progresoParaPremioQR
+                                                        ?.insigniaImagen,
+                                                    nombreMision: _model
+                                                        .progresoParaPremioQR
+                                                        ?.nombreMisionInicio,
+                                                    fechaObtencion:
+                                                        getCurrentTimestamp,
+                                                  ));
+                                            }
+                                          }
+
+                                          await stackProgresoMisionVisitanteRecord
+                                              .reference
+                                              .update(
+                                                  createProgresoMisionVisitanteRecordData(
+                                            misionCompletada: true,
+                                            fechaFinalizacion:
+                                                getCurrentTimestamp,
+                                          ));
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
+                                          context.pushNamed(
+                                            MisionCompletadaWidget.routeName,
+                                            queryParameters: {
+                                              'progresoMisionRef':
+                                                  serializeParam(
+                                                stackProgresoMisionVisitanteRecord
+                                                    .reference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                              'misionRef': serializeParam(
+                                                widget.misionActual,
+                                                ParamType.DocumentReference,
+                                              ),
+                                            }.withoutNulls,
+                                          );
                                         }
-                                        context.pushNamed(
-                                          MisionCompletadaWidget.routeName,
-                                          queryParameters: {
-                                            'progresoMisionRef': serializeParam(
-                                              stackProgresoMisionVisitanteRecord
-                                                  .reference,
-                                              ParamType.DocumentReference,
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'No es el objeto, vuelve a intentarlo!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
                                             ),
-                                            'misionRef': serializeParam(
-                                              widget.misionActual,
-                                              ParamType.DocumentReference,
-                                            ),
-                                          }.withoutNulls,
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .warning,
+                                          ),
+                                        );
+                                        _model.mostrarPistaExtra = true;
+                                        safeSetState(() {});
+                                        await actions
+                                            .registrarActivacionPistaExtra(
+                                          stackProgresoMisionVisitanteRecord!
+                                              .reference,
+                                          columnDesafiosRecord!.reference,
+                                          stackProgresoMisionVisitanteRecord
+                                              .nombreMisionInicio,
+                                          stackProgresoMisionVisitanteRecord
+                                              .numeroDesafioActual,
                                         );
                                       }
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'No es el objeto, vuelve a intentarlo!',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .warning,
-                                        ),
-                                      );
-                                      _model.mostrarPistaExtra = true;
-                                      safeSetState(() {});
                                     }
                                   } else {
+                                    safeSetState(() {
+                                      _model.isDataUploading_uploadDataUq5 =
+                                          false;
+                                      _model.uploadedLocalFile_uploadDataUq5 =
+                                          FFUploadedFile(
+                                              bytes: Uint8List.fromList([]),
+                                              originalFilename: '');
+                                      _model.uploadedFileUrl_uploadDataUq5 = '';
+                                    });
+
                                     final selectedMedia = await selectMedia(
                                       maxWidth: 800.00,
                                       imageQuality: 70,
@@ -991,178 +1016,219 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                       }
                                     }
 
-                                    _model.respuestaIA =
-                                        await actions.compararObjetosIA(
-                                      columnDesafiosRecord!.imagenReferenciaIa,
-                                      _model.uploadedFileUrl_uploadDataUq5,
-                                      'CLAVE',
-                                    );
-                                    if (_model.respuestaIA == 'SI') {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Objeto encontrado!',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .success,
-                                        ),
+                                    if (_model.uploadedFileUrl_uploadDataUq5 !=
+                                            '') {
+                                      _model.respuestaIA =
+                                          await actions.compararObjetosIA(
+                                        columnDesafiosRecord!
+                                            .imagenReferenciaIa,
+                                        _model.uploadedFileUrl_uploadDataUq5,
+                                        'CLAVE',
                                       );
-                                      await FirebaseStorage.instance
-                                          .refFromURL(_model
-                                              .uploadedFileUrl_uploadDataUq5)
-                                          .delete();
-                                      _model.mostrarPistaExtra = false;
-                                      safeSetState(() {});
+                                      if (_model.respuestaIA == 'SI') {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Objeto encontrado!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .success,
+                                          ),
+                                        );
+                                        await FirebaseStorage.instance
+                                            .refFromURL(_model
+                                                .uploadedFileUrl_uploadDataUq5)
+                                            .delete();
+                                        _model.mostrarPistaExtra = false;
+                                        safeSetState(() {});
 
-                                      await stackProgresoMisionVisitanteRecord!
-                                          .reference
-                                          .update({
-                                        ...mapToFirestore(
-                                          {
-                                            'puntos_totales_ganados':
-                                                FieldValue.increment(
-                                                    columnDesafiosRecord
-                                                        .valorPuntos),
-                                          },
-                                        ),
-                                      });
-
-                                      await currentUserReference!.update({
-                                        ...mapToFirestore(
-                                          {
-                                            'puntos_disponibles':
-                                                FieldValue.increment(
-                                                    columnDesafiosRecord
-                                                        .valorPuntos),
-                                            'puntos_totales_ganados':
-                                                FieldValue.increment(
-                                                    columnDesafiosRecord
-                                                        .valorPuntos),
-                                          },
-                                        ),
-                                      });
-                                      _model.numeroDesafioSiguienteIA =
-                                          await queryDesafiosRecordOnce(
-                                        queryBuilder: (desafiosRecord) =>
-                                            desafiosRecord
-                                                .where(
-                                                  'mision_desafio_fk',
-                                                  isEqualTo:
-                                                      widget.misionActual,
-                                                )
-                                                .where(
-                                                  'numero_orden',
-                                                  isEqualTo:
-                                                      stackProgresoMisionVisitanteRecord
-                                                              .numeroDesafioActual +
-                                                          1,
-                                                )
-                                                .where(
-                                                  'esta_archivado',
-                                                  isEqualTo: false,
-                                                ),
-                                        singleRecord: true,
-                                      ).then((s) => s.firstOrNull);
-                                      if (_model.numeroDesafioSiguienteIA
-                                                  ?.reference.id !=
-                                              null &&
-                                          _model.numeroDesafioSiguienteIA
-                                                  ?.reference.id !=
-                                              '') {
-                                        await stackProgresoMisionVisitanteRecord
+                                        await stackProgresoMisionVisitanteRecord!
                                             .reference
                                             .update({
                                           ...mapToFirestore(
                                             {
-                                              'numero_desafio_actual':
-                                                  FieldValue.increment(1),
+                                              'puntos_totales_ganados':
+                                                  FieldValue.increment(
+                                                      columnDesafiosRecord
+                                                          .valorPuntos),
                                             },
                                           ),
                                         });
-                                        if (Navigator.of(context).canPop()) {
-                                          context.pop();
-                                        }
-                                        context.pushNamed(
-                                          DesafioActivoWidget.routeName,
-                                          queryParameters: {
-                                            'misionActual': serializeParam(
-                                              widget.misionActual,
-                                              ParamType.DocumentReference,
-                                            ),
-                                            'numeroPistaParam': serializeParam(
-                                              _model.numeroDesafioSiguienteIA
-                                                  ?.numeroOrden,
-                                              ParamType.int,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      } else {
-                                        _model.progresoParaPremioIA =
-                                            await ProgresoMisionVisitanteRecord
-                                                .getDocumentOnce(
-                                                    stackProgresoMisionVisitanteRecord
-                                                        .reference);
 
-                                        await stackProgresoMisionVisitanteRecord
-                                            .reference
-                                            .update(
-                                                createProgresoMisionVisitanteRecordData(
-                                          misionCompletada: true,
-                                          fechaFinalizacion:
-                                              getCurrentTimestamp,
-                                        ));
-                                        if (Navigator.of(context).canPop()) {
-                                          context.pop();
-                                        }
-                                        context.pushNamed(
-                                          MisionCompletadaWidget.routeName,
-                                          queryParameters: {
-                                            'progresoMisionRef': serializeParam(
-                                              stackProgresoMisionVisitanteRecord
-                                                  .reference,
-                                              ParamType.DocumentReference,
-                                            ),
-                                            'misionRef': serializeParam(
-                                              widget.misionActual,
-                                              ParamType.DocumentReference,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      }
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'No es el objeto, vuelve a intentarlo!',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
+                                        await currentUserReference!.update({
+                                          ...mapToFirestore(
+                                            {
+                                              'puntos_disponibles':
+                                                  FieldValue.increment(
+                                                      columnDesafiosRecord
+                                                          .valorPuntos),
+                                              'puntos_totales_ganados':
+                                                  FieldValue.increment(
+                                                      columnDesafiosRecord
+                                                          .valorPuntos),
+                                            },
                                           ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .warning,
-                                        ),
-                                      );
-                                      await FirebaseStorage.instance
-                                          .refFromURL(_model
-                                              .uploadedFileUrl_uploadDataUq5)
-                                          .delete();
-                                      _model.mostrarPistaExtra = true;
-                                      safeSetState(() {});
+                                        });
+                                        _model.numeroDesafioSiguienteIA =
+                                            await queryDesafiosRecordOnce(
+                                          queryBuilder: (desafiosRecord) =>
+                                              desafiosRecord
+                                                  .where(
+                                                    'mision_desafio_fk',
+                                                    isEqualTo:
+                                                        widget.misionActual,
+                                                  )
+                                                  .where(
+                                                    'numero_orden',
+                                                    isEqualTo:
+                                                        stackProgresoMisionVisitanteRecord
+                                                                .numeroDesafioActual +
+                                                            1,
+                                                  )
+                                                  .where(
+                                                    'esta_archivado',
+                                                    isEqualTo: false,
+                                                  ),
+                                          singleRecord: true,
+                                        ).then((s) => s.firstOrNull);
+                                        if (_model.numeroDesafioSiguienteIA
+                                                    ?.reference.id !=
+                                                null &&
+                                            _model.numeroDesafioSiguienteIA
+                                                    ?.reference.id !=
+                                                '') {
+                                          await stackProgresoMisionVisitanteRecord
+                                              .reference
+                                              .update({
+                                            ...mapToFirestore(
+                                              {
+                                                'numero_desafio_actual':
+                                                    FieldValue.increment(1),
+                                              },
+                                            ),
+                                          });
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
+                                          context.pushNamed(
+                                            DesafioActivoWidget.routeName,
+                                            queryParameters: {
+                                              'misionActual': serializeParam(
+                                                widget.misionActual,
+                                                ParamType.DocumentReference,
+                                              ),
+                                              'numeroPistaParam':
+                                                  serializeParam(
+                                                _model.numeroDesafioSiguienteIA
+                                                    ?.numeroOrden,
+                                                ParamType.int,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        } else {
+                                          _model.progresoParaPremioIA =
+                                              await ProgresoMisionVisitanteRecord
+                                                  .getDocumentOnce(
+                                                      stackProgresoMisionVisitanteRecord
+                                                          .reference);
+
+                                          await stackProgresoMisionVisitanteRecord
+                                              .reference
+                                              .update(
+                                                  createProgresoMisionVisitanteRecordData(
+                                            misionCompletada: true,
+                                            fechaFinalizacion:
+                                                getCurrentTimestamp,
+                                          ));
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
+                                          context.pushNamed(
+                                            MisionCompletadaWidget.routeName,
+                                            queryParameters: {
+                                              'progresoMisionRef':
+                                                  serializeParam(
+                                                stackProgresoMisionVisitanteRecord
+                                                    .reference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                              'misionRef': serializeParam(
+                                                widget.misionActual,
+                                                ParamType.DocumentReference,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        }
+                                      } else {
+                                        if (_model.respuestaIA == 'NO') {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'No es el objeto, vuelve a intentarlo!',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .warning,
+                                            ),
+                                          );
+                                          await FirebaseStorage.instance
+                                              .refFromURL(_model
+                                                  .uploadedFileUrl_uploadDataUq5)
+                                              .delete();
+                                          _model.mostrarPistaExtra = true;
+                                          safeSetState(() {});
+                                          await actions
+                                              .registrarActivacionPistaExtra(
+                                            stackProgresoMisionVisitanteRecord!
+                                                .reference,
+                                            columnDesafiosRecord.reference,
+                                            stackProgresoMisionVisitanteRecord
+                                                .nombreMisionInicio,
+                                            stackProgresoMisionVisitanteRecord
+                                                .numeroDesafioActual,
+                                          );
+                                        } else {
+                                          await FirebaseStorage.instance
+                                              .refFromURL(_model
+                                                  .uploadedFileUrl_uploadDataUq5)
+                                              .delete();
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Ocurrió un problema en el servidor, vuelve a intentarlo!',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                        }
+                                      }
                                     }
                                   }
 

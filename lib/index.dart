@@ -32,3 +32,7 @@ export '/pages/administrador/validar_cupon/validar_cupon_widget.dart'
     show ValidarCuponWidget;
 export '/pages/administrador/estadisticas_misiones_admin/estadisticas_misiones_admin_widget.dart'
     show EstadisticasMisionesAdminWidget;
+export '/pages/administrador/estadisticas_desafios_admin/estadisticas_desafios_admin_widget.dart'
+    show EstadisticasDesafiosAdminWidget;
+export '/pages/administrador/estadisticas_pistas_admin/estadisticas_pistas_admin_widget.dart'
+    show EstadisticasPistasAdminWidget;

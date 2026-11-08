@@ -602,20 +602,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       ?.rol,
                                                                   '') ==
                                                               'administrador') {
-                                                            context.pushNamedAuth(
+                                                            context.goNamedAuth(
                                                                 HomeAdministradorWidget
                                                                     .routeName,
                                                                 context
                                                                     .mounted);
                                                           } else {
                                                             if (isWeb == true) {
-                                                              context.pushNamedAuth(
+                                                              context.goNamedAuth(
                                                                   HomeVisitanteWidget
                                                                       .routeName,
                                                                   context
                                                                       .mounted);
                                                             } else {
-                                                              context.pushNamedAuth(
+                                                              context.goNamedAuth(
                                                                   HomeVisitanteWidget
                                                                       .routeName,
                                                                   context
