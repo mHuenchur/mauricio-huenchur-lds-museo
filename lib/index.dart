@@ -30,3 +30,5 @@ export '/pages/visitante/detalle_cupon/detalle_cupon_widget.dart'
     show DetalleCuponWidget;
 export '/pages/administrador/validar_cupon/validar_cupon_widget.dart'
     show ValidarCuponWidget;
+export '/pages/administrador/estadisticas_misiones_admin/estadisticas_misiones_admin_widget.dart'
+    show EstadisticasMisionesAdminWidget;

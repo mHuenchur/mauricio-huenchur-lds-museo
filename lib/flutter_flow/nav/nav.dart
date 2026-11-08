@@ -212,6 +212,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ValidarCuponWidget.routeName,
           path: ValidarCuponWidget.routePath,
           builder: (context, params) => ValidarCuponWidget(),
+        ),
+        FFRoute(
+          name: EstadisticasMisionesAdminWidget.routeName,
+          path: EstadisticasMisionesAdminWidget.routePath,
+          builder: (context, params) => EstadisticasMisionesAdminWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -552,6 +552,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                 nombreMisionInicio:
                                                                     widget
                                                                         .nombreParametro,
+                                                                fechaInicio:
+                                                                    getCurrentTimestamp,
                                                               ));
                                                               _model.progresoCreado =
                                                                   ProgresoMisionVisitanteRecord
@@ -577,6 +579,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                                 _model.insigniaAlInicio?.imagen,
                                                                             nombreMisionInicio:
                                                                                 widget.nombreParametro,
+                                                                            fechaInicio:
+                                                                                getCurrentTimestamp,
                                                                           ),
                                                                           progresoMisionVisitanteRecordReference);
 

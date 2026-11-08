@@ -100,7 +100,7 @@ class _RecompensasVisitanteWidgetState
                                       .displaySmall
                                       .fontStyle,
                                 ),
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .displaySmall
@@ -113,25 +113,26 @@ class _RecompensasVisitanteWidgetState
                       ),
                       Text(
                         'Tus puntos disponibles',
-                        style:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  font: GoogleFonts.roboto(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  color: Color(0xBEFFFFFF),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
+                        style: FlutterFlowTheme.of(context)
+                            .labelMedium
+                            .override(
+                              font: GoogleFonts.roboto(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontStyle,
+                            ),
                       ),
                       AuthUserStreamWidget(
                         builder: (context) => Text(
@@ -269,12 +270,12 @@ class _RecompensasVisitanteWidgetState
                                   listViewRecompensasRecordList[listViewIndex];
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 8.0),
+                                    16.0, 8.0, 16.0, 8.0),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        .primaryBackground,
                                     boxShadow: [
                                       BoxShadow(
                                         blurRadius: 3.0,
@@ -286,6 +287,10 @@ class _RecompensasVisitanteWidgetState
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(8.0),
+                                    border: Border.all(
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                    ),
                                   ),
                                   child: Padding(
                                     padding: EdgeInsets.all(4.0),
@@ -294,31 +299,54 @@ class _RecompensasVisitanteWidgetState
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 1.0, 1.0, 1.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(6.0),
-                                            child: Image.network(
-                                              listViewRecompensasRecord.imagen,
-                                              width: double.infinity,
-                                              height: 150.0,
-                                              fit: BoxFit.cover,
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 1.0, 1.0, 1.0),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(6.0),
+                                              child: Image.network(
+                                                listViewRecompensasRecord
+                                                    .imagen,
+                                                height: 150.0,
+                                                fit: BoxFit.contain,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 8.0, 0.0, 0.0),
-                                          child: Text(
-                                            listViewRecompensasRecord.nombre,
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineSmall
-                                                .override(
-                                                  font: GoogleFonts.outfit(
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 8.0, 0.0, 0.0),
+                                            child: Text(
+                                              listViewRecompensasRecord.nombre,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineSmall
+                                                  .override(
+                                                    font: GoogleFonts.outfit(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .headlineSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .headlineSmall
+                                                              .fontStyle,
+                                                    ),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -330,18 +358,7 @@ class _RecompensasVisitanteWidgetState
                                                             .headlineSmall
                                                             .fontStyle,
                                                   ),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineSmall
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineSmall
-                                                          .fontStyle,
-                                                ),
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -352,30 +369,30 @@ class _RecompensasVisitanteWidgetState
                                             listViewRecompensasRecord
                                                 .descripcion,
                                             style: FlutterFlowTheme.of(context)
-                                                .headlineSmall
+                                                .titleLarge
                                                 .override(
                                                   font: GoogleFonts.outfit(
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .headlineSmall
+                                                            .titleLarge
                                                             .fontWeight,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .headlineSmall
+                                                            .titleLarge
                                                             .fontStyle,
                                                   ),
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .headlineSmall
+                                                          .titleLarge
                                                           .fontWeight,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .headlineSmall
+                                                          .titleLarge
                                                           .fontStyle,
                                                 ),
                                           ),
@@ -424,9 +441,9 @@ class _RecompensasVisitanteWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 4.0, 8.0),
+                                                  16.0, 8.0, 4.0, 8.0),
                                           child: Text(
-                                            '${listViewRecompensasRecord.costoPuntos.toString()} puntos',
+                                            'Costo: ${listViewRecompensasRecord.costoPuntos.toString()} puntos',
                                             textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
