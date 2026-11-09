@@ -227,6 +227,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: EstadisticasPistasAdminWidget.routeName,
           path: EstadisticasPistasAdminWidget.routePath,
           builder: (context, params) => EstadisticasPistasAdminWidget(),
+        ),
+        FFRoute(
+          name: ReporteMensualAdminWidget.routeName,
+          path: ReporteMensualAdminWidget.routePath,
+          builder: (context, params) => ReporteMensualAdminWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

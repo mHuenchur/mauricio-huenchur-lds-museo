@@ -36,3 +36,5 @@ export '/pages/administrador/estadisticas_desafios_admin/estadisticas_desafios_a
     show EstadisticasDesafiosAdminWidget;
 export '/pages/administrador/estadisticas_pistas_admin/estadisticas_pistas_admin_widget.dart'
     show EstadisticasPistasAdminWidget;
+export '/pages/administrador/reporte_mensual_admin/reporte_mensual_admin_widget.dart'
+    show ReporteMensualAdminWidget;

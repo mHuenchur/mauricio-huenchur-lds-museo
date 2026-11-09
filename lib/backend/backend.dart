@@ -15,6 +15,7 @@ import 'schema/insignias_obtenidas_record.dart';
 import 'schema/recompensas_record.dart';
 import 'schema/canjes_recompensas_record.dart';
 import 'schema/activaciones_pista_extra_record.dart';
+import 'schema/actividad_mensual_visitantes_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order, Type;
@@ -33,6 +34,7 @@ export 'schema/insignias_obtenidas_record.dart';
 export 'schema/recompensas_record.dart';
 export 'schema/canjes_recompensas_record.dart';
 export 'schema/activaciones_pista_extra_record.dart';
+export 'schema/actividad_mensual_visitantes_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -401,6 +403,45 @@ Future<List<ActivacionesPistaExtraRecord>>
         queryCollectionOnce(
           ActivacionesPistaExtraRecord.collection,
           ActivacionesPistaExtraRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+/// Functions to query ActividadMensualVisitantesRecords (as a Stream and as a Future).
+Future<int> queryActividadMensualVisitantesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ActividadMensualVisitantesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ActividadMensualVisitantesRecord>>
+    queryActividadMensualVisitantesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollection(
+          ActividadMensualVisitantesRecord.collection,
+          ActividadMensualVisitantesRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+Future<List<ActividadMensualVisitantesRecord>>
+    queryActividadMensualVisitantesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          ActividadMensualVisitantesRecord.collection,
+          ActividadMensualVisitantesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           limit: limit,
           singleRecord: singleRecord,

@@ -11,6 +11,7 @@ import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -43,6 +44,13 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DesafioActivoModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.registrarActividadMensual(
+        currentUserReference!.id,
+      );
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
