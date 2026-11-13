@@ -38,3 +38,5 @@ export '/pages/administrador/estadisticas_pistas_admin/estadisticas_pistas_admin
     show EstadisticasPistasAdminWidget;
 export '/pages/administrador/reporte_mensual_admin/reporte_mensual_admin_widget.dart'
     show ReporteMensualAdminWidget;
+export '/pages/administrador/gestion_visitantes_admin/gestion_visitantes_admin_widget.dart'
+    show GestionVisitantesAdminWidget;

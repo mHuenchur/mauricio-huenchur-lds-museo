@@ -60,6 +60,11 @@ class UsersRecord extends FirestoreRecord {
   int get puntosTotalesGanados => _puntosTotalesGanados ?? 0;
   bool hasPuntosTotalesGanados() => _puntosTotalesGanados != null;
 
+  // "suspendido" field.
+  bool? _suspendido;
+  bool get suspendido => _suspendido ?? false;
+  bool hasSuspendido() => _suspendido != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -71,6 +76,7 @@ class UsersRecord extends FirestoreRecord {
     _puntosDisponibles = castToType<int>(snapshotData['puntos_disponibles']);
     _puntosTotalesGanados =
         castToType<int>(snapshotData['puntos_totales_ganados']);
+    _suspendido = snapshotData['suspendido'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -115,6 +121,7 @@ Map<String, dynamic> createUsersRecordData({
   String? rol,
   int? puntosDisponibles,
   int? puntosTotalesGanados,
+  bool? suspendido,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -127,6 +134,7 @@ Map<String, dynamic> createUsersRecordData({
       'rol': rol,
       'puntos_disponibles': puntosDisponibles,
       'puntos_totales_ganados': puntosTotalesGanados,
+      'suspendido': suspendido,
     }.withoutNulls,
   );
 
@@ -146,7 +154,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.rol == e2?.rol &&
         e1?.puntosDisponibles == e2?.puntosDisponibles &&
-        e1?.puntosTotalesGanados == e2?.puntosTotalesGanados;
+        e1?.puntosTotalesGanados == e2?.puntosTotalesGanados &&
+        e1?.suspendido == e2?.suspendido;
   }
 
   @override
@@ -159,7 +168,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.phoneNumber,
         e?.rol,
         e?.puntosDisponibles,
-        e?.puntosTotalesGanados
+        e?.puntosTotalesGanados,
+        e?.suspendido
       ]);
 
   @override

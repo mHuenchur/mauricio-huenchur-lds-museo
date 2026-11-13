@@ -232,6 +232,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ReporteMensualAdminWidget.routeName,
           path: ReporteMensualAdminWidget.routePath,
           builder: (context, params) => ReporteMensualAdminWidget(),
+        ),
+        FFRoute(
+          name: GestionVisitantesAdminWidget.routeName,
+          path: GestionVisitantesAdminWidget.routePath,
+          builder: (context, params) => GestionVisitantesAdminWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

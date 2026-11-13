@@ -16,6 +16,7 @@ import 'schema/recompensas_record.dart';
 import 'schema/canjes_recompensas_record.dart';
 import 'schema/activaciones_pista_extra_record.dart';
 import 'schema/actividad_mensual_visitantes_record.dart';
+import 'schema/suspensiones_visitantes_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order, Type;
@@ -35,6 +36,7 @@ export 'schema/recompensas_record.dart';
 export 'schema/canjes_recompensas_record.dart';
 export 'schema/activaciones_pista_extra_record.dart';
 export 'schema/actividad_mensual_visitantes_record.dart';
+export 'schema/suspensiones_visitantes_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -442,6 +444,44 @@ Future<List<ActividadMensualVisitantesRecord>>
         queryCollectionOnce(
           ActividadMensualVisitantesRecord.collection,
           ActividadMensualVisitantesRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+/// Functions to query SuspensionesVisitantesRecords (as a Stream and as a Future).
+Future<int> querySuspensionesVisitantesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SuspensionesVisitantesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SuspensionesVisitantesRecord>> querySuspensionesVisitantesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SuspensionesVisitantesRecord.collection,
+      SuspensionesVisitantesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SuspensionesVisitantesRecord>>
+    querySuspensionesVisitantesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          SuspensionesVisitantesRecord.collection,
+          SuspensionesVisitantesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           limit: limit,
           singleRecord: singleRecord,

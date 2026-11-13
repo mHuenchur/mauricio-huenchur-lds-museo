@@ -609,17 +609,91 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     .mounted);
                                                           } else {
                                                             if (isWeb == true) {
-                                                              context.goNamedAuth(
-                                                                  HomeVisitanteWidget
-                                                                      .routeName,
-                                                                  context
-                                                                      .mounted);
+                                                              if (valueOrDefault<
+                                                                          bool>(
+                                                                      currentUserDocument
+                                                                          ?.suspendido,
+                                                                      false) ==
+                                                                  true) {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return AlertDialog(
+                                                                      title: Text(
+                                                                          'Cuenta suspendida'),
+                                                                      content: Text(
+                                                                          'Tu acceso al museo está suspendido. Comunicate con el museo para solicitar la reactivación'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                );
+                                                                GoRouter.of(
+                                                                        context)
+                                                                    .prepareAuthEvent();
+                                                                await authManager
+                                                                    .signOut();
+                                                                GoRouter.of(
+                                                                        context)
+                                                                    .clearRedirectLocation();
+                                                              } else {
+                                                                context.goNamedAuth(
+                                                                    HomeVisitanteWidget
+                                                                        .routeName,
+                                                                    context
+                                                                        .mounted);
+                                                              }
                                                             } else {
-                                                              context.goNamedAuth(
-                                                                  HomeVisitanteWidget
-                                                                      .routeName,
-                                                                  context
-                                                                      .mounted);
+                                                              if (valueOrDefault<
+                                                                          bool>(
+                                                                      currentUserDocument
+                                                                          ?.suspendido,
+                                                                      false) ==
+                                                                  true) {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return AlertDialog(
+                                                                      title: Text(
+                                                                          'Cuenta suspendida'),
+                                                                      content: Text(
+                                                                          'Tu acceso al museo está suspendido. Comunicate con el museo para solicitar la reactivación'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                );
+                                                                GoRouter.of(
+                                                                        context)
+                                                                    .prepareAuthEvent();
+                                                                await authManager
+                                                                    .signOut();
+                                                                GoRouter.of(
+                                                                        context)
+                                                                    .clearRedirectLocation();
+                                                              } else {
+                                                                context.goNamedAuth(
+                                                                    HomeVisitanteWidget
+                                                                        .routeName,
+                                                                    context
+                                                                        .mounted);
+                                                              }
                                                             }
                                                           }
                                                         } else {
@@ -763,6 +837,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     return;
                                                   }
                                                   if (!(valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.rol,
+                                                              '') !=
+                                                          '')) {
+                                                    await currentUserReference!
+                                                        .update(
+                                                            createUsersRecordData(
+                                                      rol: 'visitante',
+                                                    ));
+                                                  }
+                                                  if (!(valueOrDefault(
                                                           currentUserDocument
                                                               ?.puntosTotalesGanados,
                                                           0) !=
@@ -785,15 +870,83 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         context.mounted);
                                                   } else {
                                                     if (isWeb == true) {
-                                                      context.pushNamedAuth(
-                                                          HomeVisitanteWidget
-                                                              .routeName,
-                                                          context.mounted);
+                                                      if (valueOrDefault<bool>(
+                                                              currentUserDocument
+                                                                  ?.suspendido,
+                                                              false) ==
+                                                          true) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return AlertDialog(
+                                                              title: Text(
+                                                                  'Cuenta suspendida'),
+                                                              content: Text(
+                                                                  'Tu acceso al museo está suspendido. Comunicate con el museo para solicitar la reactivación'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        );
+                                                        GoRouter.of(context)
+                                                            .prepareAuthEvent();
+                                                        await authManager
+                                                            .signOut();
+                                                        GoRouter.of(context)
+                                                            .clearRedirectLocation();
+                                                      } else {
+                                                        context.goNamedAuth(
+                                                            HomeVisitanteWidget
+                                                                .routeName,
+                                                            context.mounted);
+                                                      }
                                                     } else {
-                                                      context.pushNamedAuth(
-                                                          HomeVisitanteWidget
-                                                              .routeName,
-                                                          context.mounted);
+                                                      if (valueOrDefault<bool>(
+                                                              currentUserDocument
+                                                                  ?.suspendido,
+                                                              false) ==
+                                                          true) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return AlertDialog(
+                                                              title: Text(
+                                                                  'Cuenta suspendida'),
+                                                              content: Text(
+                                                                  'Tu acceso al museo está suspendido. Comunicate con el museo para solicitar la reactivación'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        );
+                                                        GoRouter.of(context)
+                                                            .prepareAuthEvent();
+                                                        await authManager
+                                                            .signOut();
+                                                        GoRouter.of(context)
+                                                            .clearRedirectLocation();
+                                                      } else {
+                                                        context.goNamedAuth(
+                                                            HomeVisitanteWidget
+                                                                .routeName,
+                                                            context.mounted);
+                                                      }
                                                     }
                                                   }
                                                 },
