@@ -2381,8 +2381,7 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                               );
                                                             }
                                                           },
-                                                          text:
-                                                              'Duplicar misión',
+                                                          text: 'Dup',
                                                           options:
                                                               FFButtonOptions(
                                                             height: 40.0,

@@ -60,10 +60,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
         padding: EdgeInsets.all(12.0),
-        child: StreamBuilder<List<MisionesRecord>>(
-          stream: queryMisionesRecord(
-            singleRecord: true,
-          ),
+        child: StreamBuilder<MisionesRecord>(
+          stream: MisionesRecord.getDocument(widget.misionParametro!),
           builder: (context, snapshot) {
             // Customize what your widget looks like when it's loading.
             if (!snapshot.hasData) {
@@ -79,15 +77,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                 ),
               );
             }
-            List<MisionesRecord> containerMisionesRecordList = snapshot.data!;
-            // Return an empty Container when the item does not exist.
-            if (snapshot.data!.isEmpty) {
-              return Container();
-            }
-            final containerMisionesRecord =
-                containerMisionesRecordList.isNotEmpty
-                    ? containerMisionesRecordList.first
-                    : null;
+
+            final containerMisionesRecord = snapshot.data!;
 
             return Container(
               width: 400.0,
@@ -412,6 +403,67 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                               .misionCompletada)
                                                       ? null
                                                       : () async {
+                                                          var _shouldSetState =
+                                                              false;
+                                                          if (containerMisionesRecord
+                                                                  .misionRequeridaRef !=
+                                                              null) {
+                                                            _model.progresoRequisito =
+                                                                await queryProgresoMisionVisitanteRecordOnce(
+                                                              queryBuilder:
+                                                                  (progresoMisionVisitanteRecord) =>
+                                                                      progresoMisionVisitanteRecord
+                                                                          .where(
+                                                                            'visitante_id',
+                                                                            isEqualTo:
+                                                                                currentUserReference?.id,
+                                                                          )
+                                                                          .where(
+                                                                            'mision_id',
+                                                                            isEqualTo:
+                                                                                containerMisionesRecord.misionRequeridaRef?.id,
+                                                                          )
+                                                                          .where(
+                                                                            'mision_completada',
+                                                                            isEqualTo:
+                                                                                true,
+                                                                          ),
+                                                              limit: 1,
+                                                            );
+                                                            _shouldSetState =
+                                                                true;
+                                                            if (_model
+                                                                    .progresoRequisito
+                                                                    ?.length ==
+                                                                0) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return AlertDialog(
+                                                                    title: Text(
+                                                                        'Misión bloqueada'),
+                                                                    content: Text(
+                                                                        'Completá la misión previa para desbloquear este recorrido'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                              return;
+                                                            }
+                                                          }
                                                           _model.totalDesafios =
                                                               await queryDesafiosRecordCount(
                                                             queryBuilder:
@@ -428,6 +480,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                               false,
                                                                         ),
                                                           );
+                                                          _shouldSetState =
+                                                              true;
                                                           if (_model
                                                                   .totalDesafios! >
                                                               0) {
@@ -450,6 +504,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                   true,
                                                             ).then((s) => s
                                                                     .firstOrNull);
+                                                            _shouldSetState =
+                                                                true;
                                                             if (_model
                                                                         .progresoExistente
                                                                         ?.reference
@@ -492,6 +548,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                       .getDocumentOnce(
                                                                           widget
                                                                               .misionParametro!);
+                                                              _shouldSetState =
+                                                                  true;
                                                               if (_model
                                                                       .misionLeida
                                                                       ?.insigniaRef !=
@@ -500,6 +558,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                     await InsigniasRecord.getDocumentOnce(_model
                                                                         .misionLeida!
                                                                         .insigniaRef!);
+                                                                _shouldSetState =
+                                                                    true;
                                                                 if (_model
                                                                         .insigniaConsultada !=
                                                                     null) {
@@ -583,6 +643,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                                 getCurrentTimestamp,
                                                                           ),
                                                                           progresoMisionVisitanteRecordReference);
+                                                              _shouldSetState =
+                                                                  true;
 
                                                               context.pushNamed(
                                                                 DesafioActivoWidget
@@ -630,7 +692,8 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                             );
                                                           }
 
-                                                          safeSetState(() {});
+                                                          if (_shouldSetState)
+                                                            safeSetState(() {});
                                                         },
                                               text: (containerProgresoMisionVisitanteRecord !=
                                                           null) &&

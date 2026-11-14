@@ -9,6 +9,8 @@ class EditarMisionModel extends FlutterFlowModel<EditarMisionWidget> {
 
   DocumentReference? insigniaSeleccionadaRef;
 
+  DocumentReference? misionRequeridaSeleccionadaRef;
+
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
