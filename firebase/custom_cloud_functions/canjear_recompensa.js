@@ -54,7 +54,34 @@ exports.canjearRecompensa = functions
     const canjeRef = db.collection("canjes_recompensas").doc(canjeId);
 
     return db.runTransaction(async (transaction) => {
-      // 3. Si este canje ya se procesó, devolverlo sin cobrar otra vez.
+      const usuarioSnap = await transaction.get(usuarioRef);
+
+      if (!usuarioSnap.exists) {
+        error("not-found", "No se encontró tu perfil de usuario.");
+      }
+
+      const usuario = usuarioSnap.data();
+
+      // Los perfiles antiguos pueden tener el rol vacío o pendiente.
+      const esVisitante = [undefined, null, "", "visitante"].includes(
+        usuario.rol,
+      );
+
+      if (!esVisitante) {
+        error(
+          "permission-denied",
+          "Solo los visitantes pueden canjear recompensas.",
+        );
+      }
+
+      if (usuario.suspendido === true) {
+        error(
+          "permission-denied",
+          "Tu cuenta está suspendida. Contactá al museo para solicitar la reactivación.",
+        );
+      }
+
+      // Un reintento del mismo visitante devuelve el cupón ya generado.
       const canjeExistente = await transaction.get(canjeRef);
 
       if (canjeExistente.exists) {
@@ -75,19 +102,12 @@ exports.canjearRecompensa = functions
         return canjeId;
       }
 
-      // Todas las lecturas se realizan antes de escribir.
-      const usuarioSnap = await transaction.get(usuarioRef);
       const recompensaSnap = await transaction.get(recompensaRef);
-
-      if (!usuarioSnap.exists) {
-        error("not-found", "No se encontró tu perfil de usuario.");
-      }
 
       if (!recompensaSnap.exists) {
         error("not-found", "La recompensa ya no existe.");
       }
 
-      const usuario = usuarioSnap.data();
       const recompensa = recompensaSnap.data();
 
       // 4. Validar disponibilidad y datos de la recompensa.

@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -86,7 +87,7 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                         child: Text(
-                          'Get Away',
+                          'Detalles de cupón',
                           style: FlutterFlowTheme.of(context)
                               .displaySmall
                               .override(
@@ -109,50 +110,9 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                               ),
                         ),
                       ),
-                      Text(
-                        'Find some wonderful little cabins below.',
-                        style:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  font: GoogleFonts.roboto(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  color: Color(0xBEFFFFFF),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                      ),
                     ],
                   ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
-              child: Text(
-                'Popular Bookings',
-                style: FlutterFlowTheme.of(context).labelLarge.override(
-                      font: GoogleFonts.roboto(
-                        fontWeight:
-                            FlutterFlowTheme.of(context).labelLarge.fontWeight,
-                        fontStyle:
-                            FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                      ),
-                      letterSpacing: 0.0,
-                      fontWeight:
-                          FlutterFlowTheme.of(context).labelLarge.fontWeight,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                    ),
               ),
             ),
             Expanded(
@@ -191,7 +151,7 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                               width: 500.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                    .primaryBackground,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 3.0,
@@ -203,14 +163,22 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                                   )
                                 ],
                                 borderRadius: BorderRadius.circular(8.0),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                ),
                               ),
                               child: Padding(
                                 padding: EdgeInsets.all(4.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        (FFMainAxisAlignment.center)
+                                            .flutterValue,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        (FFCrossAxisAlignment.center)
+                                            .flutterValue,
+                                    textBaseline: TextBaseline.alphabetic,
                                     children: [
                                       if (cardViewCanjesRecompensasRecord
                                               .estado ==
@@ -218,74 +186,36 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                                         Align(
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
-                                          child: BarcodeWidget(
-                                            data:
-                                                cardViewCanjesRecompensasRecord
-                                                    .reference.id,
-                                            barcode: Barcode.qrCode(),
-                                            width: 200.0,
-                                            height: 200.0,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .info,
-                                            errorBuilder: (_context, _error) =>
-                                                SizedBox(
-                                              width: 200.0,
-                                              height: 200.0,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: BarcodeWidget(
+                                              data:
+                                                  cardViewCanjesRecompensasRecord
+                                                      .reference.id,
+                                              barcode: Barcode.qrCode(),
+                                              width: 170.0,
+                                              height: 170.0,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                              errorBuilder:
+                                                  (_context, _error) =>
+                                                      SizedBox(
+                                                width: 170.0,
+                                                height: 170.0,
+                                              ),
+                                              drawText: true,
                                             ),
-                                            drawText: true,
                                           ),
                                         ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Container(
-                                              width: 100.0,
-                                              decoration: BoxDecoration(),
-                                              child: Text(
-                                                cardViewCanjesRecompensasRecord
-                                                    .reference.id,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font: GoogleFonts.roboto(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 8.0, 0.0, 0.0),
+                                            16.0, 8.0, 16.0, 0.0),
                                         child: Text(
                                           cardViewCanjesRecompensasRecord
                                               .nombreRecompensa,
@@ -304,6 +234,9 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                                                           .headlineSmall
                                                           .fontStyle,
                                                 ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
@@ -318,7 +251,7 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 8.0, 0.0),
+                                            16.0, 4.0, 16.0, 0.0),
                                         child: AutoSizeText(
                                           cardViewCanjesRecompensasRecord
                                               .condiciones
@@ -356,54 +289,10 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 8.0, 0.0),
+                                            16.0, 4.0, 16.0, 0.0),
                                         child: AutoSizeText(
-                                          cardViewCanjesRecompensasRecord
-                                              .puntosGastados
-                                              .toString()
+                                          'Coste: ${cardViewCanjesRecompensasRecord.puntosGastados.toString()}'
                                               .maybeHandleOverflow(
-                                                maxChars: 70,
-                                                replacement: '…',
-                                              ),
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                font: GoogleFonts.roboto(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 8.0, 0.0),
-                                        child: AutoSizeText(
-                                          dateTimeFormat(
-                                            "d/M/y",
-                                            cardViewCanjesRecompensasRecord
-                                                .fechaCanje!,
-                                            locale: FFLocalizations.of(context)
-                                                .languageCode,
-                                          ).maybeHandleOverflow(
                                             maxChars: 70,
                                             replacement: '…',
                                           ),
@@ -437,55 +326,78 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 8.0, 4.0, 8.0),
-                                              child: Text(
-                                                cardViewCanjesRecompensasRecord
-                                                    .estado,
-                                                textAlign: TextAlign.end,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleLarge
-                                                    .override(
-                                                      font: GoogleFonts.outfit(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleLarge
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleLarge
-                                                                .fontStyle,
-                                                      ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLarge
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLarge
-                                                              .fontStyle,
-                                                    ),
+                                            16.0, 4.0, 16.0, 0.0),
+                                        child: AutoSizeText(
+                                          'Canjeado el ${dateTimeFormat(
+                                            "d/M/y",
+                                            cardViewCanjesRecompensasRecord
+                                                .fechaCanje,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          )}'
+                                              .maybeHandleOverflow(
+                                            maxChars: 70,
+                                            replacement: '…',
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
                                               ),
-                                            ),
-                                            Icon(
-                                              Icons.chevron_right_rounded,
-                                              color: Color(0xFF57636C),
-                                              size: 24.0,
-                                            ),
-                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 8.0),
+                                        child: Text(
+                                          'Estado: ${cardViewCanjesRecompensasRecord.estado}',
+                                          textAlign: TextAlign.end,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                font: GoogleFonts.outfit(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleLarge
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleLarge
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleLarge
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleLarge
+                                                        .fontStyle,
+                                              ),
                                         ),
                                       ),
                                       Container(
@@ -502,7 +414,7 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        16.0, 4.0, 8.0, 0.0),
+                                                        16.0, 4.0, 16.0, 0.0),
                                                 child: AutoSizeText(
                                                   'Este cupon ya fue utilizado',
                                                   textAlign: TextAlign.start,
@@ -543,7 +455,7 @@ class _DetalleCuponWidgetState extends State<DetalleCuponWidget> {
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        16.0, 4.0, 8.0, 0.0),
+                                                        16.0, 4.0, 16.0, 0.0),
                                                 child: AutoSizeText(
                                                   dateTimeFormat(
                                                     "d/M/y",

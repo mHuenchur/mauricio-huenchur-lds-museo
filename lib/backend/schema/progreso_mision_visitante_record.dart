@@ -70,6 +70,11 @@ class ProgresoMisionVisitanteRecord extends FirestoreRecord {
   DateTime? get fechaFinalizacion => _fechaFinalizacion;
   bool hasFechaFinalizacion() => _fechaFinalizacion != null;
 
+  // "fecha_inicio" field.
+  DateTime? _fechaInicio;
+  DateTime? get fechaInicio => _fechaInicio;
+  bool hasFechaInicio() => _fechaInicio != null;
+
   void _initializeFields() {
     _visitanteId = snapshotData['visitante_id'] as String?;
     _misionId = snapshotData['mision_id'] as String?;
@@ -84,6 +89,7 @@ class ProgresoMisionVisitanteRecord extends FirestoreRecord {
     _insigniaImagen = snapshotData['insignia_imagen'] as String?;
     _nombreMisionInicio = snapshotData['nombre_mision_inicio'] as String?;
     _fechaFinalizacion = snapshotData['fecha_finalizacion'] as DateTime?;
+    _fechaInicio = snapshotData['fecha_inicio'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -135,6 +141,7 @@ Map<String, dynamic> createProgresoMisionVisitanteRecordData({
   String? insigniaImagen,
   String? nombreMisionInicio,
   DateTime? fechaFinalizacion,
+  DateTime? fechaInicio,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -149,6 +156,7 @@ Map<String, dynamic> createProgresoMisionVisitanteRecordData({
       'insignia_imagen': insigniaImagen,
       'nombre_mision_inicio': nombreMisionInicio,
       'fecha_finalizacion': fechaFinalizacion,
+      'fecha_inicio': fechaInicio,
     }.withoutNulls,
   );
 
@@ -172,7 +180,8 @@ class ProgresoMisionVisitanteRecordDocumentEquality
         e1?.insigniaDescripcion == e2?.insigniaDescripcion &&
         e1?.insigniaImagen == e2?.insigniaImagen &&
         e1?.nombreMisionInicio == e2?.nombreMisionInicio &&
-        e1?.fechaFinalizacion == e2?.fechaFinalizacion;
+        e1?.fechaFinalizacion == e2?.fechaFinalizacion &&
+        e1?.fechaInicio == e2?.fechaInicio;
   }
 
   @override
@@ -187,7 +196,8 @@ class ProgresoMisionVisitanteRecordDocumentEquality
         e?.insigniaDescripcion,
         e?.insigniaImagen,
         e?.nombreMisionInicio,
-        e?.fechaFinalizacion
+        e?.fechaFinalizacion,
+        e?.fechaInicio
       ]);
 
   @override

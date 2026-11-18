@@ -10,6 +10,7 @@ import '/pages/componentes/editar_mision/editar_mision_widget.dart';
 import '/pages/componentes/nueva_mision/nueva_mision_widget.dart';
 import '/pages/componentes/nueva_sala/nueva_sala_widget.dart';
 import '/pages/componentes/switch_mision/switch_mision_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -495,6 +496,311 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                              EstadisticasMisionesAdminWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF6F61EF),
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: 4.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x4D9489F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.query_stats,
+                                  color: Colors.white,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Estadisticas Misiones',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.plusJakartaSans(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                              EstadisticasDesafiosAdminWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF6F61EF),
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: 4.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x4D9489F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.query_stats,
+                                  color: Colors.white,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Estadisticas Desafios',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.plusJakartaSans(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context
+                              .pushNamed(ReporteMensualAdminWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF6F61EF),
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: 4.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x4D9489F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                ),
+                                FaIcon(
+                                  FaIconData(const IconData(
+                                      /* chartBar */ 0xf080,
+                                      fontFamily: 'FontAwesomeRegular',
+                                      fontPackage: 'font_awesome_flutter')),
+                                  color: Colors.white,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Reporte mensual',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.plusJakartaSans(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                              GestionVisitantesAdminWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF6F61EF),
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: 4.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x4D9489F5),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                ),
+                                FaIcon(
+                                  FaIconData(const IconData(/* users */ 0xf0c0,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
+                                  color: Colors.white,
+                                  size: 28.0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Gestionar visitantes',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          font: GoogleFonts.plusJakartaSans(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
                                                   .fontStyle,
                                         ),
                                   ),
@@ -1673,7 +1979,6 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
 
                                           return Container(
                                             width: 300.0,
-                                            height: 100.0,
                                             decoration: BoxDecoration(
                                               color: Colors.white,
                                               borderRadius:
@@ -2020,6 +2325,117 @@ class _HomeAdministradorWidgetState extends State<HomeAdministradorWidget>
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
+                                                        FFButtonWidget(
+                                                          onPressed: () async {
+                                                            var confirmDialogResponse =
+                                                                await showDialog<
+                                                                        bool>(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return AlertDialog(
+                                                                          content:
+                                                                              Text('¿Crear una copia inactiva de esta misión y sus desafíos?'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                              child: Text('Cancelar'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                              child: Text('Confirmar'),
+                                                                            ),
+                                                                          ],
+                                                                        );
+                                                                      },
+                                                                    ) ??
+                                                                    false;
+                                                            if (confirmDialogResponse) {
+                                                              await actions
+                                                                  .duplicarMision(
+                                                                listViewMisionesRecord
+                                                                    .reference,
+                                                              );
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Copia creada. Podés editarla antes de activarla.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .success,
+                                                                ),
+                                                              );
+                                                            }
+                                                          },
+                                                          text: 'Dup',
+                                                          options:
+                                                              FFButtonOptions(
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .outfit(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: Colors
+                                                                          .white,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontStyle,
+                                                                    ),
+                                                            elevation: 0.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                        ),
                                                         Builder(
                                                           builder: (context) =>
                                                               Padding(

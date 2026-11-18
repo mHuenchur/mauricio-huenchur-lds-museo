@@ -9,6 +9,8 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
 
   DocumentReference? insigniaSeleccionadaRef;
 
+  DocumentReference? misionRequeridaSeleccionadaRef;
+
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();

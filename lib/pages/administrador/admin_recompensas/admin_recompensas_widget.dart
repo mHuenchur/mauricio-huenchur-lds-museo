@@ -57,7 +57,6 @@ class _AdminRecompensasWidgetState extends State<AdminRecompensasWidget> {
               width: double.infinity,
               height: 230.0,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.asset(

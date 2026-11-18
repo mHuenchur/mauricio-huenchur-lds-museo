@@ -14,6 +14,9 @@ import 'schema/insignias_record.dart';
 import 'schema/insignias_obtenidas_record.dart';
 import 'schema/recompensas_record.dart';
 import 'schema/canjes_recompensas_record.dart';
+import 'schema/activaciones_pista_extra_record.dart';
+import 'schema/actividad_mensual_visitantes_record.dart';
+import 'schema/suspensiones_visitantes_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order, Type;
@@ -31,6 +34,9 @@ export 'schema/insignias_record.dart';
 export 'schema/insignias_obtenidas_record.dart';
 export 'schema/recompensas_record.dart';
 export 'schema/canjes_recompensas_record.dart';
+export 'schema/activaciones_pista_extra_record.dart';
+export 'schema/actividad_mensual_visitantes_record.dart';
+export 'schema/suspensiones_visitantes_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -365,6 +371,121 @@ Future<List<CanjesRecompensasRecord>> queryCanjesRecompensasRecordOnce({
       limit: limit,
       singleRecord: singleRecord,
     );
+
+/// Functions to query ActivacionesPistaExtraRecords (as a Stream and as a Future).
+Future<int> queryActivacionesPistaExtraRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ActivacionesPistaExtraRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ActivacionesPistaExtraRecord>> queryActivacionesPistaExtraRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ActivacionesPistaExtraRecord.collection,
+      ActivacionesPistaExtraRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ActivacionesPistaExtraRecord>>
+    queryActivacionesPistaExtraRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          ActivacionesPistaExtraRecord.collection,
+          ActivacionesPistaExtraRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+/// Functions to query ActividadMensualVisitantesRecords (as a Stream and as a Future).
+Future<int> queryActividadMensualVisitantesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ActividadMensualVisitantesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ActividadMensualVisitantesRecord>>
+    queryActividadMensualVisitantesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollection(
+          ActividadMensualVisitantesRecord.collection,
+          ActividadMensualVisitantesRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+Future<List<ActividadMensualVisitantesRecord>>
+    queryActividadMensualVisitantesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          ActividadMensualVisitantesRecord.collection,
+          ActividadMensualVisitantesRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+/// Functions to query SuspensionesVisitantesRecords (as a Stream and as a Future).
+Future<int> querySuspensionesVisitantesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SuspensionesVisitantesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SuspensionesVisitantesRecord>> querySuspensionesVisitantesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SuspensionesVisitantesRecord.collection,
+      SuspensionesVisitantesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SuspensionesVisitantesRecord>>
+    querySuspensionesVisitantesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          SuspensionesVisitantesRecord.collection,
+          SuspensionesVisitantesRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
 
 Future<int> queryCollectionCount(
   Query collection, {

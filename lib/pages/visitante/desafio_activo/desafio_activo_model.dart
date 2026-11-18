@@ -29,6 +29,8 @@ class DesafioActivoModel extends FlutterFlowModel<DesafioActivoWidget> {
   DesafiosRecord? numeroDesafioSiguienteIA;
   // Stores action output result for [Backend Call - Read Document] action in Button widget.
   ProgresoMisionVisitanteRecord? progresoParaPremioIA;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  InsigniasObtenidasRecord? premioExistenteIA;
 
   @override
   void initState(BuildContext context) {}
