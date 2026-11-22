@@ -135,16 +135,10 @@ class _ModalExitoQrWidgetState extends State<ModalExitoQrWidget> {
                     ? null
                     : () async {
                         _model.estaProcesando = true;
-                        if (isWeb == true) {
-                          await actions.imprimirPantalla(
-                            widget.modalGeneradoID!,
-                            'Desafio QR',
-                          );
-                        } else {
-                          await launchURL(
-                              'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=](https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${widget.modalGeneradoID}');
-                        }
-
+                        await actions.imprimirPantalla(
+                          widget.modalGeneradoID!,
+                          'Desafio QR',
+                        );
                         _model.estaProcesando = false;
                         safeSetState(() {});
                       },
@@ -154,9 +148,9 @@ class _ModalExitoQrWidgetState extends State<ModalExitoQrWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: Color(0xFF39D2C0),
+                  color: FlutterFlowTheme.of(context).tertiary,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        font: GoogleFonts.plusJakartaSans(
+                        font: GoogleFonts.outfit(
                           fontWeight: FontWeight.w500,
                           fontStyle:
                               FlutterFlowTheme.of(context).titleSmall.fontStyle,

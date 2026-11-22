@@ -10,62 +10,70 @@ import 'package:flutter/material.dart' hide RepeatMode;
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-/*
-import 'package:web/web.dart' as web;
-import 'dart:js_interop';
-import 'dart:async';*/
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
 
 Future imprimirPantalla(String datosQR, String tituloMision) async {
-  /*
-  final qrUrl =
-      'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=$datosQR';
+  if (datosQR.trim().isEmpty) {
+    throw ArgumentError(
+        'Falta el identificador del desafío para generar el QR.');
+  }
 
-  final div = web.document.createElement('div') as web.HTMLDivElement;
-  div.id = 'print-section';
+  await Printing.layoutPdf(
+    name: 'Desafio-QR.pdf',
+    format: PdfPageFormat.a4,
+    onLayout: (formato) async {
+      final documento = pw.Document(
+        compress: false,
+        version: PdfVersion.pdf_1_4,
+      );
 
-  final String htmlContent = '''
-    <style>
-      @media print {
-        flt-glass-pane, flutter-view, body > div:not(#print-section) { 
-          display: none !important; 
-        }
-        #print-section { 
-          display: block !important; 
-          width: 100%; 
-          text-align: center; 
-          margin-top: 20px; 
-          font-family: Arial, sans-serif;
-        }
-        .ticket {
-          border: 2px dashed #333;
-          display: inline-block;
-          /* Reducimos el padding superior a 20px para que el texto suba */
-          padding: 20px 40px 40px 40px; 
-          border-radius: 15px;
-          min-height: 420px; /* Fuerza el tamaño de la caja aunque la foto tarde */
-        }
-        h2 { color: #333; margin: 0 0 5px 0; font-size: 32px; }
-        p { color: #666; margin: 0 0 20px 0; font-size: 18px; }
-        img { width: 300px; height: 300px; display: block; margin: 0 auto; }
-      }
-      @media screen {
-        #print-section { display: none !important; }
-      }
-    </style>
-    
-    <div class="ticket">
-      <h2>$tituloMision</h2>
-      <p>Escanea este código para encontrar la parada</p>
-      <img src="$qrUrl" />
-    </div>
-  ''';
+      documento.addPage(
+        pw.Page(
+          pageFormat: formato,
+          build: (context) => pw.Align(
+            alignment: pw.Alignment.topCenter,
+            child: pw.Container(
+              padding: const pw.EdgeInsets.all(24),
+              decoration: pw.BoxDecoration(
+                border: pw.Border.all(color: PdfColors.grey600),
+                borderRadius: pw.BorderRadius.circular(12),
+              ),
+              child: pw.Column(
+                mainAxisSize: pw.MainAxisSize.min,
+                children: [
+                  pw.Text(
+                    tituloMision,
+                    textAlign: pw.TextAlign.center,
+                    style: pw.TextStyle(
+                      fontSize: 24,
+                      fontWeight: pw.FontWeight.bold,
+                    ),
+                  ),
+                  pw.SizedBox(height: 8),
+                  pw.Text(
+                    'Escaneá este código para encontrar la parada',
+                    textAlign: pw.TextAlign.center,
+                  ),
+                  pw.SizedBox(height: 16),
+                  pw.BarcodeWidget(
+                    barcode: pw.Barcode.qrCode(),
+                    data: datosQR,
+                    width: 180,
+                    height: 180,
+                    padding: const pw.EdgeInsets.all(24),
+                    backgroundColor: PdfColors.white,
+                    drawText: false,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
 
-  div.innerHTML = htmlContent.toJS;
-  web.document.body?.append(div as JSAny);
-
-  // Aumentamos a 2000 milisegundos (2 segundos) para garantizar la descarga del QR
-  Timer(const Duration(milliseconds: 2000), () {
-    web.window.print();
-    div.remove();
-  });*/
+      return documento.save();
+    },
+  );
 }

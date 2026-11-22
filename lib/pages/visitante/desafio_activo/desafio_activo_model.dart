@@ -9,6 +9,8 @@ class DesafioActivoModel extends FlutterFlowModel<DesafioActivoWidget> {
 
   bool mostrarPistaExtra = false;
 
+  int? numeroDesafioVisible;
+
   ///  State fields for stateful widgets in this page.
 
   var codigoLeido = '';

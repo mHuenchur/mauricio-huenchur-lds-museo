@@ -20,9 +20,18 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Campo vacio';
+      return 'Ingrese un nombre para la misión.';
     }
 
+    if (val.length < 5) {
+      return 'El nombre debe tener al menos 5 caracteres.';
+    }
+    if (val.length > 45) {
+      return 'El nombre puede tener hasta 45 caracteres.';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -32,9 +41,18 @@ class NuevaMisionModel extends FlutterFlowModel<NuevaMisionWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Campo vacio';
+      return 'Ingrese una descripción para la misión.';
     }
 
+    if (val.length < 10) {
+      return 'La descripción debe tener al menos 10 caracteres.';
+    }
+    if (val.length > 120) {
+      return 'La descripción puede tener hasta 120 caracteres.';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 

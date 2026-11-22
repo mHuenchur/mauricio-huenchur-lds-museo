@@ -490,7 +490,7 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                                 ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .success,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle:
@@ -586,225 +586,229 @@ class _MisionCompletadaWidgetState extends State<MisionCompletadaWidget>
                                                     ),
                                               ),
                                             ),
-                                            StreamBuilder<
-                                                List<InsigniasObtenidasRecord>>(
-                                              stream:
-                                                  queryInsigniasObtenidasRecord(
-                                                queryBuilder:
-                                                    (insigniasObtenidasRecord) =>
-                                                        insigniasObtenidasRecord
-                                                            .where(
-                                                  'progreso_ref',
-                                                  isEqualTo:
-                                                      widget.progresoMisionRef,
-                                                ),
-                                                singleRecord: true,
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
+                                            if (columnMisionesRecord
+                                                    .insigniaRef !=
+                                                null)
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  if (true /* Warning: Trying to access variable not yet defined. */)
+                                                    StreamBuilder<
+                                                        List<
+                                                            InsigniasObtenidasRecord>>(
+                                                      stream:
+                                                          queryInsigniasObtenidasRecord(
+                                                        queryBuilder:
+                                                            (insigniasObtenidasRecord) =>
+                                                                insigniasObtenidasRecord
+                                                                    .where(
+                                                          'progreso_ref',
+                                                          isEqualTo: widget
+                                                              .progresoMisionRef,
                                                         ),
+                                                        singleRecord: true,
                                                       ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<InsigniasObtenidasRecord>
-                                                    containerInsigniasObtenidasRecordList =
-                                                    snapshot.data!;
-                                                // Return an empty Container when the item does not exist.
-                                                if (snapshot.data!.isEmpty) {
-                                                  return Container();
-                                                }
-                                                final containerInsigniasObtenidasRecord =
-                                                    containerInsigniasObtenidasRecordList
-                                                            .isNotEmpty
-                                                        ? containerInsigniasObtenidasRecordList
-                                                            .first
-                                                        : null;
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                        List<InsigniasObtenidasRecord>
+                                                            containerInsigniasObtenidasRecordList =
+                                                            snapshot.data!;
+                                                        // Return an empty Container when the item does not exist.
+                                                        if (snapshot
+                                                            .data!.isEmpty) {
+                                                          return Container();
+                                                        }
+                                                        final containerInsigniasObtenidasRecord =
+                                                            containerInsigniasObtenidasRecordList
+                                                                    .isNotEmpty
+                                                                ? containerInsigniasObtenidasRecordList
+                                                                    .first
+                                                                : null;
 
-                                                return Container(
-                                                  decoration: BoxDecoration(),
-                                                  child: Visibility(
-                                                    visible:
-                                                        containerInsigniasObtenidasRecord !=
-                                                            null,
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      10.0),
-                                                          child: Text(
-                                                            '¡Insignia obtenida!',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .headlineSmall
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .outfit(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .headlineSmall
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .headlineSmall
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineSmall
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineSmall
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
+                                                        return Container(
                                                           decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            shape: BoxShape
-                                                                .rectangle,
-                                                            border: Border.all(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .tertiary,
-                                                              width: 3.0,
-                                                            ),
-                                                          ),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child:
-                                                                Image.network(
-                                                              containerInsigniasObtenidasRecord!
-                                                                  .imagen,
-                                                              width: 120.0,
-                                                              height: 120.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              containerInsigniasObtenidasRecord
-                                                                  .nombre,
-                                                              'NOMBRE INSIGNIA',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleLarge
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .outfit(
-                                                                    fontWeight: FlutterFlowTheme.of(
+                                                              BoxDecoration(),
+                                                          child: Visibility(
+                                                            visible:
+                                                                containerInsigniasObtenidasRecord !=
+                                                                    null,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0),
+                                                                  child: Text(
+                                                                    '¡Insignia obtenida!',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineSmall
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.outfit(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                                                                          ),
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .headlineSmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .headlineSmall
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            0.0),
+                                                                    shape: BoxShape
+                                                                        .rectangle,
+                                                                    border:
+                                                                        Border
+                                                                            .all(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                      width:
+                                                                          3.0,
+                                                                    ),
+                                                                  ),
+                                                                  child:
+                                                                      ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            0.0),
+                                                                    child: Image
+                                                                        .network(
+                                                                      containerInsigniasObtenidasRecord!
+                                                                          .imagen,
+                                                                      width:
+                                                                          120.0,
+                                                                      height:
+                                                                          120.0,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      containerInsigniasObtenidasRecord
+                                                                          .nombre,
+                                                                      'NOMBRE INSIGNIA',
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .titleLarge
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleLarge
-                                                                        .fontStyle,
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.outfit(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).titleLarge.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleLarge.fontStyle,
+                                                                          ),
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .titleLarge
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .titleLarge
+                                                                              .fontStyle,
+                                                                        ),
                                                                   ),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleLarge
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleLarge
-                                                                      .fontStyle,
                                                                 ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      5.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              containerInsigniasObtenidasRecord
-                                                                  .descripcion,
-                                                              'DESCRIPCION INSIGNIA',
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      containerInsigniasObtenidasRecord
+                                                                          .descripcion,
+                                                                      'DESCRIPCION INSIGNIA',
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.outfit(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .outfit(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        );
+                                                      },
                                                     ),
-                                                  ),
-                                                );
-                                              },
-                                            ),
+                                                ],
+                                              ),
                                           ]
                                               .divide(SizedBox(height: 4.0))
                                               .addToEnd(SizedBox(height: 12.0)),

@@ -40,3 +40,5 @@ export '/pages/administrador/reporte_mensual_admin/reporte_mensual_admin_widget.
     show ReporteMensualAdminWidget;
 export '/pages/administrador/gestion_visitantes_admin/gestion_visitantes_admin_widget.dart'
     show GestionVisitantesAdminWidget;
+export '/pages/auth/editar_perfil/editar_perfil_widget.dart'
+    show EditarPerfilWidget;

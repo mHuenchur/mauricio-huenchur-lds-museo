@@ -8,6 +8,7 @@ import '/pages/componentes/logo_app/logo_app_widget.dart';
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -197,8 +198,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                       context)
                                                   .displaySmall
                                                   .override(
-                                                    font: GoogleFonts
-                                                        .plusJakartaSans(
+                                                    font: GoogleFonts.outfit(
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       fontStyle:
@@ -207,7 +207,9 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                               .displaySmall
                                                               .fontStyle,
                                                     ),
-                                                    color: Color(0xFF101213),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                     fontSize: 36.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -225,31 +227,33 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                               child: Text(
                                                 'Comencemos a explorar!',
                                                 textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .plusJakartaSans(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: Colors.black,
-                                                          fontSize: 19.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelLarge
-                                                                  .fontStyle,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelLarge
+                                                    .override(
+                                                      font: GoogleFonts.outfit(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 19.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                             Padding(
@@ -259,32 +263,33 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                               child: Text(
                                                 'Crear cuenta',
                                                 textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .plusJakartaSans(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontStyle,
-                                                          ),
-                                                          color:
-                                                              Color(0xFF57636C),
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelLarge
-                                                                  .fontStyle,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelLarge
+                                                    .override(
+                                                      font: GoogleFonts.outfit(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                             Form(
@@ -317,7 +322,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                   .labelLarge
                                                                   .override(
                                                                     font: GoogleFonts
-                                                                        .plusJakartaSans(
+                                                                        .outfit(
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -344,86 +349,95 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFF1F4F8),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFF4B39EF),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFFF5963),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFFF5963),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
-                                                          filled: true,
-                                                          fillColor:
-                                                              Color(0xFFF1F4F8),
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyLarge
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .plusJakartaSans(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
                                                                       .fontStyle,
-                                                            ),
+                                                                ),
+                                                        maxLength: 45,
+                                                        maxLengthEnforcement:
+                                                            MaxLengthEnforcement
+                                                                .enforced,
+                                                        buildCounter: (context,
+                                                                {required currentLength,
+                                                                required isFocused,
+                                                                maxLength}) =>
+                                                            null,
                                                         validator: _model
                                                             .nameTextControllerValidator
                                                             .asValidator(
@@ -457,7 +471,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                   .labelLarge
                                                                   .override(
                                                                     font: GoogleFonts
-                                                                        .plusJakartaSans(
+                                                                        .outfit(
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -484,86 +498,95 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFF1F4F8),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFF4B39EF),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFFF5963),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFFF5963),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
-                                                          filled: true,
-                                                          fillColor:
-                                                              Color(0xFFF1F4F8),
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyLarge
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .plusJakartaSans(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
                                                                       .fontStyle,
-                                                            ),
+                                                                ),
+                                                        maxLength: 100,
+                                                        maxLengthEnforcement:
+                                                            MaxLengthEnforcement
+                                                                .enforced,
+                                                        buildCounter: (context,
+                                                                {required currentLength,
+                                                                required isFocused,
+                                                                maxLength}) =>
+                                                            null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .emailAddress,
@@ -602,7 +625,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                   .labelLarge
                                                                   .override(
                                                                     font: GoogleFonts
-                                                                        .plusJakartaSans(
+                                                                        .outfit(
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -629,57 +652,58 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFF1F4F8),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFF4B39EF),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFFF5963),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFFF5963),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
-                                                          filled: true,
-                                                          fillColor:
-                                                              Color(0xFFF1F4F8),
                                                           suffixIcon: InkWell(
                                                             onTap: () async {
                                                               safeSetState(() =>
@@ -703,34 +727,42 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                             ),
                                                           ),
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyLarge
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .plusJakartaSans(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
                                                                       .fontStyle,
-                                                            ),
+                                                                ),
+                                                        maxLength: 100,
+                                                        maxLengthEnforcement:
+                                                            MaxLengthEnforcement
+                                                                .enforced,
+                                                        buildCounter: (context,
+                                                                {required currentLength,
+                                                                required isFocused,
+                                                                maxLength}) =>
+                                                            null,
                                                         validator: _model
                                                             .passwordTextControllerValidator
                                                             .asValidator(
@@ -766,7 +798,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                   .labelLarge
                                                                   .override(
                                                                     font: GoogleFonts
-                                                                        .plusJakartaSans(
+                                                                        .outfit(
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -793,57 +825,58 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFF1F4F8),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFF4B39EF),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFFF5963),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFFF5963),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
-                                                          filled: true,
-                                                          fillColor:
-                                                              Color(0xFFF1F4F8),
                                                           suffixIcon: InkWell(
                                                             onTap: () async {
                                                               safeSetState(() =>
@@ -867,34 +900,42 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                             ),
                                                           ),
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyLarge
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .plusJakartaSans(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
                                                                       .fontStyle,
-                                                            ),
+                                                                ),
+                                                        maxLength: 100,
+                                                        maxLengthEnforcement:
+                                                            MaxLengthEnforcement
+                                                                .enforced,
+                                                        buildCounter: (context,
+                                                                {required currentLength,
+                                                                required isFocused,
+                                                                maxLength}) =>
+                                                            null,
                                                         validator: _model
                                                             .passwordConfirmTextControllerValidator
                                                             .asValidator(
@@ -985,27 +1026,25 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                     .mounted);
                                                           } else {
                                                             if (isWeb == true) {
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                SnackBar(
-                                                                  content: Text(
-                                                                    'Descarga la app!',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                    ),
-                                                                  ),
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          4000),
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
-                                                                ),
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return AlertDialog(
+                                                                    content: Text(
+                                                                        'Descarga la app!'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  );
+                                                                },
                                                               );
                                                             } else {
                                                               context.pushNamedAuth(
@@ -1028,6 +1067,9 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                           context)
                                                                       .primaryText,
                                                                 ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
                                                               ),
                                                               duration: Duration(
                                                                   milliseconds:
@@ -1035,7 +1077,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                               backgroundColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondary,
+                                                                      .secondaryBackground,
                                                             ),
                                                           );
                                                         }
@@ -1061,14 +1103,16 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                     0.0,
                                                                     0.0),
                                                         color:
-                                                            Color(0xFF4B39EF),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .titleSmall
                                                                 .override(
                                                                   font: GoogleFonts
-                                                                      .plusJakartaSans(
+                                                                      .outfit(
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1099,7 +1143,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(12.0),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                   ),
@@ -1222,10 +1266,25 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                         GoRouter.of(context)
                                                             .clearRedirectLocation();
                                                       } else {
-                                                        context.goNamedAuth(
-                                                            HomeVisitanteWidget
-                                                                .routeName,
-                                                            context.mounted);
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return AlertDialog(
+                                                              content: Text(
+                                                                  'Descarga la app!'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        );
                                                       }
                                                     } else {
                                                       if (valueOrDefault<bool>(
@@ -1294,8 +1353,8 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                           .of(context)
                                                       .titleSmall
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .plusJakartaSans(
+                                                        font:
+                                                            GoogleFonts.outfit(
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           fontStyle:
@@ -1305,7 +1364,9 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                                   .fontStyle,
                                                         ),
                                                         color:
-                                                            Color(0xFF101213),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1318,12 +1379,14 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                       ),
                                                   elevation: 0.0,
                                                   borderSide: BorderSide(
-                                                    color: Color(0xFFE0E3E7),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
                                                     width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          12.0),
+                                                          8.0),
                                                   hoverColor: Color(0xFFF1F4F8),
                                                 ),
                                               ),
@@ -1343,37 +1406,44 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                     TextSpan(
                                                       text:
                                                           'Ya tienes cuenta?  ',
-                                                      style: TextStyle(),
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
                                                     ),
                                                     TextSpan(
                                                       text: 'Iniciar Sesion',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .plusJakartaSans(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .plusJakartaSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
-                                                            ),
-                                                            color: Color(
-                                                                0xFF4B39EF),
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
-                                                          ),
+                                                              ),
                                                       mouseCursor:
                                                           SystemMouseCursors
                                                               .click,
@@ -1390,8 +1460,8 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .plusJakartaSans(
+                                                        font:
+                                                            GoogleFonts.outfit(
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           fontStyle:

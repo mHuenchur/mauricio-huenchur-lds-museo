@@ -14,9 +14,15 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Campo vacio';
+      return 'Ingrese contexto histórico';
     }
 
+    if (val.length > 200) {
+      return 'máximo 200 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -26,9 +32,18 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Campo vacio';
+      return 'Ingrese pista principal';
     }
 
+    if (val.length < 10) {
+      return 'mínimo 10 caracteres';
+    }
+    if (val.length > 120) {
+      return 'máximo 120 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -38,21 +53,18 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
   String? Function(BuildContext, String?)? textController3Validator;
   String? _textController3Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Campo vacio';
+      return 'Ingrese pista extra';
     }
 
-    return null;
-  }
-
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  String? _textController4Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Campo vacio';
+    if (val.length < 10) {
+      return 'mínimo 10 caracteres';
     }
-
+    if (val.length > 120) {
+      return 'máximo 120 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -63,9 +75,15 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
   String? _campoPuntosTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Campo vacio';
+      return 'Ingrese puntaje';
     }
 
+    if (val.length > 3) {
+      return 'máximo 3 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -79,6 +97,8 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
 
   // Stores action output result for [Validate Form] action in Button widget.
   bool? formDesafioCompleto;
+  // Stores action output result for [Custom Action - obtenerSiguienteOrden] action in Button widget.
+  int? siguienteOrden;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   DesafiosRecord? nuevoDesafioCreado;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
@@ -89,7 +109,6 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
     textController1Validator = _textController1Validator;
     textController2Validator = _textController2Validator;
     textController3Validator = _textController3Validator;
-    textController4Validator = _textController4Validator;
     campoPuntosTextControllerValidator = _campoPuntosTextControllerValidator;
   }
 
@@ -103,9 +122,6 @@ class NuevoDesafioModel extends FlutterFlowModel<NuevoDesafioWidget> {
 
     textFieldFocusNode3?.dispose();
     textController3?.dispose();
-
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
 
     campoPuntosFocusNode?.dispose();
     campoPuntosTextController?.dispose();

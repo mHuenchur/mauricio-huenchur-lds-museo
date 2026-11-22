@@ -67,7 +67,7 @@ class _LogoAppWidgetState extends State<LogoAppWidget> {
               child: Text(
                 'APP MUSEO',
                 style: FlutterFlowTheme.of(context).displaySmall.override(
-                      font: GoogleFonts.plusJakartaSans(
+                      font: GoogleFonts.outfit(
                         fontWeight: FontWeight.w600,
                         fontStyle:
                             FlutterFlowTheme.of(context).displaySmall.fontStyle,

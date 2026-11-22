@@ -22,6 +22,12 @@ class FormInsigniaModel extends FlutterFlowModel<FormInsigniaWidget> {
       return 'Falta Nombre de la insignia';
     }
 
+    if (val.length > 45) {
+      return 'Falta Nombre de la insignia';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'Falta Nombre de la insignia';
+    }
     return null;
   }
 
@@ -36,6 +42,15 @@ class FormInsigniaModel extends FlutterFlowModel<FormInsigniaWidget> {
       return 'Falta Descripción de la insignia';
     }
 
+    if (val.length < 10) {
+      return 'mínimo 10 caracteres';
+    }
+    if (val.length > 120) {
+      return 'Falta Descripción de la insignia';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'Falta Descripción de la insignia';
+    }
     return null;
   }
 

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'nueva_sala_model.dart';
 export 'nueva_sala_model.dart';
@@ -47,7 +48,7 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: Container(
           width: 400.0,
           height: 500.0,
@@ -95,7 +96,7 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                                  10.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Gestor de salas',
                                 textAlign: TextAlign.start,
@@ -157,9 +158,12 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment:
                                 (FFMainAxisAlignment.start).flutterValue,
+                            crossAxisAlignment:
+                                (FFCrossAxisAlignment.start).flutterValue,
+                            textBaseline: TextBaseline.alphabetic,
                             children: [
                               Container(
-                                width: 300.0,
+                                width: 250.0,
                                 child: TextFormField(
                                   controller: _model.textController,
                                   focusNode: _model.textFieldFocusNode,
@@ -168,11 +172,11 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     isDense: true,
-                                    labelText: 'Nombre',
+                                    labelText: 'Nombre sala',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelLarge
                                         .override(
-                                          font: GoogleFonts.roboto(
+                                          font: GoogleFonts.outfit(
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                                 FlutterFlowTheme.of(context)
@@ -187,40 +191,41 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                                   .fontStyle,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
+                                        .labelLarge
                                         .override(
-                                          font: GoogleFonts.roboto(
+                                          font: GoogleFonts.outfit(
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
-                                                    .labelMedium
+                                                    .labelLarge
                                                     .fontWeight,
                                             fontStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .labelMedium
+                                                    .labelLarge
                                                     .fontStyle,
                                           ),
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        width: 1.0,
+                                            .alternate,
+                                        width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
@@ -228,7 +233,7 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                       borderSide: BorderSide(
                                         color:
                                             FlutterFlowTheme.of(context).error,
-                                        width: 1.0,
+                                        width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
@@ -236,31 +241,40 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                       borderSide: BorderSide(
                                         color:
                                             FlutterFlowTheme.of(context).error,
-                                        width: 1.0,
+                                        width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
-                                          fontWeight: FontWeight.w500,
+                                        font: GoogleFonts.outfit(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelLarge
+                                                  .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
-                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelLarge
+                                            .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
+                                  maxLength: 45,
+                                  maxLengthEnforcement:
+                                      MaxLengthEnforcement.enforced,
+                                  buildCounter: (context,
+                                          {required currentLength,
+                                          required isFocused,
+                                          maxLength}) =>
+                                      null,
                                   cursorColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                   enableInteractiveSelection: true,
@@ -270,12 +284,12 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                    10.0, 5.0, 0.0, 0.0),
                                 child: FlutterFlowIconButton(
                                   borderRadius: 8.0,
                                   buttonSize: 40.0,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).success,
+                                      FlutterFlowTheme.of(context).tertiary,
                                   icon: Icon(
                                     Icons.add,
                                     color: FlutterFlowTheme.of(context).info,
@@ -299,42 +313,38 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                       safeSetState(() {
                                         _model.textController?.clear();
                                       });
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Sala agregada!',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
-                                        ),
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            content: Text('Sala agregada!'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
                                       );
                                     } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Completar campos',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
-                                        ),
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Aviso'),
+                                            content: Text(
+                                                'Campo vacío o incorrecto'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
                                       );
                                     }
 
@@ -414,7 +424,7 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                       listViewSalasRecordList[listViewIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 16.0),
+                                        0.0, 0.0, 0.0, 16.0),
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
@@ -440,7 +450,9 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                           children: [
                                             Icon(
                                               Icons.article_sharp,
-                                              color: Color(0xFF4B39EF),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
                                               size: 32.0,
                                             ),
                                             Expanded(
@@ -464,7 +476,7 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                                           .bodyLarge
                                                           .override(
                                                             font: GoogleFonts
-                                                                .plusJakartaSans(
+                                                                .outfit(
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500,
@@ -511,7 +523,7 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                                               title: Text(
                                                                   'Eliminar Sala'),
                                                               content: Text(
-                                                                  'La sala se eliminará'),
+                                                                  'La sala ya no estará disponible'),
                                                               actions: [
                                                                 TextButton(
                                                                   onPressed: () =>
@@ -541,24 +553,23 @@ class _NuevaSalaWidgetState extends State<NuevaSalaWidget> {
                                                           createSalasRecordData(
                                                     estaArchivada: true,
                                                   ));
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        'Sala eliminada!',
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                      ),
-                                                      duration: Duration(
-                                                          milliseconds: 4000),
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return AlertDialog(
+                                                        content: Text(
+                                                            'Sala archivada'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
                                                   );
                                                 }
                                               },

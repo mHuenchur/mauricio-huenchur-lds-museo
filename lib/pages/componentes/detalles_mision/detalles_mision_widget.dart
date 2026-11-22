@@ -59,7 +59,7 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: StreamBuilder<MisionesRecord>(
           stream: MisionesRecord.getDocument(widget.misionParametro!),
           builder: (context, snapshot) {
@@ -82,35 +82,49 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
 
             return Container(
               width: 400.0,
-              height: 250.0,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(8.0),
               ),
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(12.0),
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment:
+                            (FFCrossAxisAlignment.start).flutterValue,
+                        textBaseline: TextBaseline.alphabetic,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.nombreParametro,
-                                'NOMBRE',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .titleLarge
-                                  .override(
-                                    font: GoogleFonts.outfit(
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.nombreParametro,
+                                  'NOMBRE',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .override(
+                                      font: GoogleFonts.outfit(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontStyle,
+                                      ),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .fontWeight,
@@ -118,14 +132,7 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                           .titleLarge
                                           .fontStyle,
                                     ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
-                                  ),
+                              ),
                             ),
                           ),
                           FlutterFlowIconButton(
@@ -144,174 +151,120 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: StreamBuilder<List<ProgresoMisionVisitanteRecord>>(
-                        stream: queryProgresoMisionVisitanteRecord(
-                          queryBuilder: (progresoMisionVisitanteRecord) =>
-                              progresoMisionVisitanteRecord
-                                  .where(
-                                    'visitante_id',
-                                    isEqualTo: currentUserUid,
-                                  )
-                                  .where(
-                                    'mision_id',
-                                    isEqualTo: widget.misionParametro?.id,
-                                  ),
-                          singleRecord: true,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
+                    StreamBuilder<List<ProgresoMisionVisitanteRecord>>(
+                      stream: queryProgresoMisionVisitanteRecord(
+                        queryBuilder: (progresoMisionVisitanteRecord) =>
+                            progresoMisionVisitanteRecord
+                                .where(
+                                  'visitante_id',
+                                  isEqualTo: currentUserUid,
+                                )
+                                .where(
+                                  'mision_id',
+                                  isEqualTo: widget.misionParametro?.id,
+                                ),
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
                                 ),
                               ),
-                            );
-                          }
-                          List<ProgresoMisionVisitanteRecord>
-                              containerProgresoMisionVisitanteRecordList =
-                              snapshot.data!;
-                          final containerProgresoMisionVisitanteRecord =
-                              containerProgresoMisionVisitanteRecordList
-                                      .isNotEmpty
-                                  ? containerProgresoMisionVisitanteRecordList
-                                      .first
-                                  : null;
-
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
                             ),
-                            child: Padding(
-                              padding: EdgeInsets.all(6.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    (FFMainAxisAlignment.spaceBetween)
-                                        .flutterValue,
-                                crossAxisAlignment:
-                                    (FFCrossAxisAlignment.start).flutterValue,
-                                textBaseline: TextBaseline.alphabetic,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        (FFCrossAxisAlignment.start)
-                                            .flutterValue,
-                                    textBaseline: TextBaseline.alphabetic,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 15.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              'Dificultad: ',
-                                              style:
+                          );
+                        }
+                        List<ProgresoMisionVisitanteRecord>
+                            containerProgresoMisionVisitanteRecordList =
+                            snapshot.data!;
+                        final containerProgresoMisionVisitanteRecord =
+                            containerProgresoMisionVisitanteRecordList
+                                    .isNotEmpty
+                                ? containerProgresoMisionVisitanteRecordList
+                                    .first
+                                : null;
+
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 6.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                                  (FFMainAxisAlignment.spaceBetween)
+                                      .flutterValue,
+                              crossAxisAlignment:
+                                  (FFCrossAxisAlignment.start).flutterValue,
+                              textBaseline: TextBaseline.alphabetic,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment:
+                                      (FFCrossAxisAlignment.start).flutterValue,
+                                  textBaseline: TextBaseline.alphabetic,
+                                  children: [
+                                    Text(
+                                      containerMisionesRecord.descripcion,
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            font: GoogleFonts.outfit(
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .labelLarge
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.roboto(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelLarge
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelLarge
-                                                                  .fontStyle,
-                                                        ),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .fontStyle,
-                                                      ),
+                                                      .titleMedium
+                                                      .fontStyle,
                                             ),
-                                            Text(
-                                              valueOrDefault<String>(
-                                                widget.dificultadParametro,
-                                                'DIFICULTAD',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLarge
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.roboto(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelLarge
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelLarge
-                                                                  .fontStyle,
-                                                        ),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .fontStyle,
-                                                      ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Row(
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 15.0, 0.0, 0.0),
+                                      child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
                                             'Duración: ',
                                             style: FlutterFlowTheme.of(context)
-                                                .labelLarge
+                                                .labelMedium
                                                 .override(
-                                                  font: GoogleFonts.roboto(
+                                                  font: GoogleFonts.outfit(
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .labelLarge
+                                                            .labelMedium
                                                             .fontWeight,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .labelLarge
+                                                            .labelMedium
                                                             .fontStyle,
                                                   ),
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelLarge
+                                                          .labelMedium
                                                           .fontWeight,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelLarge
+                                                          .labelMedium
                                                           .fontStyle,
                                                 ),
                                           ),
@@ -322,402 +275,433 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                               'DURACION',
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .labelLarge
+                                                .labelMedium
                                                 .override(
-                                                  font: GoogleFonts.roboto(
+                                                  font: GoogleFonts.outfit(
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .labelLarge
+                                                            .labelMedium
                                                             .fontWeight,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .labelLarge
+                                                            .labelMedium
                                                             .fontStyle,
                                                   ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelLarge
+                                                          .labelMedium
                                                           .fontWeight,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelLarge
+                                                          .labelMedium
                                                           .fontStyle,
                                                 ),
                                           ),
                                           Text(
                                             ' minutos',
                                             style: FlutterFlowTheme.of(context)
-                                                .labelLarge
+                                                .labelMedium
                                                 .override(
-                                                  font: GoogleFonts.roboto(
+                                                  font: GoogleFonts.outfit(
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .labelLarge
+                                                            .labelMedium
                                                             .fontWeight,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .labelLarge
+                                                            .labelMedium
                                                             .fontStyle,
                                                   ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelLarge
+                                                          .labelMedium
                                                           .fontWeight,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelLarge
+                                                          .labelMedium
                                                           .fontStyle,
                                                 ),
                                           ),
                                         ],
                                       ),
-                                    ],
-                                  ),
-                                  Column(
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 15.0, 0.0, 0.0),
+                                  child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsets.all(8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            FFButtonWidget(
-                                              onPressed:
-                                                  ((containerProgresoMisionVisitanteRecord !=
-                                                              null) &&
-                                                          containerProgresoMisionVisitanteRecord
-                                                              .misionCompletada)
-                                                      ? null
-                                                      : () async {
-                                                          var _shouldSetState =
-                                                              false;
-                                                          if (containerMisionesRecord
-                                                                  .misionRequeridaRef !=
-                                                              null) {
-                                                            _model.progresoRequisito =
-                                                                await queryProgresoMisionVisitanteRecordOnce(
-                                                              queryBuilder:
-                                                                  (progresoMisionVisitanteRecord) =>
-                                                                      progresoMisionVisitanteRecord
-                                                                          .where(
-                                                                            'visitante_id',
-                                                                            isEqualTo:
-                                                                                currentUserReference?.id,
-                                                                          )
-                                                                          .where(
-                                                                            'mision_id',
-                                                                            isEqualTo:
-                                                                                containerMisionesRecord.misionRequeridaRef?.id,
-                                                                          )
-                                                                          .where(
-                                                                            'mision_completada',
-                                                                            isEqualTo:
-                                                                                true,
-                                                                          ),
-                                                              limit: 1,
-                                                            );
-                                                            _shouldSetState =
-                                                                true;
-                                                            if (_model
-                                                                    .progresoRequisito
-                                                                    ?.length ==
-                                                                0) {
-                                                              await showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (alertDialogContext) {
-                                                                  return AlertDialog(
-                                                                    title: Text(
-                                                                        'Misión bloqueada'),
-                                                                    content: Text(
-                                                                        'Completá la misión previa para desbloquear este recorrido'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  );
-                                                                },
-                                                              );
-                                                              if (_shouldSetState)
-                                                                safeSetState(
-                                                                    () {});
-                                                              return;
-                                                            }
-                                                          }
-                                                          _model.totalDesafios =
-                                                              await queryDesafiosRecordCount(
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          FFButtonWidget(
+                                            onPressed:
+                                                ((containerProgresoMisionVisitanteRecord !=
+                                                            null) &&
+                                                        containerProgresoMisionVisitanteRecord
+                                                            .misionCompletada)
+                                                    ? null
+                                                    : () async {
+                                                        var _shouldSetState =
+                                                            false;
+                                                        if (containerMisionesRecord
+                                                                .misionRequeridaRef !=
+                                                            null) {
+                                                          _model.progresoRequisito =
+                                                              await queryProgresoMisionVisitanteRecordOnce(
                                                             queryBuilder:
-                                                                (desafiosRecord) =>
-                                                                    desafiosRecord
+                                                                (progresoMisionVisitanteRecord) =>
+                                                                    progresoMisionVisitanteRecord
                                                                         .where(
-                                                                          'mision_desafio_fk',
+                                                                          'visitante_id',
                                                                           isEqualTo:
-                                                                              widget.misionParametro,
+                                                                              currentUserReference?.id,
                                                                         )
                                                                         .where(
-                                                                          'esta_archivado',
+                                                                          'mision_id',
+                                                                          isEqualTo: containerMisionesRecord
+                                                                              .misionRequeridaRef
+                                                                              ?.id,
+                                                                        )
+                                                                        .where(
+                                                                          'mision_completada',
                                                                           isEqualTo:
-                                                                              false,
+                                                                              true,
                                                                         ),
+                                                            limit: 1,
                                                           );
                                                           _shouldSetState =
                                                               true;
                                                           if (_model
-                                                                  .totalDesafios! >
+                                                                  .progresoRequisito
+                                                                  ?.length ==
                                                               0) {
-                                                            _model.progresoExistente =
-                                                                await queryProgresoMisionVisitanteRecordOnce(
-                                                              queryBuilder:
-                                                                  (progresoMisionVisitanteRecord) =>
-                                                                      progresoMisionVisitanteRecord
-                                                                          .where(
-                                                                            'visitante_id',
-                                                                            isEqualTo:
-                                                                                currentUserReference?.id,
-                                                                          )
-                                                                          .where(
-                                                                            'mision_id',
-                                                                            isEqualTo:
-                                                                                widget.misionParametro?.id,
-                                                                          ),
-                                                              singleRecord:
-                                                                  true,
-                                                            ).then((s) => s
-                                                                    .firstOrNull);
+                                                            _model.misionPreviaLeida =
+                                                                await MisionesRecord
+                                                                    .getDocumentOnce(
+                                                                        containerMisionesRecord
+                                                                            .misionRequeridaRef!);
+                                                            _shouldSetState =
+                                                                true;
+                                                            await showDialog(
+                                                              context: context,
+                                                              builder:
+                                                                  (alertDialogContext) {
+                                                                return AlertDialog(
+                                                                  title: Text(
+                                                                      'Misión bloqueada'),
+                                                                  content: Text(
+                                                                      'Para desbloquear esta misión, primero completá \"${_model.misionPreviaLeida?.nombreMision}\"'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                );
+                                                              },
+                                                            );
+                                                            if (_shouldSetState)
+                                                              safeSetState(
+                                                                  () {});
+                                                            return;
+                                                          }
+                                                        }
+                                                        _model.totalDesafios =
+                                                            await queryDesafiosRecordCount(
+                                                          queryBuilder:
+                                                              (desafiosRecord) =>
+                                                                  desafiosRecord
+                                                                      .where(
+                                                                        'mision_desafio_fk',
+                                                                        isEqualTo:
+                                                                            widget.misionParametro,
+                                                                      )
+                                                                      .where(
+                                                                        'esta_archivado',
+                                                                        isEqualTo:
+                                                                            false,
+                                                                      ),
+                                                        );
+                                                        _shouldSetState = true;
+                                                        if (_model
+                                                                .totalDesafios! >
+                                                            0) {
+                                                          _model.progresoExistente =
+                                                              await queryProgresoMisionVisitanteRecordOnce(
+                                                            queryBuilder:
+                                                                (progresoMisionVisitanteRecord) =>
+                                                                    progresoMisionVisitanteRecord
+                                                                        .where(
+                                                                          'visitante_id',
+                                                                          isEqualTo:
+                                                                              currentUserReference?.id,
+                                                                        )
+                                                                        .where(
+                                                                          'mision_id',
+                                                                          isEqualTo: widget
+                                                                              .misionParametro
+                                                                              ?.id,
+                                                                        ),
+                                                            singleRecord: true,
+                                                          ).then((s) => s
+                                                                  .firstOrNull);
+                                                          _shouldSetState =
+                                                              true;
+                                                          if (_model
+                                                                      .progresoExistente
+                                                                      ?.reference
+                                                                      .id !=
+                                                                  null &&
+                                                              _model
+                                                                      .progresoExistente
+                                                                      ?.reference
+                                                                      .id !=
+                                                                  '') {
+                                                            context.pushNamed(
+                                                              DesafioActivoWidget
+                                                                  .routeName,
+                                                              queryParameters: {
+                                                                'misionActual':
+                                                                    serializeParam(
+                                                                  widget
+                                                                      .misionParametro,
+                                                                  ParamType
+                                                                      .DocumentReference,
+                                                                ),
+                                                                'numeroPistaParam':
+                                                                    serializeParam(
+                                                                  _model
+                                                                      .progresoExistente
+                                                                      ?.numeroDesafioActual,
+                                                                  ParamType.int,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          } else {
+                                                            _model.insigniaAlInicio =
+                                                                null;
+                                                            safeSetState(() {});
+                                                            _model.misionLeida =
+                                                                await MisionesRecord
+                                                                    .getDocumentOnce(
+                                                                        widget
+                                                                            .misionParametro!);
                                                             _shouldSetState =
                                                                 true;
                                                             if (_model
-                                                                        .progresoExistente
-                                                                        ?.reference
-                                                                        .id !=
-                                                                    null &&
-                                                                _model
-                                                                        .progresoExistente
-                                                                        ?.reference
-                                                                        .id !=
-                                                                    '') {
-                                                              context.pushNamed(
-                                                                DesafioActivoWidget
-                                                                    .routeName,
-                                                                queryParameters:
-                                                                    {
-                                                                  'misionActual':
-                                                                      serializeParam(
-                                                                    widget
-                                                                        .misionParametro,
-                                                                    ParamType
-                                                                        .DocumentReference,
-                                                                  ),
-                                                                  'numeroPistaParam':
-                                                                      serializeParam(
-                                                                    _model
-                                                                        .progresoExistente
-                                                                        ?.numeroDesafioActual,
-                                                                    ParamType
-                                                                        .int,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                              );
-                                                            } else {
-                                                              _model.insigniaAlInicio =
-                                                                  null;
-                                                              safeSetState(
-                                                                  () {});
-                                                              _model.misionLeida =
-                                                                  await MisionesRecord
-                                                                      .getDocumentOnce(
-                                                                          widget
-                                                                              .misionParametro!);
+                                                                    .misionLeida
+                                                                    ?.insigniaRef !=
+                                                                null) {
+                                                              _model.insigniaConsultada =
+                                                                  await InsigniasRecord
+                                                                      .getDocumentOnce(_model
+                                                                          .misionLeida!
+                                                                          .insigniaRef!);
                                                               _shouldSetState =
                                                                   true;
                                                               if (_model
-                                                                      .misionLeida
-                                                                      ?.insigniaRef !=
+                                                                      .insigniaConsultada !=
                                                                   null) {
-                                                                _model.insigniaConsultada =
-                                                                    await InsigniasRecord.getDocumentOnce(_model
-                                                                        .misionLeida!
-                                                                        .insigniaRef!);
-                                                                _shouldSetState =
-                                                                    true;
                                                                 if (_model
-                                                                        .insigniaConsultada !=
-                                                                    null) {
-                                                                  if (_model
-                                                                          .insigniaConsultada
-                                                                          ?.archivada ==
-                                                                      false) {
-                                                                    _model.insigniaAlInicio =
-                                                                        _model
-                                                                            .insigniaConsultada;
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  }
+                                                                        .insigniaConsultada
+                                                                        ?.archivada ==
+                                                                    false) {
+                                                                  _model.insigniaAlInicio =
+                                                                      _model
+                                                                          .insigniaConsultada;
+                                                                  safeSetState(
+                                                                      () {});
                                                                 }
                                                               }
-
-                                                              var progresoMisionVisitanteRecordReference =
-                                                                  ProgresoMisionVisitanteRecord
-                                                                      .collection
-                                                                      .doc();
-                                                              await progresoMisionVisitanteRecordReference
-                                                                  .set(
-                                                                      createProgresoMisionVisitanteRecordData(
-                                                                visitanteId:
-                                                                    currentUserReference
-                                                                        ?.id,
-                                                                misionId: widget
-                                                                    .misionParametro
-                                                                    ?.id,
-                                                                numeroDesafioActual:
-                                                                    1,
-                                                                misionCompletada:
-                                                                    false,
-                                                                puntosTotalesGanados:
-                                                                    0,
-                                                                insigniaRef: _model
-                                                                    .insigniaAlInicio
-                                                                    ?.reference,
-                                                                insigniaNombre:
-                                                                    _model
-                                                                        .insigniaAlInicio
-                                                                        ?.nombre,
-                                                                insigniaDescripcion: _model
-                                                                    .insigniaAlInicio
-                                                                    ?.descripcion,
-                                                                insigniaImagen:
-                                                                    _model
-                                                                        .insigniaAlInicio
-                                                                        ?.imagen,
-                                                                nombreMisionInicio:
-                                                                    widget
-                                                                        .nombreParametro,
-                                                                fechaInicio:
-                                                                    getCurrentTimestamp,
-                                                              ));
-                                                              _model.progresoCreado =
-                                                                  ProgresoMisionVisitanteRecord
-                                                                      .getDocumentFromData(
-                                                                          createProgresoMisionVisitanteRecordData(
-                                                                            visitanteId:
-                                                                                currentUserReference?.id,
-                                                                            misionId:
-                                                                                widget.misionParametro?.id,
-                                                                            numeroDesafioActual:
-                                                                                1,
-                                                                            misionCompletada:
-                                                                                false,
-                                                                            puntosTotalesGanados:
-                                                                                0,
-                                                                            insigniaRef:
-                                                                                _model.insigniaAlInicio?.reference,
-                                                                            insigniaNombre:
-                                                                                _model.insigniaAlInicio?.nombre,
-                                                                            insigniaDescripcion:
-                                                                                _model.insigniaAlInicio?.descripcion,
-                                                                            insigniaImagen:
-                                                                                _model.insigniaAlInicio?.imagen,
-                                                                            nombreMisionInicio:
-                                                                                widget.nombreParametro,
-                                                                            fechaInicio:
-                                                                                getCurrentTimestamp,
-                                                                          ),
-                                                                          progresoMisionVisitanteRecordReference);
-                                                              _shouldSetState =
-                                                                  true;
-
-                                                              context.pushNamed(
-                                                                DesafioActivoWidget
-                                                                    .routeName,
-                                                                queryParameters:
-                                                                    {
-                                                                  'misionActual':
-                                                                      serializeParam(
-                                                                    widget
-                                                                        .misionParametro,
-                                                                    ParamType
-                                                                        .DocumentReference,
-                                                                  ),
-                                                                  'numeroPistaParam':
-                                                                      serializeParam(
-                                                                    1,
-                                                                    ParamType
-                                                                        .int,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                              );
                                                             }
-                                                          } else {
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'No hay desafios disponibles',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                  ),
+
+                                                            var progresoMisionVisitanteRecordReference =
+                                                                ProgresoMisionVisitanteRecord
+                                                                    .collection
+                                                                    .doc();
+                                                            await progresoMisionVisitanteRecordReference
+                                                                .set(
+                                                                    createProgresoMisionVisitanteRecordData(
+                                                              visitanteId:
+                                                                  currentUserReference
+                                                                      ?.id,
+                                                              misionId: widget
+                                                                  .misionParametro
+                                                                  ?.id,
+                                                              numeroDesafioActual:
+                                                                  1,
+                                                              misionCompletada:
+                                                                  false,
+                                                              puntosTotalesGanados:
+                                                                  0,
+                                                              insigniaRef: _model
+                                                                  .insigniaAlInicio
+                                                                  ?.reference,
+                                                              insigniaNombre: _model
+                                                                  .insigniaAlInicio
+                                                                  ?.nombre,
+                                                              insigniaDescripcion: _model
+                                                                  .insigniaAlInicio
+                                                                  ?.descripcion,
+                                                              insigniaImagen: _model
+                                                                  .insigniaAlInicio
+                                                                  ?.imagen,
+                                                              nombreMisionInicio:
+                                                                  widget
+                                                                      .nombreParametro,
+                                                              fechaInicio:
+                                                                  getCurrentTimestamp,
+                                                            ));
+                                                            _model.progresoCreado =
+                                                                ProgresoMisionVisitanteRecord
+                                                                    .getDocumentFromData(
+                                                                        createProgresoMisionVisitanteRecordData(
+                                                                          visitanteId:
+                                                                              currentUserReference?.id,
+                                                                          misionId: widget
+                                                                              .misionParametro
+                                                                              ?.id,
+                                                                          numeroDesafioActual:
+                                                                              1,
+                                                                          misionCompletada:
+                                                                              false,
+                                                                          puntosTotalesGanados:
+                                                                              0,
+                                                                          insigniaRef: _model
+                                                                              .insigniaAlInicio
+                                                                              ?.reference,
+                                                                          insigniaNombre: _model
+                                                                              .insigniaAlInicio
+                                                                              ?.nombre,
+                                                                          insigniaDescripcion: _model
+                                                                              .insigniaAlInicio
+                                                                              ?.descripcion,
+                                                                          insigniaImagen: _model
+                                                                              .insigniaAlInicio
+                                                                              ?.imagen,
+                                                                          nombreMisionInicio:
+                                                                              widget.nombreParametro,
+                                                                          fechaInicio:
+                                                                              getCurrentTimestamp,
+                                                                        ),
+                                                                        progresoMisionVisitanteRecordReference);
+                                                            _shouldSetState =
+                                                                true;
+
+                                                            context.pushNamed(
+                                                              DesafioActivoWidget
+                                                                  .routeName,
+                                                              queryParameters: {
+                                                                'misionActual':
+                                                                    serializeParam(
+                                                                  widget
+                                                                      .misionParametro,
+                                                                  ParamType
+                                                                      .DocumentReference,
                                                                 ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                              ),
+                                                                'numeroPistaParam':
+                                                                    serializeParam(
+                                                                  1,
+                                                                  ParamType.int,
+                                                                ),
+                                                              }.withoutNulls,
                                                             );
                                                           }
+                                                        } else {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'No hay desafios disponibles',
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
+                                                              ),
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      4000),
+                                                              backgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                            ),
+                                                          );
+                                                        }
 
-                                                          if (_shouldSetState)
-                                                            safeSetState(() {});
-                                                        },
-                                              text: (containerProgresoMisionVisitanteRecord !=
-                                                          null) &&
-                                                      containerProgresoMisionVisitanteRecord
-                                                          .misionCompletada
-                                                  ? 'Misión Completada'
-                                                  : 'Comenzar Misión',
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .success,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font: GoogleFonts.outfit(
+                                                        if (_shouldSetState)
+                                                          safeSetState(() {});
+                                                      },
+                                            text: (containerProgresoMisionVisitanteRecord !=
+                                                        null) &&
+                                                    containerProgresoMisionVisitanteRecord
+                                                        .misionCompletada
+                                                ? 'Misión Completada'
+                                                : ((containerProgresoMisionVisitanteRecord !=
+                                                            null) &&
+                                                        (containerProgresoMisionVisitanteRecord
+                                                                .misionCompletada ==
+                                                            false)
+                                                    ? 'Continuar misión'
+                                                    : 'Comenzar misión'),
+                                            options: FFButtonOptions(
+                                              height: 40.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 16.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.outfit(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -729,35 +713,21 @@ class _DetallesMisionWidgetState extends State<DetallesMisionWidget> {
                                                                 .titleSmall
                                                                 .fontStyle,
                                                       ),
-                                                      color: Colors.white,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                                elevation: 0.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
+                                              elevation: 0.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
