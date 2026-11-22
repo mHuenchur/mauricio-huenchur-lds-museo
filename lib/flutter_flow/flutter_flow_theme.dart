@@ -121,13 +121,13 @@ class LightModeTheme extends FlutterFlowTheme {
   Color get tertiaryColor => tertiary;
 
   late Color primary = const Color(0xFF00ACC1);
-  late Color secondary = const Color(0xFFF59E0B);
+  late Color secondary = const Color(0xFF6F61EF);
   late Color tertiary = const Color(0xFF7C3AED);
-  late Color alternate = const Color(0xFFE2E8F0);
+  late Color alternate = const Color(0xFF6C6C6C);
   late Color primaryText = const Color(0xFF0F172A);
   late Color secondaryText = const Color(0xFF394555);
-  late Color primaryBackground = const Color(0xFFF4F6F9);
-  late Color secondaryBackground = const Color(0xFFD7D7D7);
+  late Color primaryBackground = const Color(0xFFFAF9F6);
+  late Color secondaryBackground = const Color(0xFFEBEBEB);
   late Color accent1 = const Color(0x2600ACC1);
   late Color accent2 = const Color(0x26F59E0B);
   late Color accent3 = const Color(0x267C3AED);
@@ -254,44 +254,44 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Roboto';
+  String get labelLargeFamily => 'Outfit';
   bool get labelLargeIsCustom => false;
-  TextStyle get labelLarge => GoogleFonts.roboto(
+  TextStyle get labelLarge => GoogleFonts.outfit(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Roboto';
+  String get labelMediumFamily => 'Outfit';
   bool get labelMediumIsCustom => false;
-  TextStyle get labelMedium => GoogleFonts.roboto(
+  TextStyle get labelMedium => GoogleFonts.outfit(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Roboto';
+  String get labelSmallFamily => 'Outfit';
   bool get labelSmallIsCustom => false;
-  TextStyle get labelSmall => GoogleFonts.roboto(
+  TextStyle get labelSmall => GoogleFonts.outfit(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Roboto';
+  String get bodyLargeFamily => 'Outfit';
   bool get bodyLargeIsCustom => false;
-  TextStyle get bodyLarge => GoogleFonts.roboto(
+  TextStyle get bodyLarge => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Roboto';
+  String get bodyMediumFamily => 'Outfit';
   bool get bodyMediumIsCustom => false;
-  TextStyle get bodyMedium => GoogleFonts.roboto(
+  TextStyle get bodyMedium => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Roboto';
+  String get bodySmallFamily => 'Outfit';
   bool get bodySmallIsCustom => false;
-  TextStyle get bodySmall => GoogleFonts.roboto(
+  TextStyle get bodySmall => GoogleFonts.outfit(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

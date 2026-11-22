@@ -20,6 +20,9 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
       return 'Completar campo';
     }
 
+    if (val.length > 45) {
+      return 'Máximo 45 caracteres';
+    }
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
       return 'Email invalido!';
     }
@@ -37,10 +40,12 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
       return 'Completar campo';
     }
 
-    if (val.length < 6) {
-      return 'Minimo 6 caracteres';
+    if (val.length > 100) {
+      return 'Máximo 100 caracteres';
     }
-
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'Completar campo';
+    }
     return null;
   }
 

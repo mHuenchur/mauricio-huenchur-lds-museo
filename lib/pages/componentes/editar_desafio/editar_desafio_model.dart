@@ -12,9 +12,15 @@ class EditarDesafioModel extends FlutterFlowModel<EditarDesafioWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'numero_orden is required';
+      return 'Ingrese contexto histórico';
     }
 
+    if (val.length > 200) {
+      return 'máximo 200 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -24,9 +30,18 @@ class EditarDesafioModel extends FlutterFlowModel<EditarDesafioWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'info_historica is required';
+      return 'Ingrese pista principal';
     }
 
+    if (val.length < 10) {
+      return 'mínimo 10 caracteres';
+    }
+    if (val.length > 120) {
+      return 'máximo 120 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -36,9 +51,18 @@ class EditarDesafioModel extends FlutterFlowModel<EditarDesafioWidget> {
   String? Function(BuildContext, String?)? textController3Validator;
   String? _textController3Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'pista_busqueda is required';
+      return 'Ingrese pista extra';
     }
 
+    if (val.length < 10) {
+      return 'mínimo 10 caracteres';
+    }
+    if (val.length > 120) {
+      return 'máximo 120 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -48,21 +72,15 @@ class EditarDesafioModel extends FlutterFlowModel<EditarDesafioWidget> {
   String? Function(BuildContext, String?)? textController4Validator;
   String? _textController4Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'pista_extra is required';
+      return 'Ingrese puntaje';
     }
 
-    return null;
-  }
-
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
-  String? _textController5Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'valor_puntos is required';
+    if (val.length > 3) {
+      return 'máximo 3 caracteres';
     }
-
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -75,7 +93,6 @@ class EditarDesafioModel extends FlutterFlowModel<EditarDesafioWidget> {
     textController2Validator = _textController2Validator;
     textController3Validator = _textController3Validator;
     textController4Validator = _textController4Validator;
-    textController5Validator = _textController5Validator;
   }
 
   @override
@@ -91,8 +108,5 @@ class EditarDesafioModel extends FlutterFlowModel<EditarDesafioWidget> {
 
     textFieldFocusNode4?.dispose();
     textController4?.dispose();
-
-    textFieldFocusNode5?.dispose();
-    textController5?.dispose();
   }
 }

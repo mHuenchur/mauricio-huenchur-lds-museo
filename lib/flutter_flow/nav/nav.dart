@@ -99,6 +99,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: PanelDesafiosMisionWidget.routeName,
           path: PanelDesafiosMisionWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => PanelDesafiosMisionWidget(
             misionID: params.getParam(
               'misionID',
@@ -111,6 +112,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: MisionCompletadaWidget.routeName,
           path: MisionCompletadaWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => MisionCompletadaWidget(
             progresoMisionRef: params.getParam(
               'progresoMisionRef',
@@ -129,6 +131,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: DesafioActivoWidget.routeName,
           path: DesafioActivoWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => DesafioActivoWidget(
             misionActual: params.getParam(
               'misionActual',
@@ -145,26 +148,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: HomeAdministradorWidget.routeName,
           path: HomeAdministradorWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => HomeAdministradorWidget(),
         ),
         FFRoute(
           name: HomeVisitanteWidget.routeName,
           path: HomeVisitanteWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => HomeVisitanteWidget(),
         ),
         FFRoute(
           name: AdminInsigniasWidget.routeName,
           path: AdminInsigniasWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => AdminInsigniasWidget(),
         ),
         FFRoute(
           name: MisInsigniasWidget.routeName,
           path: MisInsigniasWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => MisInsigniasWidget(),
         ),
         FFRoute(
           name: CrearRecompensaWidget.routeName,
           path: CrearRecompensaWidget.routePath,
+          requireAuth: true,
           asyncParams: {
             'recompensaEditar':
                 getDoc(['recompensas'], RecompensasRecord.fromSnapshot),
@@ -179,26 +187,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: AdminRecompensasWidget.routeName,
           path: AdminRecompensasWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => AdminRecompensasWidget(),
         ),
         FFRoute(
           name: RecompensasVisitanteWidget.routeName,
           path: RecompensasVisitanteWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => RecompensasVisitanteWidget(),
         ),
         FFRoute(
           name: HistorialMisionesWidget.routeName,
           path: HistorialMisionesWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => HistorialMisionesWidget(),
         ),
         FFRoute(
           name: MisRecompensasWidget.routeName,
           path: MisRecompensasWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => MisRecompensasWidget(),
         ),
         FFRoute(
           name: DetalleCuponWidget.routeName,
           path: DetalleCuponWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => DetalleCuponWidget(
             canjeRef: params.getParam(
               'canjeRef',
@@ -211,32 +224,44 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ValidarCuponWidget.routeName,
           path: ValidarCuponWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => ValidarCuponWidget(),
         ),
         FFRoute(
           name: EstadisticasMisionesAdminWidget.routeName,
           path: EstadisticasMisionesAdminWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => EstadisticasMisionesAdminWidget(),
         ),
         FFRoute(
           name: EstadisticasDesafiosAdminWidget.routeName,
           path: EstadisticasDesafiosAdminWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => EstadisticasDesafiosAdminWidget(),
         ),
         FFRoute(
           name: EstadisticasPistasAdminWidget.routeName,
           path: EstadisticasPistasAdminWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => EstadisticasPistasAdminWidget(),
         ),
         FFRoute(
           name: ReporteMensualAdminWidget.routeName,
           path: ReporteMensualAdminWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => ReporteMensualAdminWidget(),
         ),
         FFRoute(
           name: GestionVisitantesAdminWidget.routeName,
           path: GestionVisitantesAdminWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => GestionVisitantesAdminWidget(),
+        ),
+        FFRoute(
+          name: EditarPerfilWidget.routeName,
+          path: EditarPerfilWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => EditarPerfilWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -14,7 +14,11 @@ class CrearRecompensaModel extends FlutterFlowModel<CrearRecompensaWidget> {
   String? Function(BuildContext, String?)? txtNombreTextControllerValidator;
   String? _txtNombreTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Falta nombre';
+      return 'completar campo';
+    }
+
+    if (val.length > 45) {
+      return 'Maximum 45 characters allowed, currently ${val.length}.';
     }
 
     return null;
@@ -28,29 +32,16 @@ class CrearRecompensaModel extends FlutterFlowModel<CrearRecompensaWidget> {
   String? _txtDescripcionTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Falta descripcion';
+      return 'completar campo';
     }
 
-    return null;
-  }
-
-  // State field(s) for ddTipo widget.
-  String? ddTipoValue;
-  FormFieldController<String>? ddTipoValueController;
-  // State field(s) for txtCostoPuntos widget.
-  FocusNode? txtCostoPuntosFocusNode;
-  TextEditingController? txtCostoPuntosTextController;
-  String? Function(BuildContext, String?)?
-      txtCostoPuntosTextControllerValidator;
-  String? _txtCostoPuntosTextControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Falta costo puntos';
+    if (val.length < 10) {
+      return 'mínimo 10 caracteres';
+    }
+    if (val.length > 120) {
+      return 'Maximum 120 characters allowed, currently ${val.length}.';
     }
 
-    if (!RegExp('^[1-9][0-9]*\$').hasMatch(val)) {
-      return 'Ingresá un número entero mayor que 0';
-    }
     return null;
   }
 
@@ -59,6 +50,42 @@ class CrearRecompensaModel extends FlutterFlowModel<CrearRecompensaWidget> {
   TextEditingController? txtCondicionesTextController;
   String? Function(BuildContext, String?)?
       txtCondicionesTextControllerValidator;
+  String? _txtCondicionesTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'completar campo';
+    }
+
+    if (val.length < 10) {
+      return 'mínimo 10 caracteres';
+    }
+
+    return null;
+  }
+
+  // State field(s) for txtCostoPuntos widget.
+  FocusNode? txtCostoPuntosFocusNode;
+  TextEditingController? txtCostoPuntosTextController;
+  String? Function(BuildContext, String?)?
+      txtCostoPuntosTextControllerValidator;
+  String? _txtCostoPuntosTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'completar campo';
+    }
+
+    if (val.length > 3) {
+      return 'Maximum 3 characters allowed, currently ${val.length}.';
+    }
+    if (!RegExp('^[1-9][0-9]*\$').hasMatch(val)) {
+      return 'Ingresá un número entero mayor que 0';
+    }
+    return null;
+  }
+
+  // State field(s) for ddTipo widget.
+  String? ddTipoValue;
+  FormFieldController<String>? ddTipoValueController;
   // State field(s) for txtPorcentaje widget.
   FocusNode? txtPorcentajeFocusNode;
   TextEditingController? txtPorcentajeTextController;
@@ -82,6 +109,8 @@ class CrearRecompensaModel extends FlutterFlowModel<CrearRecompensaWidget> {
     txtNombreTextControllerValidator = _txtNombreTextControllerValidator;
     txtDescripcionTextControllerValidator =
         _txtDescripcionTextControllerValidator;
+    txtCondicionesTextControllerValidator =
+        _txtCondicionesTextControllerValidator;
     txtCostoPuntosTextControllerValidator =
         _txtCostoPuntosTextControllerValidator;
   }
@@ -94,11 +123,11 @@ class CrearRecompensaModel extends FlutterFlowModel<CrearRecompensaWidget> {
     txtDescripcionFocusNode?.dispose();
     txtDescripcionTextController?.dispose();
 
-    txtCostoPuntosFocusNode?.dispose();
-    txtCostoPuntosTextController?.dispose();
-
     txtCondicionesFocusNode?.dispose();
     txtCondicionesTextController?.dispose();
+
+    txtCostoPuntosFocusNode?.dispose();
+    txtCostoPuntosTextController?.dispose();
 
     txtPorcentajeFocusNode?.dispose();
     txtPorcentajeTextController?.dispose();

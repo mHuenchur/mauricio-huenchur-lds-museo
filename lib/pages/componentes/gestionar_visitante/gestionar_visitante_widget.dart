@@ -65,19 +65,16 @@ class _GestionarVisitanteWidgetState extends State<GestionarVisitanteWidget> {
               children: [
                 Text(
                   'Gestionar visitante',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        font: GoogleFonts.roboto(
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
+                  style: FlutterFlowTheme.of(context).bodyLarge.override(
+                        font: GoogleFonts.outfit(
+                          fontWeight: FontWeight.w500,
                           fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
                         letterSpacing: 0.0,
-                        fontWeight:
-                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontWeight: FontWeight.w500,
                         fontStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                            FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                       ),
                 ),
                 FlutterFlowIconButton(
@@ -101,7 +98,7 @@ class _GestionarVisitanteWidgetState extends State<GestionarVisitanteWidget> {
                 'NOMBRE',
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    font: GoogleFonts.roboto(
+                    font: GoogleFonts.outfit(
                       fontWeight:
                           FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                       fontStyle:
@@ -114,24 +111,27 @@ class _GestionarVisitanteWidgetState extends State<GestionarVisitanteWidget> {
                         FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                   ),
             ),
-            Text(
-              valueOrDefault<String>(
-                widget.visitanteSeleccionado?.email,
-                'CORREO',
-              ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    font: GoogleFonts.roboto(
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+              child: Text(
+                valueOrDefault<String>(
+                  widget.visitanteSeleccionado?.email,
+                  'CORREO',
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      font: GoogleFonts.outfit(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                      letterSpacing: 0.0,
                       fontWeight:
                           FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                       fontStyle:
                           FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
-                    letterSpacing: 0.0,
-                    fontWeight:
-                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                  ),
+              ),
             ),
             FFButtonWidget(
               onPressed: () async {
@@ -163,6 +163,21 @@ class _GestionarVisitanteWidgetState extends State<GestionarVisitanteWidget> {
                       suspendido: false,
                     ));
                     Navigator.pop(context);
+                    await showDialog(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return AlertDialog(
+                          content: Text('Estado de cuenta actualizado'),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text('Ok'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   }
                 } else {
                   var confirmDialogResponse = await showDialog<bool>(
@@ -192,6 +207,21 @@ class _GestionarVisitanteWidgetState extends State<GestionarVisitanteWidget> {
                       suspendido: true,
                     ));
                     Navigator.pop(context);
+                    await showDialog(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return AlertDialog(
+                          content: Text('Estado de cuenta actualizado'),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text('Ok'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   }
                 }
               },
@@ -221,7 +251,7 @@ class _GestionarVisitanteWidgetState extends State<GestionarVisitanteWidget> {
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-          ],
+          ].addToStart(SizedBox(height: 2.0)),
         ),
       ),
     );

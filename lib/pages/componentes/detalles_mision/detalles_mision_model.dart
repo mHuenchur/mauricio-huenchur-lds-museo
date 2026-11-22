@@ -12,6 +12,8 @@ class DetallesMisionModel extends FlutterFlowModel<DetallesMisionWidget> {
 
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   List<ProgresoMisionVisitanteRecord>? progresoRequisito;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  MisionesRecord? misionPreviaLeida;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   int? totalDesafios;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.

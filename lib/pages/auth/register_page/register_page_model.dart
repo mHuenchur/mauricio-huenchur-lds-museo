@@ -22,7 +22,12 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
     if (val.length < 4) {
       return 'Minimo 4 caracteres';
     }
-
+    if (val.length > 45) {
+      return 'Máximo 45 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'Completar campo';
+    }
     return null;
   }
 
@@ -36,6 +41,9 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
       return 'Completar campo';
     }
 
+    if (val.length > 100) {
+      return 'Máximo 100 caracteres';
+    }
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
       return 'Email invalido!';
     }
@@ -53,10 +61,15 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
       return 'Completar campo';
     }
 
-    if (val.length < 6) {
-      return 'Minimo 6 caracteres';
+    if (val.length < 8) {
+      return 'Minimo 8 caracteres';
     }
-
+    if (val.length > 100) {
+      return 'Máximo 100 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'Completar campo';
+    }
     return null;
   }
 
@@ -73,6 +86,12 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
       return 'Completar campo';
     }
 
+    if (val.length > 100) {
+      return 'Máximo 100 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'Completar campo';
+    }
     return null;
   }
 

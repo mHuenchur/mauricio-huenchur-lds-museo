@@ -22,9 +22,18 @@ class EditarMisionModel extends FlutterFlowModel<EditarMisionWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Nombre is required';
+      return 'Ingrese un nombre para la misión.';
     }
 
+    if (val.length < 5) {
+      return 'El nombre debe tener al menos 5 caracteres.';
+    }
+    if (val.length > 45) {
+      return '\tEl nombre puede tener hasta 45 caracteres.';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
@@ -34,15 +43,29 @@ class EditarMisionModel extends FlutterFlowModel<EditarMisionWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Descripción is required';
+      return 'Ingrese una descripción para la misión.';
     }
 
+    if (val.length < 10) {
+      return 'La descripción debe tener al menos 10 caracteres.';
+    }
+    if (val.length > 150) {
+      return '\tLa descripción puede tener hasta 150 caracteres.';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'completar campo';
+    }
     return null;
   }
 
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
+  bool isDataUploading_uploadDataRt9 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataRt9 =
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+  String uploadedFileUrl_uploadDataRt9 = '';
+
   // Stores action output result for [Validate Form] action in Button widget.
   bool? formEditarMisionCompletado;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.

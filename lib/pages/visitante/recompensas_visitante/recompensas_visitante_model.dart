@@ -16,6 +16,8 @@ class RecompensasVisitanteModel
 
   // Stores action output result for [Cloud Function - canjearRecompensa] action in Button widget.
   CanjearRecompensaCloudFunctionCallResponse? resultadoCanje;
+  // Stores action output result for [Cloud Function - canjearRecompensa] action in Button widget.
+  CanjearRecompensaCloudFunctionCallResponse? resultadoCanjeNuevo;
 
   @override
   void initState(BuildContext context) {}

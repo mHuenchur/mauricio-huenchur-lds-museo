@@ -50,6 +50,45 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
+            ),
+            onPressed: () async {
+              context.pop();
+            },
+          ),
+          title: Text(
+            'Insignias',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  font: GoogleFonts.outfit(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                ),
+          ),
+          actions: [],
+          centerTitle: true,
+          elevation: 2.0,
+        ),
         body: SafeArea(
           top: true,
           child: Column(
@@ -57,54 +96,7 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 16.0, 20.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderRadius: 8.0,
-                        buttonSize: 40.0,
-                        fillColor: Colors.white,
-                        icon: Icon(
-                          Icons.menu,
-                          color: Colors.black,
-                          size: 24.0,
-                        ),
-                        onPressed: () async {
-                          scaffoldKey.currentState!.openDrawer();
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Insignias',
-                        style: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .override(
-                              font: GoogleFonts.outfit(
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .headlineMedium
-                                    .fontStyle,
-                              ),
-                              color: Color(0xFF15161E),
-                              fontSize: 24.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .fontStyle,
-                            ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 10.0),
                 child: Text(
                   'Crea insignias para las misiones, los visitantes que completen misiones podrán recibirlas.',
                   style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -157,7 +149,7 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: FlutterFlowTheme.of(context).tertiary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   font: GoogleFonts.outfit(
@@ -306,6 +298,7 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
                                             children: [
                                               Text(
                                                 listViewInsigniasRecord.nombre,
+                                                textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .titleLarge
@@ -493,6 +486,25 @@ class _AdminInsigniasWidgetState extends State<AdminInsigniasWidget> {
                                                             fechaActualizacion:
                                                                 getCurrentTimestamp,
                                                           ));
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                content: Text(
+                                                                    'Insignia archivada'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
+                                                          );
                                                         }
                                                       },
                                                       text: 'Archivar',

@@ -138,7 +138,7 @@ class FirebaseAuthManager extends AuthManager
       return null;
     }
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Password reset email sent')),
+      SnackBar(content: Text('Email enviado!')),
     );
   }
 
@@ -336,7 +336,7 @@ class FirebaseAuthManager extends AuthManager
         'INVALID_LOGIN_CREDENTIALS' ||
         'invalid-login-credentials' ||
         'invalid-credential' =>
-          'Error: The supplied auth credential is incorrect, malformed or has expired',
+          'Error al autenticar!',
         _ => 'Error al autenticar!',
       };
       ScaffoldMessenger.of(context).hideCurrentSnackBar();

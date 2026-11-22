@@ -128,7 +128,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.roboto(
+                                          font: GoogleFonts.outfit(
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -155,7 +155,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.roboto(
+                                          font: GoogleFonts.outfit(
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -293,8 +293,13 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                   )
                                                   .where(
                                                     'numero_orden',
-                                                    isEqualTo: widget
-                                                        .numeroPistaParam,
+                                                    isEqualTo: _model
+                                                                .numeroDesafioVisible !=
+                                                            null
+                                                        ? _model
+                                                            .numeroDesafioVisible
+                                                        : widget
+                                                            .numeroPistaParam,
                                                   ),
                                           singleRecord: true,
                                         ),
@@ -918,23 +923,21 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .labelMedium
+                                                                          .labelLarge
                                                                           .override(
                                                                             font:
                                                                                 GoogleFonts.outfit(
-                                                                              fontWeight: FontWeight.normal,
-                                                                              fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                              fontWeight: FlutterFlowTheme.of(context).labelLarge.fontWeight,
+                                                                              fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                             ),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryText,
-                                                                            fontSize:
-                                                                                14.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
-                                                                                FontWeight.normal,
+                                                                                FlutterFlowTheme.of(context).labelLarge.fontWeight,
                                                                             fontStyle:
-                                                                                FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                                FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -968,27 +971,6 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                       if (_model.codigoLeido ==
                                                           columnDesafiosRecord
                                                               ?.reference.id) {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'Objeto encontrado!',
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                              ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    4000),
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .success,
-                                                          ),
-                                                        );
                                                         _model.mostrarPistaExtra =
                                                             false;
                                                         safeSetState(() {});
@@ -1060,31 +1042,33 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                               },
                                                             ),
                                                           });
-                                                          if (Navigator.of(
-                                                                  context)
-                                                              .canPop()) {
-                                                            context.pop();
-                                                          }
-                                                          context.pushNamed(
-                                                            DesafioActivoWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'misionActual':
-                                                                  serializeParam(
-                                                                widget
-                                                                    .misionActual,
-                                                                ParamType
-                                                                    .DocumentReference,
-                                                              ),
-                                                              'numeroPistaParam':
-                                                                  serializeParam(
-                                                                _model
-                                                                    .numeroDesafioSiguiente
-                                                                    ?.numeroOrden,
-                                                                ParamType.int,
-                                                              ),
-                                                            }.withoutNulls,
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                title: Text(
+                                                                    '¡Encontraste el objeto!'),
+                                                                content: Text(
+                                                                    columnDesafiosRecord
+                                                                        .infoHistorica),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Continuar'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
                                                           );
+                                                          _model.numeroDesafioVisible =
+                                                              _model
+                                                                  .numeroDesafioSiguiente
+                                                                  ?.numeroOrden;
+                                                          safeSetState(() {});
                                                         } else {
                                                           _model.progresoParaPremioQR =
                                                               await ProgresoMisionVisitanteRecord
@@ -1163,6 +1147,28 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                                   ));
                                                             }
                                                           }
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                title: Text(
+                                                                    '¡Encontraste el objeto!'),
+                                                                content: Text(
+                                                                    columnDesafiosRecord
+                                                                        .infoHistorica),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ver resultado'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
+                                                          );
                                                           if (Navigator.of(
                                                                   context)
                                                               .canPop()) {
@@ -1336,27 +1342,6 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                       );
                                                       if (_model.respuestaIA ==
                                                           'SI') {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'Objeto encontrado!',
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                              ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    4000),
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .success,
-                                                          ),
-                                                        );
                                                         await FirebaseStorage
                                                             .instance
                                                             .refFromURL(_model
@@ -1419,7 +1404,7 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                         ).then((s) =>
                                                                 s.firstOrNull);
                                                         if (_model
-                                                                .numeroDesafioSiguiente !=
+                                                                .numeroDesafioSiguienteIA !=
                                                             null) {
                                                           await stackProgresoMisionVisitanteRecord
                                                               .reference
@@ -1433,31 +1418,33 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                               },
                                                             ),
                                                           });
-                                                          if (Navigator.of(
-                                                                  context)
-                                                              .canPop()) {
-                                                            context.pop();
-                                                          }
-                                                          context.pushNamed(
-                                                            DesafioActivoWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'misionActual':
-                                                                  serializeParam(
-                                                                widget
-                                                                    .misionActual,
-                                                                ParamType
-                                                                    .DocumentReference,
-                                                              ),
-                                                              'numeroPistaParam':
-                                                                  serializeParam(
-                                                                _model
-                                                                    .numeroDesafioSiguienteIA
-                                                                    ?.numeroOrden,
-                                                                ParamType.int,
-                                                              ),
-                                                            }.withoutNulls,
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                title: Text(
+                                                                    '¡Encontraste el objeto!'),
+                                                                content: Text(
+                                                                    columnDesafiosRecord
+                                                                        .infoHistorica),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Continuar'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
                                                           );
+                                                          _model.numeroDesafioVisible =
+                                                              _model
+                                                                  .numeroDesafioSiguienteIA
+                                                                  ?.numeroOrden;
+                                                          safeSetState(() {});
                                                         } else {
                                                           _model.progresoParaPremioIA =
                                                               await ProgresoMisionVisitanteRecord
@@ -1536,6 +1523,28 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                                   ));
                                                             }
                                                           }
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                title: Text(
+                                                                    '¡Encontraste el objeto!'),
+                                                                content: Text(
+                                                                    columnDesafiosRecord
+                                                                        .infoHistorica),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Continuar'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
+                                                          );
                                                           if (Navigator.of(
                                                                   context)
                                                               .canPop()) {
@@ -1566,27 +1575,24 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                         if (_model
                                                                 .respuestaIA ==
                                                             'NO') {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'No es el objeto, vuelve a intentarlo!',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .warning,
-                                                            ),
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                content: Text(
+                                                                    'No es el objeto, vuelve a intentarlo!'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
                                                           );
                                                           await FirebaseStorage
                                                               .instance
@@ -1613,27 +1619,24 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                               .refFromURL(_model
                                                                   .uploadedFileUrl_uploadDataUq5)
                                                               .delete();
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Ocurrió un problema en el servidor, vuelve a intentarlo!',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                            ),
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                content: Text(
+                                                                    'Ocurrió un problema en el servidor, vuelve a intentarlo!'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
                                                           );
                                                         }
                                                       }
@@ -1657,7 +1660,13 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                       EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
-                                                  color: Color(0xFF0CDCF9),
+                                                  iconColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .headlineMedium
@@ -1672,6 +1681,10 @@ class _DesafioActivoWidgetState extends State<DesafioActivoWidget> {
                                                                   .headlineMedium
                                                                   .fontStyle,
                                                         ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,

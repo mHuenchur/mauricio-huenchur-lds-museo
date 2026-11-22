@@ -8,6 +8,7 @@ import '/pages/componentes/logo_app/logo_app_widget.dart';
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -201,7 +202,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               .displaySmall
                                                               .fontStyle,
                                                     ),
-                                                    color: Color(0xFF101213),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                     fontSize: 36.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -233,7 +236,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     .labelLarge
                                                                     .fontStyle,
                                                           ),
-                                                          color: Colors.black,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                           fontSize: 19.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -277,7 +282,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                   .labelLarge
                                                                   .override(
                                                                     font: GoogleFonts
-                                                                        .plusJakartaSans(
+                                                                        .outfit(
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -304,27 +309,29 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFF1F4F8),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFF4B39EF),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -337,7 +344,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -350,40 +357,45 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
-                                                          filled: true,
-                                                          fillColor:
-                                                              Color(0xFFF1F4F8),
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyLarge
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .plusJakartaSans(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
                                                                       .fontStyle,
-                                                            ),
+                                                                ),
+                                                        maxLength: 45,
+                                                        maxLengthEnforcement:
+                                                            MaxLengthEnforcement
+                                                                .enforced,
+                                                        buildCounter: (context,
+                                                                {required currentLength,
+                                                                required isFocused,
+                                                                maxLength}) =>
+                                                            null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .emailAddress,
@@ -398,7 +410,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
-                                                                0.0, 16.0),
+                                                                0.0, 5.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
@@ -423,7 +435,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                   .labelLarge
                                                                   .override(
                                                                     font: GoogleFonts
-                                                                        .plusJakartaSans(
+                                                                        .outfit(
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -450,27 +462,29 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFF1F4F8),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFF4B39EF),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
                                                               width: 2.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -483,7 +497,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -496,11 +510,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        8.0),
                                                           ),
-                                                          filled: true,
-                                                          fillColor:
-                                                              Color(0xFFF1F4F8),
                                                           suffixIcon: InkWell(
                                                             onTap: () async {
                                                               safeSetState(() =>
@@ -529,7 +540,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             .bodyLarge
                                                             .override(
                                                               font: GoogleFonts
-                                                                  .plusJakartaSans(
+                                                                  .outfit(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -552,6 +563,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       .bodyLarge
                                                                       .fontStyle,
                                                             ),
+                                                        maxLength: 100,
+                                                        maxLengthEnforcement:
+                                                            MaxLengthEnforcement
+                                                                .enforced,
+                                                        buildCounter: (context,
+                                                                {required currentLength,
+                                                                required isFocused,
+                                                                maxLength}) =>
+                                                            null,
                                                         validator: _model
                                                             .passwordTextControllerValidator
                                                             .asValidator(
@@ -559,10 +579,106 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       ),
                                                     ),
                                                   ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        if (_model.emailAddressTextController
+                                                                    .text !=
+                                                                '') {
+                                                          if (_model
+                                                              .emailAddressTextController
+                                                              .text
+                                                              .isEmpty) {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Email requerido!',
+                                                                ),
+                                                              ),
+                                                            );
+                                                            return;
+                                                          }
+                                                          await authManager
+                                                              .resetPassword(
+                                                            email: _model
+                                                                .emailAddressTextController
+                                                                .text,
+                                                            context: context,
+                                                          );
+                                                        } else {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                content: Text(
+                                                                    'Escribí tu correo en el campo Email y volvé a tocar \"¿Olvidaste tu contraseña?\".'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
+                                                          );
+                                                        }
+                                                      },
+                                                      child: Text(
+                                                        '¿Olvidaste tu contraseña?',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .tertiary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
+                                                            .fromSTEB(0.0, 16.0,
                                                                 0.0, 16.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
@@ -645,11 +761,25 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         context)
                                                                     .clearRedirectLocation();
                                                               } else {
-                                                                context.goNamedAuth(
-                                                                    HomeVisitanteWidget
-                                                                        .routeName,
-                                                                    context
-                                                                        .mounted);
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return AlertDialog(
+                                                                      content: Text(
+                                                                          'Descarga la app!'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                );
                                                               }
                                                             } else {
                                                               if (valueOrDefault<
@@ -702,13 +832,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               .showSnackBar(
                                                             SnackBar(
                                                               content: Text(
-                                                                'Formulario no valido',
+                                                                'Campos inválidos',
                                                                 style:
                                                                     TextStyle(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
                                                                 ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
                                                               ),
                                                               duration: Duration(
                                                                   milliseconds:
@@ -716,7 +849,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               backgroundColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondary,
+                                                                      .secondaryBackground,
                                                             ),
                                                           );
                                                         }
@@ -742,14 +875,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     0.0,
                                                                     0.0),
                                                         color:
-                                                            Color(0xFF4B39EF),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .titleSmall
                                                                 .override(
                                                                   font: GoogleFonts
-                                                                      .plusJakartaSans(
+                                                                      .outfit(
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -780,7 +915,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(12.0),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                   ),
@@ -903,10 +1038,25 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         GoRouter.of(context)
                                                             .clearRedirectLocation();
                                                       } else {
-                                                        context.goNamedAuth(
-                                                            HomeVisitanteWidget
-                                                                .routeName,
-                                                            context.mounted);
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return AlertDialog(
+                                                              content: Text(
+                                                                  'Descarga la app!'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        );
                                                       }
                                                     } else {
                                                       if (valueOrDefault<bool>(
@@ -975,8 +1125,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           .of(context)
                                                       .titleSmall
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .plusJakartaSans(
+                                                        font:
+                                                            GoogleFonts.outfit(
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           fontStyle:
@@ -986,7 +1136,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                   .fontStyle,
                                                         ),
                                                         color:
-                                                            Color(0xFF101213),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -999,12 +1151,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       ),
                                                   elevation: 0.0,
                                                   borderSide: BorderSide(
-                                                    color: Color(0xFFE0E3E7),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
                                                     width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          12.0),
+                                                          8.0),
                                                   hoverColor: Color(0xFFF1F4F8),
                                                 ),
                                               ),
@@ -1024,37 +1178,44 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     TextSpan(
                                                       text:
                                                           'No tienes cuenta?  ',
-                                                      style: TextStyle(),
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
                                                     ),
                                                     TextSpan(
                                                       text: 'Crear cuenta',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .plusJakartaSans(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .plusJakartaSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
-                                                            ),
-                                                            color: Color(
-                                                                0xFF4B39EF),
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
-                                                          ),
+                                                              ),
                                                       mouseCursor:
                                                           SystemMouseCursors
                                                               .click,
@@ -1071,8 +1232,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .plusJakartaSans(
+                                                        font:
+                                                            GoogleFonts.outfit(
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           fontStyle:

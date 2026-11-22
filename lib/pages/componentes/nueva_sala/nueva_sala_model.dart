@@ -12,9 +12,18 @@ class NuevaSalaModel extends FlutterFlowModel<NuevaSalaWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   String? _textControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return 'Ingrese un nombre para la sala.';
     }
 
+    if (val.length < 5) {
+      return 'mínimo 5 caracteres';
+    }
+    if (val.length > 45) {
+      return 'máximo 45 caracteres';
+    }
+    if (!RegExp('\\S').hasMatch(val)) {
+      return 'Ingrese un nombre para la sala.';
+    }
     return null;
   }
 

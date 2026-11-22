@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/pages/componentes/modal_exito_qr/modal_exito_qr_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -49,9 +50,6 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
 
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
-
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
 
     _model.campoPuntosTextController ??= TextEditingController();
     _model.campoPuntosFocusNode ??= FocusNode();
@@ -117,7 +115,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                     (FFMainAxisAlignment.center).flutterValue,
                                 children: [
                                   Icon(
-                                    Icons.qr_code,
+                                    Icons.create_new_folder_sharp,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     size: 38.0,
@@ -211,109 +209,114 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
-                                  labelText: 'Numero de orden',
+                                  labelText: 'Contexto histórico',
                                   labelStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
+                                        font: GoogleFonts.outfit(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
+                                        font: GoogleFonts.outfit(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      width: 1.0,
+                                          .alternate,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  filled: true,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
+                                    .labelLarge
                                     .override(
-                                      font: GoogleFonts.roboto(
-                                        fontWeight: FontWeight.w500,
+                                      font: GoogleFonts.outfit(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelLarge
+                                            .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
-                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelLarge
+                                          .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontStyle,
                                     ),
-                                keyboardType:
-                                    (FFKeyboardType.number).flutterValue,
+                                maxLines: 3,
+                                minLines: 1,
+                                maxLength: 200,
+                                maxLengthEnforcement:
+                                    MaxLengthEnforcement.enforced,
+                                buildCounter: (context,
+                                        {required currentLength,
+                                        required isFocused,
+                                        maxLength}) =>
+                                    null,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 enableInteractiveSelection: true,
                                 validator: _model.textController1Validator
                                     .asValidator(context),
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.allow(
-                                      RegExp('[0-9]'))
-                                ],
                               ),
                             ),
                             Padding(
@@ -327,101 +330,109 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
-                                  labelText: 'Nombre',
+                                  labelText: 'Pista principal',
                                   labelStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
+                                        font: GoogleFonts.outfit(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
+                                        font: GoogleFonts.outfit(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      width: 1.0,
+                                          .alternate,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  filled: true,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
+                                    .labelLarge
                                     .override(
-                                      font: GoogleFonts.roboto(
+                                      font: GoogleFonts.outfit(
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontStyle,
                                     ),
+                                maxLines: 3,
+                                minLines: 1,
+                                maxLength: 120,
+                                maxLengthEnforcement:
+                                    MaxLengthEnforcement.enforced,
+                                buildCounter: (context,
+                                        {required currentLength,
+                                        required isFocused,
+                                        maxLength}) =>
+                                    null,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 enableInteractiveSelection: true,
@@ -440,220 +451,113 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
-                                  labelText: 'Pista',
+                                  labelText: 'Pista extra',
                                   labelStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
+                                        font: GoogleFonts.outfit(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
+                                        font: GoogleFonts.outfit(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      width: 1.0,
+                                          .alternate,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  filled: true,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
+                                    .labelLarge
                                     .override(
-                                      font: GoogleFonts.roboto(
+                                      font: GoogleFonts.outfit(
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontStyle,
                                     ),
                                 maxLines: 3,
+                                minLines: 1,
+                                maxLength: 120,
+                                maxLengthEnforcement:
+                                    MaxLengthEnforcement.enforced,
+                                buildCounter: (context,
+                                        {required currentLength,
+                                        required isFocused,
+                                        maxLength}) =>
+                                    null,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 enableInteractiveSelection: true,
                                 validator: _model.textController3Validator
-                                    .asValidator(context),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 12.0),
-                              child: TextFormField(
-                                controller: _model.textController4,
-                                focusNode: _model.textFieldFocusNode4,
-                                autofocus: false,
-                                enabled: true,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  isDense: true,
-                                  labelText: 'Pista extra',
-                                  labelStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        font: GoogleFonts.roboto(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .fontStyle,
-                                        ),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .fontStyle,
-                                      ),
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        font: GoogleFonts.roboto(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .fontStyle,
-                                        ),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .fontStyle,
-                                      ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  filled: true,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.roboto(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                maxLines: 3,
-                                cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
-                                enableInteractiveSelection: true,
-                                validator: _model.textController4Validator
                                     .asValidator(context),
                               ),
                             ),
@@ -668,101 +572,107 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   isDense: true,
-                                  labelText: 'Puntos',
+                                  labelText: 'Puntos obtenidos',
                                   labelStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
+                                        font: GoogleFonts.outfit(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
+                                      .labelLarge
                                       .override(
-                                        font: GoogleFonts.roboto(
+                                        font: GoogleFonts.outfit(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium
+                                                  .labelLarge
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      width: 1.0,
+                                          .alternate,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 1.0,
+                                      width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  filled: true,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
+                                    .labelLarge
                                     .override(
-                                      font: GoogleFonts.roboto(
+                                      font: GoogleFonts.outfit(
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelLarge
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelLarge
                                             .fontStyle,
                                       ),
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontStyle,
                                     ),
+                                maxLength: 3,
+                                maxLengthEnforcement:
+                                    MaxLengthEnforcement.enforced,
+                                buildCounter: (context,
+                                        {required currentLength,
+                                        required isFocused,
+                                        maxLength}) =>
+                                    null,
                                 keyboardType:
                                     (FFKeyboardType.number).flutterValue,
                                 cursorColor:
@@ -790,22 +700,22 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                               width: 200.0,
                               height: 40.0,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
+                                  .labelLarge
                                   .override(
-                                    font: GoogleFonts.roboto(
+                                    font: GoogleFonts.outfit(
                                       fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelLarge
                                           .fontStyle,
                                     ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
+                                        .labelLarge
                                         .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
+                                        .labelLarge
                                         .fontStyle,
                                   ),
                               hintText: 'Seleccionar..',
@@ -818,9 +728,11 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                               fillColor: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               elevation: 2.0,
-                              borderColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              borderWidth: 0.0,
+                              borderColor:
+                                  FlutterFlowTheme.of(context).alternate,
+                              focusBorderColor:
+                                  FlutterFlowTheme.of(context).secondary,
+                              borderWidth: 2.0,
                               borderRadius: 8.0,
                               margin: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 12.0, 0.0),
@@ -906,13 +818,15 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                     size: 15.0,
                                   ),
                                   options: FFButtonOptions(
+                                    width: 500.0,
                                     height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
                                     iconAlignment: IconAlignment.start,
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
@@ -967,22 +881,25 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                               _model.formDesafioCompleto = false;
                             }
                             if (_model.formDesafioCompleto!) {
+                              _model.siguienteOrden =
+                                  await actions.obtenerSiguienteOrden(
+                                widget.misionPadreID!,
+                              );
                               if (_model.dropDownValidacionValue == 'QR') {
                                 var desafiosRecordReference1 =
                                     DesafiosRecord.collection.doc();
                                 await desafiosRecordReference1
                                     .set(createDesafiosRecordData(
                                   misionDesafioFk: widget.misionPadreID,
-                                  infoHistorica: _model.textController2.text,
-                                  pistaBusqueda: _model.textController3.text,
-                                  numeroOrden:
-                                      int.tryParse(_model.textController1.text),
-                                  pistaExtra: _model.textController4.text,
+                                  infoHistorica: _model.textController1.text,
+                                  pistaBusqueda: _model.textController2.text,
+                                  pistaExtra: _model.textController3.text,
                                   tipoValidacion:
                                       _model.dropDownValidacionValue,
                                   valorPuntos: int.tryParse(
                                       _model.campoPuntosTextController.text),
                                   estaArchivado: false,
+                                  numeroOrden: _model.siguienteOrden,
                                 ));
                                 _model.nuevoDesafioCreado =
                                     DesafiosRecord.getDocumentFromData(
@@ -990,18 +907,17 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                           misionDesafioFk:
                                               widget.misionPadreID,
                                           infoHistorica:
-                                              _model.textController2.text,
+                                              _model.textController1.text,
                                           pistaBusqueda:
-                                              _model.textController3.text,
-                                          numeroOrden: int.tryParse(
-                                              _model.textController1.text),
+                                              _model.textController2.text,
                                           pistaExtra:
-                                              _model.textController4.text,
+                                              _model.textController3.text,
                                           tipoValidacion:
                                               _model.dropDownValidacionValue,
                                           valorPuntos: int.tryParse(_model
                                               .campoPuntosTextController.text),
                                           estaArchivado: false,
+                                          numeroOrden: _model.siguienteOrden,
                                         ),
                                         desafiosRecordReference1);
                                 Navigator.pop(context);
@@ -1035,11 +951,9 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                   await desafiosRecordReference2
                                       .set(createDesafiosRecordData(
                                     misionDesafioFk: widget.misionPadreID,
-                                    infoHistorica: _model.textController2.text,
-                                    pistaBusqueda: _model.textController3.text,
-                                    numeroOrden: int.tryParse(
-                                        _model.textController1.text),
-                                    pistaExtra: _model.textController4.text,
+                                    infoHistorica: _model.textController1.text,
+                                    pistaBusqueda: _model.textController2.text,
+                                    pistaExtra: _model.textController3.text,
                                     tipoValidacion:
                                         _model.dropDownValidacionValue,
                                     valorPuntos: int.tryParse(
@@ -1047,6 +961,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                     estaArchivado: false,
                                     imagenReferenciaIa:
                                         _model.uploadedFileUrl_uploadDataVlf,
+                                    numeroOrden: _model.siguienteOrden,
                                   ));
                                   _model.nuevoDesafioCreadoIA =
                                       DesafiosRecord.getDocumentFromData(
@@ -1054,13 +969,11 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                             misionDesafioFk:
                                                 widget.misionPadreID,
                                             infoHistorica:
-                                                _model.textController2.text,
+                                                _model.textController1.text,
                                             pistaBusqueda:
-                                                _model.textController3.text,
-                                            numeroOrden: int.tryParse(
-                                                _model.textController1.text),
+                                                _model.textController2.text,
                                             pistaExtra:
-                                                _model.textController4.text,
+                                                _model.textController3.text,
                                             tipoValidacion:
                                                 _model.dropDownValidacionValue,
                                             valorPuntos: int.tryParse(_model
@@ -1069,6 +982,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                             estaArchivado: false,
                                             imagenReferenciaIa: _model
                                                 .uploadedFileUrl_uploadDataVlf,
+                                            numeroOrden: _model.siguienteOrden,
                                           ),
                                           desafiosRecordReference2);
                                   Navigator.pop(context);
@@ -1104,6 +1018,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                           ),
+                                          textAlign: TextAlign.center,
                                         ),
                                         duration: Duration(milliseconds: 4000),
                                         backgroundColor:
@@ -1113,37 +1028,42 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                     );
                                   }
                                 } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Para los desafíos con IA es obligatorio subir una foto de referencia',
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                      ),
-                                      duration: Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                    ),
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('Aviso'),
+                                        content: Text(
+                                            'Para los desafíos con IA es obligatorio subir una foto de referencia'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
                                   );
                                 }
                               }
                             } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Campos incompletos',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
-                                ),
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: Text('Aviso'),
+                                    content:
+                                        Text('Campos vacíos o incorrectos'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
                               );
                             }
 
@@ -1156,11 +1076,11 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                                 20.0, 0.0, 20.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF06D5CD),
+                            color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  font: GoogleFonts.inter(
+                                  font: GoogleFonts.outfit(
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -1179,7 +1099,7 @@ class _NuevoDesafioWidgetState extends State<NuevoDesafioWidget> {
                               color: Colors.transparent,
                               width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(40.0),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
                         ),
                       ),
